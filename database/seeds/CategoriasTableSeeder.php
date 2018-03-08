@@ -35,20 +35,26 @@ class CategoriasTableSeeder extends Seeder
 			'created_at' => new DateTime(),
 			'updated_at' => new DateTime()
         ]);
-		 DB::table('categorias')->insert([
+         DB::table('categorias')->insert([
             'id' => 5,
             'nombre' => 'tertiaire',
-			'created_at' => new DateTime(),
-			'updated_at' => new DateTime()
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime()
+        ]);
+         DB::table('categorias')->insert([
+            'id' => 6,
+            'nombre' => 'santé',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime()
         ]);
 		 DB::table('categorias')->insert([
-            'id' => 6,
+            'id' => 7,
             'nombre' => 'commerce',
 			'created_at' => new DateTime(),
 			'updated_at' => new DateTime()
         ]);
 		 DB::table('categorias')->insert([
-            'id' => 7,
+            'id' => 8,
             'nombre' => 'rénovation',
 			'created_at' => new DateTime(),
 			'updated_at' => new DateTime()

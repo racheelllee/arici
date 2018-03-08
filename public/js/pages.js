@@ -32,10 +32,10 @@ function deleteImg(button){
 	if ($(button).data('imgid') !== '') {
 		var imgId = $(button).data('imgid');
 		swal({
-			title: "Esta seguro?",
-			text: "Esta acción no se puede revertir...",
+			title: "Êtes-vous sûr ?",
+			text: "Cette action est irréversible!",
 			icon: "warning",
-			buttons: ["Cancelar", "Borrar definitivamente"],
+			buttons: ["Annuler", "Supprimer Définitivement"],
 		}).then(function(action){
 			if(action === true){
         		$.ajax({
@@ -67,10 +67,10 @@ function readURL(input, i) {
     reader.readAsDataURL(input.files[0]);
     if($('#inputs-files'+(i+1)).length<1){
 	    $('#inputs-files'+i).after('<div class="form-group row" id="inputs-files'+(i+1)+'">'+
-		        					'<input type="file" accept=".png, .jpg, .jpeg" class="img col-md-4" name="imgInp[]" id="imgInp'+(i+1)+'" onchange="cargarImagen(this)"/>'+
-		        					'<div id="pre-view'+(i+1)+'" class="col-md-4">'+
+		        					'<input type="file" accept=".png, .jpg, .jpeg" class="img col-md-3" name="imgInp[]" id="imgInp'+(i+1)+'" onchange="cargarImagen(this)"/>'+
+		        					'<div id="pre-view'+(i+1)+'" class="col-md-3 delete-img-container">'+
 		        				  	'</div>'+
-		    						'<div class="form-group col-md-4">'+
+		    						'<div class="form-group col-md-6 leyenda">'+
 		    							'<label>Leyenda</label>'+
 		    							'<textarea class="form-control" name="leyenda'+(i+1)+'"></textarea>'+
 		    						'</div>'+	

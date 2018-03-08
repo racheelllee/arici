@@ -8,7 +8,7 @@
         		</li>
         		@foreach ($categorias as $cat)
 					<li>
-						<a href="/realisations/{{$cat->nombre}}">{{$cat->nombre}}</a>
+						<a href="/realisations/{{$cat->id}}">{{$cat->nombre}}</a>
 					</li>
 				@endforeach
         	</ul>
@@ -19,15 +19,16 @@
 	    			@if($real->imagenesProductos->count() == 0)
 						<li style="background-image:url(/imagenes/placeholder-img.png)">
 	    			@else
-						<li style="background-image:url({{$real->imagenesProductos[0]->imagen}})">
+						<li style="background-image:url(/{{$real->imagenesProductos[0]->imagen}})">
 	    			@endif
 						<a href="{{ route('realisation', $real->slug) }}" class="overlay">
+							<span>{{$real->categorias->nombre}}</span>
 							<h2>{{$real->titulo}}</h2>
-							<p>{{ str_limit($real->contenido, 80, '...') }}</p>
 						</a>
 					</li>
 				@endforeach
         	</ul>
         </div>
+        {{ $realisations->links() }}
     </main>
 @endsection

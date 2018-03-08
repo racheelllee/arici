@@ -12,17 +12,17 @@
 */
 
 /* --- FRONT --- */
-Route::get('/', 'FrontController@welcome')->name('accueil');
-Route::get('/philosophie', 'FrontController@philosophie')->name('philosophie');
+Route::get('/', 'FrontController@philosophie')->name('accueil');
+// Route::get('/philosophie', 'FrontController@philosophie')->name('philosophie');
 Route::get('/prestations', 'FrontController@prestations')->name('prestations');
 Route::get('/realisations/{category?}', 'FrontController@realisations')->name('realisations');
 Route::get('/realisation/{slug}', 'FrontController@realisation')->name('realisation');
 Route::get('/organisation', 'FrontController@organisation')->name('organisation');
 Route::get('/contact', 'FrontController@contact')->name('contact');
-Route::post('/contact', 'FrontController@sendMail');
+Route::post('/contact', 'FrontController@sendMail')->name('contact.sendMail');
+
 
 /* --- BACK --- */
-
 // Authentication Routes...
 Route::get('dashboard', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('dashboard', 'Auth\LoginController@login');
@@ -56,5 +56,5 @@ Route::delete('dashboard/productos/removeimg/{id}', 'ProductosController@removei
 
 //DATOS GENERALES
 Route::get('dashboard/datos_generales', 'DatosGeneralesController@index');
-Route::get('dashboard/datos_generales/edit/{id}', 'DatosGeneralesController@edit')->name('datos_generales.edit');
-Route::post('dashboard/datos_generales/update/{id}', 'DatosGeneralesController@update');
+Route::get('dashboard/datos_generales/{id}/edit', 'DatosGeneralesController@edit')->name('datos_generales.edit');
+Route::put('dashboard/datos_generales/{id}/update', 'DatosGeneralesController@update')->name('datos_generales.update');

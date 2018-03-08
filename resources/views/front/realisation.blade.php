@@ -5,10 +5,10 @@
             <ul>
                 <li>
                     <a href="/realisations/">Tout</a>
-                </li>
+                </li>   
                 @foreach ($categorias as $cat)
                     <li>
-                        <a href="/realisations/{{$cat->nombre}}">{{$cat->nombre}}</a>
+                        <a href="/realisations/{{$cat->id}}">{{$cat->nombre}}</a>
                     </li>
                 @endforeach
             </ul>
@@ -28,18 +28,34 @@
                 @endif
             </div>
             <div id="contenu">
-                <h2>{{ $realisation->titulo }}</h2>
-                <p>{{ $realisation->contenido }}</p>
-                <footer>
-                    <p><span>{{ $realisation->categorias->nombre }}</span></p>
+                <section>
+                    <h2>{{ $realisation->titulo }}</h2>
+                    <div class="content">
+                        {!!$realisation->contenido!!}
+                    </div>
+                </section>
+                <aside>
+                    <p id="category">{{ $realisation->categorias->nombre }}</p>
                     <p><strong>Client: </strong>{{ $realisation->nombre_cliente }}</p>
                     <p><strong>Architecte: </strong>{{ $realisation->nombre_arquitecto }}</p>
-                </footer>
+                </aside>
             </div>
         </div>
         <aside id="others-ones">
             <h3>Les autres chantiers du secteur</h3>
-            <ul>
+            <ul id="slider">
+                @foreach ($otherRealisations as $oR)
+                    @if($oR->imagenesProductos->count() == 0)
+                        <li class="item" style="background-image:url(/imagenes/placeholder-img.png)">
+                    @else
+                        <li style="background-image:url(/{{$oR->imagenesProductos[0]->imagen}})">
+                    @endif
+                        <a href="{{ route('realisation', $oR->slug) }}" class="overlay">
+                            <span>{{$oR->categorias->nombre}}</span>
+                            <h2>{{$oR->titulo}}</h2>
+                        </a>
+                    </div>
+                @endforeach
                 <li></li>
             </ul>
         </aside>

@@ -1,3 +1,15 @@
+function initMap() {
+    var uluru = {lat: -25.363, lng: 131.044};
+    var map = new google.maps.Map(document.getElementById('maps'), {
+      zoom: 4,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+}
+
 (function($){
 	function formToJSON(f) {
 		var fd = $(f).serializeArray();
@@ -19,6 +31,11 @@
 			if ($('div#content').length > 0) { site.firstLetter(); }
 			if ($('main#contact_page').length>0) { site.contact.init(); }
 			if ($('div#slideshow').length > 0 && $('div#slideshow div.item').length > 1) {site.slideshow.init(); }
+			$('nav a#burger').click(function(event){
+				$(this).parent().find('ul').toggleClass('activated');
+				event.preventDefault();
+				return false;
+			});
 		},
 		firstLetter : function(){
 			var elem = $("div#content").find('p').eq(0).contents().filter(function () { return this.nodeType == 3 }).first(),
@@ -39,6 +56,9 @@
 				loop:true,
 				nav:true,
 				dots:false,
+				autoplay:true,
+				autoplayTimeout:3000,
+				autoplayHoverPause:true,
 				responsive:{
 					0:{
 						items:1
@@ -50,21 +70,51 @@
 	site.contact = {
 		init:function(){
 			site.contact.animation();
+
+
 			$('form#contact_form').submit(function(event){
+				$('form#contact_form').find('button').prop('disabled', true).text('Envoi en cours');
 				var ulError = $(this).find('ul#errorMsg'),
 					canSend = site.contact.validate(formToJSON(this));
 				ulError.html('');
 				if (canSend !== true) {
 					var liMsg = '';
-					event.preventDefault();
 					for (var i = 0; i < canSend.length; i++) {
 						if(canSend[i] !== true) {
 							liMsg += '<li>'+canSend[i]+'</li>';
 						}
 					}
 					ulError.html(liMsg);
-					return false;
+					$('form#contact_form').find('button').prop('disabled', false).text('Envoyer votre message');
+				}else{
+					$.ajax({
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						},
+	        			method: 'POST',
+	        			url: '/contact',
+	        			dataType:'JSON',
+	        			data: formToJSON($('form#contact_form')),
+					}).done(function(datas){
+						console.log(datas);
+						if (datas === true) {
+							$('form#contact_form').after('<div class="succes_envoy"><h2>Votre message a bien été envoyé.</h2><p>Merci pour votre message, nous vous répondrons dans les plus brefs délais.</p></div>');
+							$('form#contact_form').remove();
+						} else {
+							var liMsg = '';
+							for (var i = 0; i < datas.length; i++) {
+								if(datas[i] !== true) {
+									liMsg += '<li>'+datas[i]+'</li>';
+								}
+							}
+							ulError.html(liMsg);		
+							$('form#contact_form').find('button').prop('disabled', false).text('Envoyer votre message');
+						}
+					});
 				}
+				
+				event.preventDefault();
+				return false;
 			});
 		},
 		validate:function(datas){

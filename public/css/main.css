@@ -9,7 +9,7 @@ body {
   color: #626262; }
   body b, body strong {
     font-weight: 600; }
-  body div#wrapper {
+  body div#wrapper, body div.wrap {
     width: 100%;
     max-width: 1100px;
     display: block;
@@ -22,12 +22,22 @@ body {
       padding: 5px 50px;
       font-size: 12px; }
   body header div#label-blue {
-    display: table;
+    display: block;
+    position: relative;
     width: 100%; }
+    @media all and (min-width: 600px) {
+      body header div#label-blue {
+        display: table; } }
     body header div#label-blue div#logo {
-      display: table-cell;
-      vertical-align: middle;
-      width: 25%; }
+      display: block;
+      width: 35%;
+      padding-top: 10px; }
+      @media all and (min-width: 600px) {
+        body header div#label-blue div#logo {
+          display: table-cell;
+          vertical-align: middle;
+          width: 25%;
+          padding-top: 0px; } }
       body header div#label-blue div#logo a {
         text-decoration: none;
         display: block; }
@@ -46,18 +56,35 @@ body {
           body header div#label-blue div#logo a h1:hover {
             opacity: 0.8; }
     body header div#label-blue div#navegacion {
-      display: table-cell;
-      vertical-align: top;
+      display: block;
+      width: 100%;
       color: #82A6C0; }
+      @media all and (min-width: 600px) {
+        body header div#label-blue div#navegacion {
+          display: table-cell;
+          vertical-align: top;
+          width: 75%; } }
       body header div#label-blue div#navegacion div#slogan {
+        position: absolute;
+        top: 0;
+        width: 65%;
+        left: 35%;
         float: left;
         margin-top: 20px;
         font-size: 18px; }
+        @media all and (min-width: 600px) {
+          body header div#label-blue div#navegacion div#slogan {
+            position: relative;
+            left: 0;
+            width: auto; } }
       body header div#label-blue div#navegacion div#tel {
         position: relative;
         margin-top: 20px;
         float: right;
-        padding: 0 50px; }
+        padding: 0 10px 0 50px; }
+        @media all and (min-width: 600px) {
+          body header div#label-blue div#navegacion div#tel {
+            padding-right: 50px; } }
         body header div#label-blue div#navegacion div#tel:before {
           content: '';
           display: block;
@@ -86,37 +113,98 @@ body {
               color: #005499; }
       body header div#label-blue div#navegacion nav {
         clear: both;
-        padding: 10px 0 0 0; }
+        padding: 10px 0 0 0;
+        position: relative; }
+        body header div#label-blue div#navegacion nav a#burger {
+          display: inline-block;
+          color: #82A6C0;
+          text-decoration: none;
+          font-size: 25px;
+          position: absolute;
+          top: -37px;
+          left: 10px;
+          z-index: 20;
+          border: 1px solid;
+          border-radius: 5px;
+          padding: 5px 10px; }
+          body header div#label-blue div#navegacion nav a#burger:hover, body header div#label-blue div#navegacion nav a#burger:active {
+            color: #FB722C; }
+          @media all and (min-width: 900px) {
+            body header div#label-blue div#navegacion nav a#burger {
+              display: none; } }
         body header div#label-blue div#navegacion nav ul {
           margin: 0;
-          padding: 10px 50px 0 0;
-          border-top: 1px solid #82A6C0;
+          padding: 0;
+          border: 1px solid #DDE5EC;
+          border-bottom: none;
           width: 100%;
-          display: table;
+          display: block;
           -webkit-box-sizing: border-box;
           -moz-box-sizing: border-box;
           -ms-box-sizing: border-box;
           -o-box-sizing: border-box;
-          box-sizing: border-box; }
-          body header div#label-blue div#navegacion nav ul li {
-            display: table-cell;
-            width: 21%; }
-            body header div#label-blue div#navegacion nav ul li.righted {
+          box-sizing: border-box;
+          position: absolute;
+          top: 10px;
+          z-index: 50; }
+          @media all and (min-width: 900px) {
+            body header div#label-blue div#navegacion nav ul {
               position: relative;
-              left: 7%; }
+              top: 0px;
+              display: table;
+              padding: 10px 50px 0 0;
+              border: none;
+              border-top: 1px solid #DDE5EC; } }
+          body header div#label-blue div#navegacion nav ul li {
+            display: none;
+            background: white;
+            border-bottom: 1px solid #DDE5EC;
+            width: 100%;
+            text-align: center; }
+            @media all and (min-width: 900px) {
+              body header div#label-blue div#navegacion nav ul li {
+                display: table-cell;
+                width: 21%;
+                background: transparent;
+                border: none; } }
+            @media all and (min-width: 900px) {
+              body header div#label-blue div#navegacion nav ul li.righted {
+                position: relative;
+                left: 7%; } }
             body header div#label-blue div#navegacion nav ul li a {
+              padding-top: 10px;
+              display: block;
+              width: 100%;
+              height: 100%;
               text-transform: uppercase;
               font-weight: 600;
               color: #005499;
-              display: inline-block;
               text-decoration: none;
               padding-bottom: 10px;
               border-bottom: 5px solid transparent; }
+              @media all and (min-width: 900px) {
+                body header div#label-blue div#navegacion nav ul li a {
+                  padding-top: 0px;
+                  width: auto;
+                  height: auto;
+                  display: inline-block; } }
               body header div#label-blue div#navegacion nav ul li a:hover, body header div#label-blue div#navegacion nav ul li a.active {
                 color: #FB722C;
                 border-bottom: 5px solid #FB722C; }
+          body header div#label-blue div#navegacion nav ul.activated li {
+            display: block; }
+            @media all and (min-width: 900px) {
+              body header div#label-blue div#navegacion nav ul.activated li {
+                display: table-cell; } }
   body footer {
-    margin-top: 35px; }
+    margin-top: 35px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #DDE5EC;
+    text-align: center; }
+    @media all and (min-width: 900px) {
+      body footer {
+        text-align: left; } }
     body footer ul li {
       display: inline-block;
       vertical-align: middle;
@@ -131,16 +219,33 @@ body {
       body main div#slideshow div.item img {
         width: 100%;
         height: auto; }
-      body main div#slideshow div.item p.legend {
+      body main div#slideshow div.item div.legend {
         position: absolute;
-        bottom: 40px;
         left: 25%;
         color: white;
-        font-size: 40px;
-        line-height: 1.3; }
-        body main div#slideshow div.item p.legend b, body main div#slideshow div.item p.legend strong {
-          font-size: 60px;
+        font-size: 20px;
+        bottom: 10px;
+        line-height: 1.1; }
+        @media all and (min-width: 600px) {
+          body main div#slideshow div.item div.legend {
+            font-size: 35px;
+            bottom: 25px; } }
+        @media all and (min-width: 900px) {
+          body main div#slideshow div.item div.legend {
+            font-size: 50px;
+            bottom: 40px; } }
+        body main div#slideshow div.item div.legend p {
+          text-shadow: 3px 3px 2px rgba(20, 20, 20, 0.3);
+          color: white !important; }
+        body main div#slideshow div.item div.legend b, body main div#slideshow div.item div.legend strong {
+          font-size: 30px;
           font-weight: 600; }
+          @media all and (min-width: 600px) {
+            body main div#slideshow div.item div.legend b, body main div#slideshow div.item div.legend strong {
+              font-size: 55px; } }
+          @media all and (min-width: 900px) {
+            body main div#slideshow div.item div.legend b, body main div#slideshow div.item div.legend strong {
+              font-size: 80px; } }
     body main div#slideshow div.owl-nav {
       position: absolute;
       top: 50%;
@@ -174,17 +279,57 @@ body {
         float: right;
         background-image: url(../imagenes/next.png); }
   body main div#content {
-    padding: 0 50px 0 25%;
     margin-top: 20px;
-    line-height: 1.7; }
+    line-height: 1.7;
+    font-size: 16px;
+    padding: 0 20px; }
+    @media all and (min-width: 600px) {
+      body main div#content {
+        padding: 0 180px 0 25%; } }
     body main div#content p {
-      margin-bottom: 10px; }
+      margin-bottom: 20px; }
       body main div#content p span#firstLetter {
-        font-size: 80px;
+        font-size: 95px;
         color: #FB722C;
         float: left;
-        line-height: .9;
-        margin-right: 10px; }
+        line-height: .8;
+        margin-right: 10px;
+        padding: 1px; }
+    body main div#content h1 {
+      font-size: 3em; }
+    body main div#content h2 {
+      font-size: 2.5em; }
+    body main div#content h3 {
+      font-size: 2em; }
+    body main div#content h4 {
+      font-size: 1.5em; }
+    body main div#content h1, body main div#content h2, body main div#content h3, body main div#content h4 {
+      color: #FB722C;
+      margin: 15px 0; }
+    body main div#content ul li {
+      list-style: disc; }
+    body main div#content ol li {
+      list-style: upper-hexadecimal; }
+    body main div#content sup {
+      vertical-align: super;
+      font-size: smaller; }
+    body main div#content sub {
+      vertical-align: sub;
+      font-size: smaller; }
+    body main div#content b, body main div#content strong {
+      font-weight: bold; }
+    body main div#content hr {
+      color: #bcbcbc; }
+    body main div#content a {
+      text-decoration: underline;
+      color: #FB722C; }
+      body main div#content a:hover {
+        color: #82A6C0; }
+    body main div#content i, body main div#content em {
+      font-style: italic; }
+  body main#contact_page div#maps {
+    height: 100px;
+    margin-bottom: 25px; }
   body main#contact_page form {
     overflow: hidden; }
     body main#contact_page form ul#errorMsg {
@@ -203,11 +348,13 @@ body {
         -ms-transition: all .3s;
         -o-transition: all .3s;
         transition: all .3s; }
-      body main#contact_page form div.form-group.ontwo {
-        width: 48%;
-        display: inline-block; }
-      body main#contact_page form div.form-group.ontwosecond {
-        float: right; }
+      @media all and (min-width: 900px) {
+        body main#contact_page form div.form-group.ontwo {
+          width: 48%;
+          display: inline-block; } }
+      @media all and (min-width: 900px) {
+        body main#contact_page form div.form-group.ontwosecond {
+          float: right; } }
       body main#contact_page form div.form-group label {
         cursor: pointer;
         display: block;
@@ -254,7 +401,7 @@ body {
         border-color: #FB722C; }
     body main#contact_page form button {
       float: right;
-      background-color: #82A6C0;
+      background-color: #3579b1;
       height: 30px;
       cursor: pointer;
       padding: 0 20px;
@@ -266,62 +413,251 @@ body {
   body main#realisation-page div#main {
     width: 100%;
     position: relative; }
-    body main#realisation-page div#main div#slideshow {
-      display: block;
-      width: 65%; }
     body main#realisation-page div#main div#contenu {
       display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 35%;
-      height: 100%;
-      padding-left: 2rem;
-      padding-bottom: 80px;
+      width: 100%;
+      padding: 0 10px 80px 10px;
       box-sizing: border-box;
-      overflow: auto; }
-      body main#realisation-page div#main div#contenu h2 {
-        font-size: 2.4rem;
-        position: relative;
-        display: block;
-        text-transform: uppercase;
-        padding-bottom: 1rem;
-        margin-bottom: 2rem; }
-        body main#realisation-page div#main div#contenu h2:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 5rem;
-          height: .3rem;
-          background: #FB722C; }
-      body main#realisation-page div#main div#contenu p {
-        display: block;
-        height: 70%;
-        overflow: auto; }
-      body main#realisation-page div#main div#contenu footer {
-        position: absolute;
-        bottom: 0;
-        left: 2rem;
-        margin: 0; }
-        body main#realisation-page div#main div#contenu footer p {
+      overflow: hidden;
+      margin-top: 30px; }
+      body main#realisation-page div#main div#contenu section {
+        width: 100%; }
+        @media all and (min-width: 600px) {
+          body main#realisation-page div#main div#contenu section {
+            width: 60%;
+            float: left; } }
+        body main#realisation-page div#main div#contenu section h2 {
+          font-size: 2.4rem;
+          position: relative;
+          display: block;
+          text-transform: uppercase;
+          padding-bottom: 1rem;
+          margin-bottom: 2rem; }
+          body main#realisation-page div#main div#contenu section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 5rem;
+            height: .3rem;
+            background: #FB722C; }
+        body main#realisation-page div#main div#contenu section div.content {
+          line-height: 1.7;
+          font-size: 14px; }
+          body main#realisation-page div#main div#contenu section div.content p {
+            margin-top: 20px; }
+      body main#realisation-page div#main div#contenu aside {
+        width: 100%; }
+        @media all and (min-width: 600px) {
+          body main#realisation-page div#main div#contenu aside {
+            width: 35%;
+            float: right; } }
+        body main#realisation-page div#main div#contenu aside p {
           display: block;
           margin-top: .5rem; }
-          body main#realisation-page div#main div#contenu footer p span {
+          body main#realisation-page div#main div#contenu aside p#category {
             color: #FB722C;
             text-transform: uppercase;
-            font-weight: bold; }
+            font-weight: bold;
+            display: block;
+            margin-top: 80px; }
   body main#realisation-page aside#others-ones {
     margin: 3rem 0 1rem 0; }
     body main#realisation-page aside#others-ones h3 {
       text-align: center;
       font-size: 1.4rem; }
+    body main#realisation-page aside#others-ones ul#slider {
+      width: 100%;
+      overflow: hidden; }
+      body main#realisation-page aside#others-ones ul#slider li {
+        display: block;
+        height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 60%;
+        margin: 20px auto;
+        float: none; }
+        @media all and (min-width: 900px) {
+          body main#realisation-page aside#others-ones ul#slider li {
+            width: 30%;
+            margin: 0;
+            float: left; } }
+        @media all and (min-width: 900px) {
+          body main#realisation-page aside#others-ones ul#slider li:nth-of-type(2) {
+            margin: 0 5%; } }
+        body main#realisation-page aside#others-ones ul#slider li a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          text-decoration: none;
+          color: white;
+          background-color: rgba(251, 114, 44, 0.6);
+          opacity: 0; }
+          body main#realisation-page aside#others-ones ul#slider li a span {
+            display: block;
+            font-size: 1.4rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%); }
+          body main#realisation-page aside#others-ones ul#slider li a h3 {
+            display: block;
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: bold;
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%); }
+        body main#realisation-page aside#others-ones ul#slider li:hover a {
+          opacity: 1; }
+  body main#home section {
+    padding: 50px 10px; }
+    body main#home section h2 {
+      color: #005499;
+      text-transform: uppercase;
+      font-size: 2em;
+      margin-bottom: 20px; }
+    body main#home section a.seemore {
+      display: block;
+      padding: 10px 30px;
+      background: #005499;
+      color: white;
+      text-transform: uppercase;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 50px auto 0 auto;
+      width: 200px;
+      text-align: center; }
+      body main#home section a.seemore:hover {
+        background-color: #FB722C; }
+    body main#home section#chiffres ul {
+      width: 100%;
+      margin: 40px 0;
+      overflow: hidden;
+      text-align: center; }
+      @media all and (min-width: 900px) {
+        body main#home section#chiffres ul {
+          display: table; } }
+      body main#home section#chiffres ul li {
+        text-align: center;
+        display: inline-block;
+        margin: 0 -1px;
+        width: 100%;
+        vertical-align: top; }
+        @media all and (min-width: 900px) {
+          body main#home section#chiffres ul li {
+            display: table-cell;
+            float: none;
+            vertical-align: middle; } }
+        body main#home section#chiffres ul li h3 {
+          color: #FB722C;
+          font-size: 50px; }
+          body main#home section#chiffres ul li h3 b, body main#home section#chiffres ul li h3 strong {
+            font-size: 80px;
+            font-weight: bold; }
+        body main#home section#chiffres ul li p {
+          font-size: 20px;
+          color: #005499; }
+      @media all and (min-width: 600px) {
+        body main#home section#chiffres ul.first li {
+          width: 50%; } }
+      @media all and (min-width: 900px) {
+        body main#home section#chiffres ul.first li {
+          width: 33.33%; } }
+      body main#home section#chiffres ul.second li {
+        width: 50%; }
+        @media all and (min-width: 900px) {
+          body main#home section#chiffres ul.second li {
+            width: 25%; } }
+    body main#home section#realisations {
+      background-color: #FB722C; }
+      body main#home section#realisations h2 {
+        color: white; }
+      body main#home section#realisations a.seemore:hover {
+        background-color: #82A6C0; }
+      body main#home section#realisations ul {
+        width: 100%;
+        overflow: hidden; }
+        body main#home section#realisations ul li {
+          display: block;
+          height: 200px;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 60%;
+          margin: 20px auto;
+          float: none; }
+          @media all and (min-width: 900px) {
+            body main#home section#realisations ul li {
+              width: 30%;
+              margin: 0;
+              float: left; } }
+          @media all and (min-width: 900px) {
+            body main#home section#realisations ul li:nth-of-type(2) {
+              margin: 0 5%; } }
+          body main#home section#realisations ul li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: rgba(251, 114, 44, 0.6);
+            opacity: 0; }
+            body main#home section#realisations ul li a span {
+              display: block;
+              font-size: 1.4rem;
+              text-align: center;
+              text-transform: uppercase;
+              letter-spacing: 2px;
+              position: relative;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+              transform: translateY(-50%); }
+            body main#home section#realisations ul li a h3 {
+              display: block;
+              font-size: 1.4rem;
+              text-align: center;
+              margin: 1rem 0;
+              font-weight: bold;
+              position: relative;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+              transform: translateY(-50%); }
+          body main#home section#realisations ul li:hover a {
+            opacity: 1; }
+    body main#home section#chantier aside {
+      text-align: center; }
+      body main#home section#chantier aside iframe {
+        width: 100%;
+        max-width: 560px;
+        height: 315px; }
   body main nav#menu-categorias {
     display: block;
     text-align: center;
     width: 100%;
     overflow: auto;
-    margin: 3rem 0 1rem 0; }
+    padding: 3rem 0 1rem 0;
+    border-top: 1px solid #DDE5EC; }
     body main nav#menu-categorias ul {
       min-width: 800px; }
       body main nav#menu-categorias ul li {
@@ -337,7 +673,6 @@ body {
     overflow: hidden; }
     body main div#realisations ul li {
       display: block;
-      width: 33.33%;
       height: 230px;
       float: left;
       -webkit-box-sizing: border-box;
@@ -347,7 +682,21 @@ body {
       box-sizing: border-box;
       background: transparent none no-repeat;
       background-size: cover;
-      background-position: center; }
+      background-position: center;
+      width: 100%; }
+      @media all and (min-width: 600px) {
+        body main div#realisations ul li {
+          width: 50%; } }
+      @media all and (min-width: 900px) {
+        body main div#realisations ul li {
+          width: 33.33%; } }
+      body main div#realisations ul li.disabled, body main div#realisations ul li.disabled * {
+        pointer-events: none; }
+      @media all and (min-width: 600px) {
+        body main div#realisations ul li:nth-of-type(1), body main div#realisations ul li:nth-of-type(5) {
+          height: 460px; } }
+      body main div#realisations ul li:nth-of-type(5) {
+        float: right; }
       body main div#realisations ul li a.overlay {
         display: block;
         width: 100%;
@@ -359,22 +708,72 @@ body {
         transition: all .3s;
         color: white;
         text-decoration: none; }
-        body main div#realisations ul li a.overlay h2 {
-          padding-top: 15%;
-          font-size: 1.8rem;
-          text-align: center;
-          font-weight: bold;
-          text-transform: uppercase; }
-        body main div#realisations ul li a.overlay p {
+        body main div#realisations ul li a.overlay span {
           display: block;
-          width: 85%;
-          margin: 1rem auto 0 auto;
-          font-size: 1rem;
-          text-align: justify;
-          padding: 1rem;
-          box-sizing: border-box;
-          border: 2px solid white; }
+          font-size: 1.4rem;
+          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          position: relative;
+          top: 45%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%); }
+        body main div#realisations ul li a.overlay h2 {
+          display: block;
+          font-size: 1.4rem;
+          text-align: center;
+          margin: 1rem 0;
+          font-weight: bold;
+          position: relative;
+          top: 45%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%); }
       body main div#realisations ul li:hover a.overlay {
         opacity: 1; }
+  body main ul.pagination {
+    text-align: center;
+    margin: 10px 0; }
+    body main ul.pagination li {
+      display: inline-block;
+      position: relative;
+      width: 20px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px; }
+      body main ul.pagination li a {
+        color: #8B8B8B;
+        text-decoration: none; }
+      body main ul.pagination li.active a {
+        color: #4A4A4A; }
+      body main ul.pagination li:nth-of-type(1), body main ul.pagination li:nth-last-of-type(1) {
+        background-color: #FB722C;
+        color: white; }
+        body main ul.pagination li:nth-of-type(1) span, body main ul.pagination li:nth-of-type(1) a, body main ul.pagination li:nth-last-of-type(1) span, body main ul.pagination li:nth-last-of-type(1) a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-indent: -9999px;
+          position: relative;
+          color: white; }
+          body main ul.pagination li:nth-of-type(1) span:before, body main ul.pagination li:nth-of-type(1) a:before, body main ul.pagination li:nth-last-of-type(1) span:before, body main ul.pagination li:nth-last-of-type(1) a:before {
+            content: '<';
+            text-indent: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 20px;
+            font-weight: bold; }
+        body main ul.pagination li:nth-of-type(1):hover, body main ul.pagination li:nth-last-of-type(1):hover {
+          background-color: #82A6C0; }
+      body main ul.pagination li:nth-last-of-type(1) span:before, body main ul.pagination li:nth-last-of-type(1) a:before {
+        content: '>'; }
 
 /*# sourceMappingURL=main.css.map */

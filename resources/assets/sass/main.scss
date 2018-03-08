@@ -12,7 +12,7 @@ body{
 		font-weight:600;
 	}
 
-	div#wrapper{
+	div#wrapper, div.wrap{
 		width:100%;
 		max-width:1100px;
 		display:block;
@@ -34,13 +34,25 @@ body{
 		}
 
 		div#label-blue{
-			display: table;
+			display: block;
+			position: relative;
 			width: 100%;
+			@media all and (min-width: $mobile){
+				display: table;
+			}
 			
 			div#logo{
-				display:table-cell;
-				vertical-align: middle;
-				width: 25%;
+				display: block;
+				width:35%;
+				padding-top: 10px;
+				
+				@media all and (min-width: $mobile){
+					display:table-cell;
+					vertical-align: middle;
+					width: 25%;
+					padding-top: 0px;
+				}
+				
 				a{
 					text-decoration:none;
 					display: block;
@@ -64,20 +76,41 @@ body{
 			}
 			
 			div#navegacion{
-				display:table-cell;
-				vertical-align: top;
+				display: block;
+				width: 100%;
 				color: $lightblue;
+				@media all and (min-width: $mobile){
+					display:table-cell;
+					vertical-align: top;
+					width:75%;
+				}
+
 			
 				div#slogan{
+					position: absolute;
+					top: 0;
+					width: 65%;
+					left: 35%;
 					float:left;
 					margin-top: 20px;
 					font-size: 18px;
+	
+					@media all and (min-width: $mobile){
+						position:relative;
+						left: 0;
+						width: auto;
+					}
+
+
 				}
 				div#tel{
 					position: relative;
 					margin-top: 20px;
 					float:right;
-					padding: 0 50px;
+					padding: 0 10px 0 50px;
+					@media all and (min-width: $mobile){
+						padding-right:50px;
+					}
 					&:before{
 						content: '';
 						display: block;
@@ -112,37 +145,97 @@ body{
 
 				nav {
 					clear:both;
-					padding:10px 0 0 0;					
+					padding:10px 0 0 0;
+					position: relative;
+					a#burger{
+						display: inline-block;
+						color: $lightblue;
+						text-decoration: none;
+						font-size: 25px;
+						position: absolute;
+						top: -37px;
+						left: 10px;
+						z-index: 20;
+						border:1px solid;
+						border-radius: 5px;
+						padding: 5px 10px;
+						&:hover,&:active{
+							color:$orange;
+						}
+						@media all and (min-width: $tablette){
+							display: none;
+						}
+					}				
 					ul{
 						margin: 0;
-						padding: 10px 50px 0 0;
-						border-top:1px solid $lightblue;
+						padding: 0;
+						border:1px solid $ultraLightblue;
+						border-bottom: none;
 						width: 100%;
-						display: table;
+						display: block;
 						-webkit-box-sizing: border-box;
 						-moz-box-sizing: border-box;
 						-ms-box-sizing: border-box;
 						-o-box-sizing: border-box;
 						box-sizing: border-box;
+						position: absolute;
+						top:10px;
+						z-index: 50;
+						@media all and (min-width: $tablette){
+							position: relative;
+							top:0px;
+							display: table;
+							padding:10px 50px 0 0;
+							border:none;
+							border-top:1px solid $ultraLightblue;
+						}
 						li{
-							display:table-cell;
-							width: 21%;
+							display: none;
+							background: white;
+							border-bottom: 1px solid $ultraLightblue;
+							width: 100%;
+							text-align: center;
+							@media all and (min-width: $tablette){
+								display:table-cell;
+								width: 21%;
+								background: transparent;
+								border:none;
+							}
 							&.righted{
-								position: relative;
-								left:7%;
+								@media all and (min-width: $tablette){
+									position: relative;
+									left:7%;
+								}
 							}
 							a{
+								padding-top: 10px;
+								display: block;
+								width: 100%;
+								height: 100%;
 								text-transform: uppercase;
 								font-weight: 600;
 								color: $blue;
-								display:inline-block;
 								text-decoration: none;
 								padding-bottom: 10px;
 								border-bottom: 5px solid transparent;
-
+								
+								@media all and (min-width: $tablette){
+									padding-top:0px;
+									width: auto;
+									height: auto;
+									display:inline-block;
+								}
 								&:hover, &.active{
 									color:$orange;
 									border-bottom: 5px solid $orange;
+								}
+							}
+						}
+						&.activated{
+							li{
+								display: block;
+								@media all and (min-width: $tablette){
+									display:table-cell;
 								}
 							}
 						}
@@ -155,6 +248,13 @@ body{
 
 	footer{
 		margin-top: 35px;
+		margin-bottom: 10px;
+		padding-top: 10px;
+		border-top:1px solid $ultraLightblue;
+		text-align: center;
+		@media all and (min-width: $tablette){
+			text-align:left;
+		}
 		ul{
 			li{
 				display: inline-block;
@@ -176,16 +276,34 @@ body{
 					width:100%;
 					height:auto;
 				}
-				p.legend{
+				div.legend{
 					position: absolute;
-					bottom: 40px;
 					left: 25%;
 					color: white;
-					font-size: 40px;
-					line-height: 1.3;
+					font-size: 20px;
+					bottom: 10px;
+					line-height: 1.1;
+					@media all and (min-width:$mobile){
+						font-size: 35px;
+						bottom: 25px;
+					}
+					@media all and (min-width:$tablette){
+						font-size: 50px;
+						bottom: 40px;
+					}
+					p{
+						text-shadow:3px 3px 2px rgba(20, 20, 20, 0.3);
+						color: white !important; 
+					}
 					b, strong{
-						font-size: 60px;
+						font-size: 30px;
 						font-weight: 600;
+						@media all and (min-width:$mobile){
+							font-size: 55px;
+						}
+						@media all and (min-width:$tablette){
+							font-size: 80px;
+						}
 					}
 				}
 			}
@@ -226,25 +344,84 @@ body{
 			}
 		}
 		div#content{
-			padding: 0 50px 0 25%;
 			margin-top: 20px;
 			line-height: 1.7;
+			font-size: 16px;
+			padding: 0 20px;
+			@media all and (min-width: $mobile){
+				padding: 0 180px 0 25%;
+			}
 
 			p{
-				margin-bottom: 10px;
+				margin-bottom: 20px;
 
 				span#firstLetter{
-					font-size: 80px;
+					font-size: 95px;
 					color: $orange;
 					float: left;
-					line-height: .9;
+					line-height: .8;
 					margin-right: 10px;
+					padding:1px;
 				}
+			}
+			h1{
+				font-size: 3em;
+			}
+			h2{
+				font-size: 2.5em;
+			}
+			h3{
+				font-size: 2em;
+			}
+			h4{
+				font-size: 1.5em;
+			}
+			h1,h2,h3,h4{
+				color:$orange;
+				margin: 15px 0;
+			}
+			ul{
+				li{
+					list-style: disc;
+				}
+			}
+			ol{
+				li{
+					list-style: upper-hexadecimal;
+				}
+			}
+			sup{
+				vertical-align: super;
+				font-size: smaller;
+			}
+			sub{
+				vertical-align: sub;
+				font-size: smaller;
+			}
+			b, strong{
+				font-weight: bold;
+			}
+			hr{
+				color:#bcbcbc;
+			}
+			a{
+				text-decoration: underline;
+				color:$orange;
+				&:hover{
+					color:$lightblue;
+				}
+			}
+			i, em{
+				font-style: italic;
 			}
 
 		}
 		
 		&#contact_page{
+			div#maps{
+				height:100px;
+				margin-bottom:25px;
+			}
 			form{
 				overflow: hidden;
 				ul#errorMsg{
@@ -267,11 +444,15 @@ body{
 						transition: all .3s;
 					}
 					&.ontwo{
-						width: 48%;
-						display: inline-block
+						@media all and (min-width:$tablette){
+							width: 48%;
+							display: inline-block
+						}
 					}
 					&.ontwosecond{
-						float:right;
+						@media all and (min-width:$tablette){
+							float:right;
+						}
 					}
 					label{
 						cursor: pointer;
@@ -328,7 +509,7 @@ body{
 				}
 				button{
 					float: right;
-					background-color: $lightblue;
+					background-color: #3579b1;
 					height: 30px;
 					cursor: pointer;
 					padding: 0 20px;
@@ -347,58 +528,62 @@ body{
 			div#main{
 				width: 100%;
 				position:relative;
-				div#slideshow{
-					display: block;
-					width:65%;
-				}
 				div#contenu{
 					display: block;
-					position: absolute;
-					top:0;
-					right: 0;
-					width:35%;
-					height: 100%;
-					padding-left: 2rem;
-					padding-bottom: 80px;
+					width:100%;
+					padding:0 10px 80px 10px;
 					box-sizing: border-box;
-					overflow: auto;
+					overflow: hidden;
+					margin-top: 30px;
+					
+					section{
+						width:100%;
+						@media all and (min-width: $mobile){
+							width:60%;
+							float:left;
+						}
+						h2{
+							font-size: 2.4rem;
+							position: relative;
+							display: block;
+							text-transform: uppercase;
+							padding-bottom: 1rem;
+							margin-bottom: 2rem;
 
-					h2{
-						font-size: 2.4rem;
-						position: relative;
-						display: block;
-						text-transform: uppercase;
-						padding-bottom: 1rem;
-						margin-bottom: 2rem;
-
-						&:after{
-							content:'';
-							position: absolute;
-							bottom: 0;
-							left: 0;
-							width:5rem;
-							height:.3rem;
-							background: $orange;
+							&:after{
+								content:'';
+								position: absolute;
+								bottom: 0;
+								left: 0;
+								width:5rem;
+								height:.3rem;
+								background: $orange;
+							}
+						}
+						div.content{
+							line-height: 1.7;
+							font-size: 14px;
+							p{
+								margin-top:20px;
+							}
 						}
 					}
-					p{
-						display: block;
-						height: 70%;
-						overflow: auto;
-					}
 
-					footer{
-						position: absolute;
-						bottom:0;
-						left:2rem;
-						margin:0;
+					aside{
+						width:100%;
+						@media all and (min-width: $mobile){
+							width:35%;
+							float:right;
+						}
 						p{
 							display: block;
 							margin-top:.5rem;
-							span{
+							&#category{
 								color:$orange;
 								text-transform: uppercase;
 								font-weight: bold;
+								display: block;
+								margin-top: 80px;
 							}
 						}
 					}
@@ -410,6 +595,258 @@ body{
 					text-align: center;
 					font-size: 1.4rem;
 				}
+				ul#slider{
+					width:100%;
+					overflow: hidden;
+					li{
+						display: block;
+						height: 200px;
+						background-size: cover;
+						background-repeat: no-repeat;
+						background-position: center;
+						width: 60%;
+						margin: 20px auto;
+						float: none;
+
+						@media all and (min-width: $tablette){
+							width: 30%;
+							margin: 0;
+							float: left;
+						}
+
+						&:nth-of-type(2){
+							@media all and (min-width: $tablette){
+								margin:0 5%;
+							}
+						}
+
+						a{
+							display: block;
+							width:100%;
+							height: 100%;
+							text-align: center;
+							text-decoration: none;
+							color:white;
+							background-color: rgba(251, 114, 44, 0.6);
+							opacity: 0;
+
+							span{
+								display: block;
+								font-size: 1.4rem;
+								text-align: center;
+								text-transform: uppercase;
+								letter-spacing: 2px;
+
+								position: relative;
+								top:50%;
+								-webkit-transform:translateY(-50%);
+								-moz-transform:translateY(-50%);
+								-ms-transform:translateY(-50%);
+								-o-transform:translateY(-50%);
+								transform:translateY(-50%);
+							}
+							h3{
+								display: block;
+								font-size: 1.4rem;
+								text-align: center;
+								margin: 1rem 0;
+								font-weight: bold;
+								position: relative;
+								top:50%;
+								-webkit-transform:translateY(-50%);
+								-moz-transform:translateY(-50%);
+								-ms-transform:translateY(-50%);
+								-o-transform:translateY(-50%);
+								transform:translateY(-50%);
+							}
+						}
+
+						&:hover{
+							a{
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&#home{
+			section{
+				padding:50px 10px;
+				h2{
+					color:$blue;
+					text-transform: uppercase;
+					font-size: 2em;
+					margin-bottom: 20px;
+				}
+
+				a.seemore{
+					display: block;
+					padding: 10px 30px;
+					background: $blue;
+					color: white;
+					text-transform: uppercase;
+					font-size: 16px;
+					text-decoration: none;
+					margin:50px auto 0 auto;
+					width: 200px;
+					text-align: center;
+					&:hover{
+						background-color:$orange;
+					}
+				}
+			
+				&#chiffres{
+					ul{
+						width:100%;
+						margin:40px 0;
+						overflow: hidden;
+						text-align:center;
+						@media all and (min-width: $tablette){
+							display: table;
+						}
+						li{
+							text-align: center;
+							display: inline-block;
+							margin:0 -1px;
+							width:100%;
+							vertical-align: top;
+							@media all and (min-width: $tablette){
+								display: table-cell;
+								float: none;
+								vertical-align: middle;
+							}
+							h3{
+								color:$orange;
+								font-size: 50px;
+								b, strong{
+									font-size: 80px;
+									font-weight: bold;
+								}
+							}
+							p{
+								font-size: 20px;
+								color:$blue;
+							}
+						}
+						&.first{
+							li{
+								@media all and (min-width: $mobile){
+									width:50%;
+								}
+								@media all and (min-width: $tablette){
+									width:33.33%;
+								}
+							}
+						}
+						&.second{
+							li{
+								width:50%;
+								@media all and (min-width: $tablette){
+									width:25%;
+								}
+							}
+						}
+
+					}
+				}
+
+				&#realisations{
+					background-color: $orange;
+					h2{
+						color:white;
+					}
+					a.seemore{
+						&:hover{
+							background-color:$lightblue;
+						}
+					}
+					ul{
+						width:100%;
+						overflow: hidden;
+						li{
+							display: block;
+							height: 200px;
+							background-size: cover;
+							background-repeat: no-repeat;
+							background-position: center;
+							width: 60%;
+							margin: 20px auto;
+							float: none;
+
+							@media all and (min-width: $tablette){
+								width: 30%;
+								margin: 0;
+								float: left;
+							}
+
+							&:nth-of-type(2){
+								@media all and (min-width: $tablette){
+									margin:0 5%;
+								}
+							}
+
+							a{
+								display: block;
+								width:100%;
+								height: 100%;
+								text-align: center;
+								text-decoration: none;
+								color:white;
+								background-color: rgba(251, 114, 44, 0.6);
+								opacity: 0;
+
+								span{
+									display: block;
+									font-size: 1.4rem;
+									text-align: center;
+									text-transform: uppercase;
+									letter-spacing: 2px;
+
+									position: relative;
+									top:50%;
+									-webkit-transform:translateY(-50%);
+									-moz-transform:translateY(-50%);
+									-ms-transform:translateY(-50%);
+									-o-transform:translateY(-50%);
+									transform:translateY(-50%);
+								}
+								h3{
+									display: block;
+									font-size: 1.4rem;
+									text-align: center;
+									margin: 1rem 0;
+									font-weight: bold;
+									position: relative;
+									top:50%;
+									-webkit-transform:translateY(-50%);
+									-moz-transform:translateY(-50%);
+									-ms-transform:translateY(-50%);
+									-o-transform:translateY(-50%);
+									transform:translateY(-50%);
+								}
+							}
+
+							&:hover{
+								a{
+									opacity: 1;
+								}
+							}
+						}
+					}
+				}
+
+				&#chantier{
+					& aside{
+						text-align: center;
+						iframe{
+							width: 100%;
+							max-width: 560px;
+							height: 315px;
+						}
+					}
+				}
 			}
 		}
 
@@ -418,7 +855,8 @@ body{
 			text-align: center;
 			width:100%;
 			overflow: auto;
-			margin:3rem 0 1rem 0;
+			padding:3rem 0 1rem 0;
+			border-top:1px solid $ultraLightblue;
 
 			ul{
 				min-width: 800px;
@@ -444,7 +882,6 @@ body{
 			ul{
 				li{
 					display: block;
-					width:33.33%;
 					height:230px;
 					float:left;
 					-webkit-box-sizing: border-box;
@@ -455,6 +892,30 @@ body{
 					background:transparent none no-repeat;
 					background-size: cover;
 					background-position: center;
+					width:100%;
+					@media all and (min-width: $mobile){
+						width:50%;
+					}
+					@media all and (min-width: $tablette){
+						width:33.33%;
+					}
+
+					&.disabled{
+						&, & *{
+							pointer-events: none;
+						}
+					}
+
+					&:nth-of-type(1),
+					&:nth-of-type(5){
+						@media all and (min-width: $mobile){
+							height:460px;
+						}
+					}
+
+					&:nth-of-type(5){
+						float:right;
+					}
 					
 					a.overlay{
 						display: block;
@@ -467,27 +928,94 @@ body{
 					    color:white;
 					    text-decoration: none;
 
-					    h2{
-					    	padding-top: 15%;
-					    	font-size: 1.8rem;
-					    	text-align: center;
-					    	font-weight: bold;
-					    	text-transform: uppercase;
-					    }
-					    p{
+					    span{
 					    	display: block;
-							width: 85%;
-							margin: 1rem auto 0 auto;
-							font-size: 1rem;
-							text-align: justify;
-							padding: 1rem;
-							box-sizing: border-box;
-							border: 2px solid white;
+					    	font-size: 1.4rem;
+					    	text-align: center;
+					    	text-transform: uppercase;
+					    	letter-spacing: 2px;
+					    	position:relative;
+					    	top:45%;
+					    	-webkit-transform: translateY(-50%);
+					    	-moz-transform: translateY(-50%);
+					    	-ms-transform: translateY(-50%);
+					    	-o-transform: translateY(-50%);
+					    	transform: translateY(-50%);
+					    }
+					    h2{
+					    	display: block;
+							font-size: 1.4rem;
+							text-align: center;
+							margin: 1rem 0;
+							font-weight: bold;
+							position:relative;
+							top:45%;
+							-webkit-transform: translateY(-50%);
+							-moz-transform: translateY(-50%);
+							-ms-transform: translateY(-50%);
+							-o-transform: translateY(-50%);
+							transform: translateY(-50%);
 					    }
 					}
 					&:hover{
 						a.overlay{
 							opacity:1;
+						}
+					}
+				}
+			}
+
+		}
+
+		ul.pagination{
+			text-align: center;
+			margin: 10px 0;
+			li{
+				display: inline-block;
+				position:relative;
+				width: 20px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 16px;
+				a{
+					color:#8B8B8B;
+					text-decoration: none;
+				}
+				&.active{
+					a{
+						color:#4A4A4A;
+					}
+				}
+				&:nth-of-type(1),
+				&:nth-last-of-type(1){
+					background-color: $orange;
+					color:white;
+					span, a{
+						display: block;
+						width:100%;
+						height:100%;
+						text-indent: -9999px;
+						position: relative;
+						color:white;
+						&:before{
+							content:'<';
+							text-indent: 0;
+							position: absolute;
+							top:0; left: 0;
+							width: 100%;
+							height: 100%;
+							font-size: 20px;
+							font-weight: bold;
+						}
+					}
+					&:hover{
+						background-color:$lightblue;
+					}
+				}
+				&:nth-last-of-type(1){
+					span, a{
+						&:before{
+							content:'>';
 						}
 					}
 				}

@@ -3,14 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>
             @if(isset($titlePage))
-                {{$pagina->id}} - Arici
+                {{$pagina->id}} - {{$general->nombre_sitio}}
             @else
-                Arici
+                {{$general->nombre_sitio}}
             @endif
         </title>
+        <meta name="description" lang="fr" content="Arici : Entreprise Générale du Bâtiment à Marmande en France">
+        <meta name="keywords" lang="fr" content="Arici, Architecture, Cabinet, Immeuble, Maison, Bâtiment, Marmande, Lot-Et-Garonne, 47200, France, construction, macon, Simon Trichereau, Michel Saint-Michel, entreprise">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/reset.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/owlcarousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
@@ -22,12 +25,12 @@
         <div id="wrapper">
             <header>
                 <div id="label-orange">
-                    <p>Ouvert du lundi au vendredi de 8h à 12h et de 14h à 18h</p> 
+                    <p>{{$general->horarios}}</p>
                 </div>
                 <div id="label-blue">
                     <div id="logo">
                         <a href="{{ route('accueil') }}">
-                            <h1>
+                            <h1 style="background-image:url(/{{$general->imagen_logo}})">
                                 @if(isset($titlePage))
                                     {{$pagina->id}} - Arici
                                 @else
@@ -38,16 +41,17 @@
                     </div>
                     <div id="navegacion">
                         <div id="slogan">
-                            <p>Enterprise Générale du Bâtiment</p>
+                            <p>{{$general->direccion}}</p>
                         </div>
                         <div id="tel">
-                            <p>appelez-nous <a href="tel:+33553640275">33 5 53 64 02 75</a></p>
+                            <p>appelez-nous <a href="tel:{{$general->telefono}}">{{$general->telefono}}</a></p>
                         </div>
                         <nav>
+                            <a id="burger" href="#">☰</a>
                             <ul>
-                                <li><a href="{{ route('philosophie') }}" {{{ (Request::is('philosophie') ? 'class=active' : '') }}}>philosophie</a></li>
+                                <li><a href="{{ route('accueil') }}" {{{ (Request::is('/') || Request::is('philosophie') ? 'class=active' : '') }}}>philosophie</a></li>
                                 <li><a href="{{ route('prestations') }}" {{{ (Request::is('prestations') ? 'class=active' : '') }}}>prestations</a></li>
-                                <li><a href="{{ route('realisations') }}" {{{ (Request::is('realisations') ? 'class=active' : '') }}}>réalisations</a></li>
+                                <li><a href="{{ route('realisations') }}" {{{(Request::is('realisations*') || Request::is('realisation*') ? 'class=active' : '') }}}>réalisations</a></li>
                                 <li class="righted"><a href="{{ route('organisation') }}" {{{ (Request::is('organisation') ? 'class=active' : '') }}}>organisation</a></li>
                                 <li class="righted"><a href="{{ route('contact') }}" {{{ (Request::is('contact') ? 'class=active' : '') }}}>contact</a></li>
                             </ul>

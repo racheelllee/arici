@@ -5801,4 +5801,41 @@ button.close {
 table tr td.herramientas, table tr th.herramientas {
   text-align: center; }
 
+.delete-img-container {
+  position: relative; }
+  .delete-img-container .delete-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    z-index: 10; }
+    .delete-img-container .delete-img, .delete-img-container .delete-img * {
+      transition: all .3s; }
+    .delete-img-container .delete-img i {
+      position: relative;
+      top: 25%;
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      border: 1px solid red;
+      line-height: 40px;
+      margin: auto;
+      opacity: 0.6; }
+      .delete-img-container .delete-img i:hover {
+        opacity: 1; }
+    .delete-img-container .delete-img:hover {
+      opacity: 1; }
+
+.leyenda .trumbowyg-box {
+  min-height: 50px; }
+.leyenda .trumbowyg-editor {
+  min-height: 50px; }
+
 /*# sourceMappingURL=app.css.map */

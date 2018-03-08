@@ -10,14 +10,14 @@
           <strong>Warning!</strong> {{ Session::get( 'alert-error' ) }}
         </div>
     @endif
-    <a href="{{ route('productos.create') }}" class="btn btn-primary pull-right">Crear nuevo producto</a>
-      <h3>Listado de Productos</h3>
+    <a href="{{ route('productos.create') }}" class="btn btn-primary pull-right">Créer un nouveau produit</a>
+      <h3>Liste des Produits</h3>
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Titulo</th>
-              <th>Contenido</th>
+              <th>Titre</th>
+              <th>Contenu</th>
               <th>#</th>
             </tr>
           </thead>
@@ -35,7 +35,7 @@
             @endforeach
           @else
             <tr>
-              <td colspan="6">No hay páginas aún, usted puede <a href="{{ route('productos.create') }}">crear un nuevo producto</a></td>
+              <td colspan="6">Il n'y a pas de produits encore, vous pouvez <a href="{{ route('productos.create') }}">créer un nouveau produit</a></td>
             </tr>
           @endif
           </tbody>

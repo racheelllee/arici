@@ -106,7 +106,7 @@ class PaginasController extends Controller
         ]);
         if($validation->fails()){
             return redirect('/dashboard/paginas/'.$id.'/edit')
-                ->with('alert-error', 'Pagina no editada, hubo un error.');
+                ->with('alert-error', 'Il y a eu une erreur, réessayer ultérieurement.');
         } else{
             $pagina = Paginas::findOrFail($id);
             $pagina->titulo = $request->titulo;
@@ -129,7 +129,7 @@ class PaginasController extends Controller
                             Image::make($image->getRealPath())->save($path);
                             $imagenPaginas->imagen = 'imagenes_paginas/'.$filename;
                             if(!$imagenPaginas->update()){
-                                return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Pagina no editada, hubo un error.');
+                                return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Il y a eu une erreur, réessayer ultérieurement.');
                             }
                         }else{
                             //nuevo registro
@@ -142,7 +142,7 @@ class PaginasController extends Controller
                             Image::make($image->getRealPath())->save($path);
                             $imagenPaginas->imagen = 'imagenes_paginas/'.$filename;
                             if(!$imagenPaginas->save()){
-                                return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Pagina no editada, hubo un error.');
+                                return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Il y a eu une erreur, réessayer ultérieurement.');
                             }
                         }
                     }
@@ -154,15 +154,15 @@ class PaginasController extends Controller
                     $imagenPaginas = ImagenesPaginas::find($idImageP);
                     $imagenPaginas->leyenda = Input::get('leyenda'.($i-1));
                     if(!$imagenPaginas->update()){
-                        return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Pagina no editada, hubo un error.');
+                        return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Il y a eu une erreur, réessayer ultérieurement.');
                     }
                 }
             
               
                 return Redirect::to('/dashboard/paginas/')
-                    ->with('alert-success','Fichero Editado');
+                    ->with('alert-success','La page a été edité correctement.');
             }else{
-                return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Pagina no editada, hubo un error.');
+                return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Il y a eu une erreur, réessayer ultérieurement.');
             }
         }
     }

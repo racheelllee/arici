@@ -5,15 +5,16 @@
             @foreach ($pagina->imagenesPaginas as $img)
                 <div class="item">
                     <img src="/{{$img->imagen}}">
-                    <p class="legend">{{$img->leyenda}}</p>
+                    <div class="legend">
+                        {!!$img->leyenda!!}
+                    </div>
                 </div>
             @endforeach
         </div>
         <div id="content">
-            <h2>Formulaire de Contact</h2>
-            <p>{{$pagina->contenido}}</p>
-            <p>Vous pouvez également nous joindre par téléphone du lundi au vendredi de 8h à 12h et de 14h à 18h au <b>05 53 64 02 75</b></p>
-            <form id="contact_form" method="POST">
+            <div id="maps"></div>
+            {!!$pagina->contenido!!}
+            {{ Form::open(array('route' => 'contact.sendMail','method'=>'POST', 'id' => 'contact_form')) }}
                 <div class="form-group ontwo">
                     <label for="nom">Votre Nom</label>
                     <input type="text" name="nom" id="nom" required>
@@ -32,7 +33,10 @@
                 </div>
                 <ul id="errorMsg"></ul>
                 <button type="submit">Envoyer votre message</button>
+            {{ Form::close() }}
             </form>
         </div>
     </main>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
 @endsection

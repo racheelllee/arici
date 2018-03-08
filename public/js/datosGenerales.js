@@ -52,25 +52,16 @@ function deleteImg(button){
 
 function cargarImagen(input){
 	var txt = $(input).attr('id');
-	var i = txt.match(/\d/g);
-	i = parseInt(i.join(""));
-	readURL(input, i);
+	readURL(input);
 }
 
-function readURL(input, i) {
+function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
-    $('#pre-view'+i).html('<img id="blah'+i+'" src="#" alt="your image" style="height:100px; width:auto;" /><a href="#" class="delete-img" onclick="deleteImg(this);return false;" data-imgid=""><i class="fa fa-trash"></i></a>');
+    $('#pre-view').html('<img id="blah" src="#" alt="your image" style="height:100px; width:auto;" />');
     reader.onload = function(e) {
-      $("#blah"+i).attr('src', e.target.result);
+      $("#blah").attr('src', e.target.result);
     }
     reader.readAsDataURL(input.files[0]);
-    if($('#inputs-files'+(i+1)).length<1){
-	    $('#inputs-files'+i).after('<div class="form-group row" id="inputs-files'+(i+1)+'">'+
-		        					'<input type="file" accept=".png, .jpg, .jpeg" class="img col-md-4" name="imgInp[]" id="imgInp'+(i+1)+'" onchange="cargarImagen(this)"/>'+
-		        					'<div id="pre-view'+(i+1)+'" class="col-md-4">'+
-		        				  	'</div>'+
-		    					 	'</div>');
-    }
   }
 }

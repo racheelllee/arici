@@ -42,7 +42,7 @@ class DatosGeneralesController extends Controller
          */
         public function edit($id)
         {
-            $datosG = DatosGenerales::findOrFail($id);
+            $datosG = DatosGenerales::with('linksDatosGenerales')->findOrFail($id);
             return view('datosGenerales.edit', ['datosG'=> $datosG]);
         }
 
@@ -55,69 +55,43 @@ class DatosGeneralesController extends Controller
         public function update(Request $request, $id)
         {
             $validation = Validator::make($request->all(), [
-                'titulo' => 'required|max:255',
-                'slug' => 'required',
-                'contenido' => 'required'
+                'nombre_sitio' => 'required|max:255',
+                'telefono' => 'required',
+                'correo_contacto' => 'required|email',
+                "direccion" => "required",
+                "horarios" => "required"
             ]);
-            if($validation->fails()){
-                return redirect('/dashboard/paginas/'.$id.'/edit')
-                    ->with('alert-error', 'Pagina no editada, hubo un error.');
-            } else{
-                $pagina = Paginas::findOrFail($id);
-                $pagina->titulo = $request->titulo;
-                $pagina->slug = $request->slug;
-                $pagina->contenido = $request->contenido;
-                if($pagina->save()){
-                    //imagenes y leyendas
-                    if($request->hasFile('imgInp')){
-                        foreach($request->file('imgInp') as  $key =>$f){
-                            if((int)$request->cuantasImagenesHay >= $key+1){ 
-                            //edita el registro existente
-                                $todasImagenesPaginas = DB::table('imagenes_paginas')->where('paginas_id', $id)->get();
-                                
-                                $idImageP = $todasImagenesPaginas[$key]->id;
-                                $imagenPaginas = ImagenesPaginas::find($idImageP);
-                                $imagenPaginas->leyenda = Input::get('leyenda'.$key);
-                                $image = Input::file('imgInp.'.$key);
-                                $filename = $pagina->id.'-'.uniqid().'.'. $image->getClientOriginalExtension();
-                                $path = public_path('imagenes_paginas/'.$filename);
-                                Image::make($image->getRealPath())->save($path);
-                                $imagenPaginas->imagen = 'imagenes_paginas/'.$filename;
-                                if(!$imagenPaginas->update()){
-                                    return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Pagina no editada, hubo un error.');
-                                }
-                            }else{
-                                //nuevo registro
-                                $imagenPaginas = new ImagenesPaginas();
-                                $imagenPaginas->leyenda = Input::get('leyenda'.$key);
-                                $imagenPaginas->paginas_id = $pagina->id;
-                                $image = Input::file('imgInp.'.$key);
-                                $filename = $pagina->id.'-'.uniqid().'.'. $image->getClientOriginalExtension();
-                                $path = public_path('imagenes_paginas/'.$filename);
-                                Image::make($image->getRealPath())->save($path);
-                                $imagenPaginas->imagen = 'imagenes_paginas/'.$filename;
-                                if(!$imagenPaginas->save()){
-                                    return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Pagina no editada, hubo un error.');
-                                }
-                            }
-                        }
-                    }
 
-                    for($i=1; $i <= (int)$request->cuantasImagenesHay; $i++){
-                        $todasImagenesPaginas = DB::table('imagenes_paginas')->where('paginas_id', $id)->get();
-                        $idImageP = $todasImagenesPaginas[$i-1]->id;
-                        $imagenPaginas = ImagenesPaginas::find($idImageP);
-                        $imagenPaginas->leyenda = Input::get('leyenda'.($i-1));
-                        if(!$imagenPaginas->update()){
-                            return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Pagina no editada, hubo un error.');
-                        }
-                    }
-                
-                  
-                    return Redirect::to('/dashboard/paginas/')
-                        ->with('alert-success','Fichero Editado');
+            if($validation->fails()){
+                return redirect('/dashboard/datos_generales/'.$id.'/edit')
+                    ->with('alert-error', 'Datos no editados, hubo un error.');
+            } else{
+                $datosG = DatosGenerales::findOrFail($id);
+                $datosG->nombre_sitio = $request->nombre_sitio;
+                $datosG->telefono = $request->telefono;
+                $datosG->correo_contacto = $request->correo_contacto;
+                $datosG->direccion = $request->direccion;
+                $datosG->horarios = $request->horarios;
+                //imagen
+                if($request->hasFile('imgInp')){
+
+                $files = glob(public_path('imagenes_datos_generales/*')); // get all file names
+                foreach($files as $file){ // iterate files
+                 if(is_file($file))
+                   unlink($file); // delete file
+                }
+
+                    $image = Input::file('imgInp');
+                    $filename = $id.'-'.uniqid().'.'. $image->getClientOriginalExtension();
+                    $path = public_path('imagenes_datos_generales/'.$filename);
+                    Image::make($image->getRealPath())->save($path);
+                    $datosG->imagen_logo = 'imagenes_datos_generales/'.$filename;
+                }
+                if($datosG->save()){
+                    return Redirect::to('/dashboard/datos_generales/')
+                        ->with('alert-success','Datos Editados');
                 }else{
-                    return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Pagina no editada, hubo un error.');
+                    return redirect('/dashboard/datos_generales/'.$id.'/edit')->with('alert-error', 'Datos no editados, hubo un error.');
                 }
             }
         }
