@@ -62,7 +62,7 @@ function deleteImg(button){
         		$.ajax({
         			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         			type: 'DELETE',
-        			url: '/dashboard/paginas/removeimg/' + imgId,
+        			url: '/dashboard/productos/removeimg/' + imgId,
 					success:function(data){
 						if (data === true || data === 'true') {
 							$(button).closest('.form-group').remove();

@@ -59,3 +59,5 @@ Route::delete('dashboard/productos/removeimg/{id}', 'ProductosController@removei
 Route::get('dashboard/datos_generales', 'DatosGeneralesController@index');
 Route::get('dashboard/datos_generales/{id}/edit', 'DatosGeneralesController@edit')->name('datos_generales.edit');
 Route::put('dashboard/datos_generales/{id}/update', 'DatosGeneralesController@update')->name('datos_generales.update');
+Route::delete('dashboard/datos_generales/removeimg/{id}', 'DatosGeneralesController@removeimg');
+

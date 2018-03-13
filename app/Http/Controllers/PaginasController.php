@@ -126,10 +126,13 @@ class PaginasController extends Controller
                             $image = Input::file('imgInp.'.$key);
                             $filename = $pagina->id.'-'.uniqid().'.'. $image->getClientOriginalExtension();
                             $path = public_path('imagenes_paginas/'.$filename);
+                            $aux = $imagenPaginas->imagen;
                             Image::make($image->getRealPath())->save($path);
                             $imagenPaginas->imagen = 'imagenes_paginas/'.$filename;
                             if(!$imagenPaginas->update()){
                                 return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Il y a eu une erreur, réessayer ultérieurement.');
+                            }else{
+                                unlink(public_path($aux));
                             }
                         }else{
                             //nuevo registro

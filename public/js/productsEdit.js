@@ -12,7 +12,7 @@ $(document).ready(function(){
         		$.ajax({
         			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         			type: 'DELETE',
-        			url: '/dashboard/paginas/' + urlId,
+        			url: '/dashboard/productos/' + urlId,
         			success: function(data){
 	        			console.log(data);
         			}

@@ -160,10 +160,13 @@ class ProductosController extends Controller
                             $image = Input::file('imgInp.'.$key);
                             $filename = $producto->id.'-'.uniqid().'.'. $image->getClientOriginalExtension();
                             $path = public_path('imagenes_productos/'.$filename);
+                            $aux = $imagenProductos->imagen;
                             Image::make($image->getRealPath())->save($path);
                             $imagenProductos->imagen = 'imagenes_productos/'.$filename;
                             if(!$imagenProductos->update()){
                                 return redirect('/dashboard/productos/'.$id.'/edit')->with('alert-error', 'Producto no editado, hubo un error.');
+                            }else{
+                                unlink(public_path($aux));
                             }
                         }else{
                             //nuevo registro

@@ -25,7 +25,7 @@ class DatosGeneralesTableSeeder extends Seeder
 
         DB::table('links_datos_generales')->insert([
             'id' => 1,
-            'image' => 'imagenes/imgfooter1.png',
+            'image' => 'links_datos_generales/imgfooter1.png',
             'url' => 'http://www.ffbatiment.fr/',
             'datos_generales_id' => 1,
             'created_at' => new DateTime(),
@@ -34,7 +34,7 @@ class DatosGeneralesTableSeeder extends Seeder
 
         DB::table('links_datos_generales')->insert([
             'id' => 2,
-            'image' => 'imagenes/imgfooter2.png',
+            'image' => 'links_datos_generales/imgfooter2.png',
             'url' => 'https://www.qualibat.com/',
             'datos_generales_id' => 1,
             'created_at' => new DateTime(),
@@ -43,7 +43,7 @@ class DatosGeneralesTableSeeder extends Seeder
 
         DB::table('links_datos_generales')->insert([
             'id' => 3,
-            'image' => 'imagenes/imgfooter3.png',
+            'image' => 'links_datos_generales/imgfooter3.png',
             'url' => '#',
             'datos_generales_id' => 1,
             'created_at' => new DateTime(),
@@ -52,7 +52,7 @@ class DatosGeneralesTableSeeder extends Seeder
 
         DB::table('links_datos_generales')->insert([
             'id' => 4,
-            'image' => 'imagenes/imgfooter4.png',
+            'image' => 'links_datos_generales/imgfooter4.png',
             'url' => 'https://www.oppbtp.com/',
             'datos_generales_id' => 1,
             'created_at' => new DateTime(),
