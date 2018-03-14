@@ -55,6 +55,20 @@
 		    </div>
 	    @endforeach
 
+	    <div class='col-md-12' id="inputs-files{{$imgCount}}">
+	    	<div class="col-md-6">
+			    <div class='form-group'>
+			        {{ Form::label('url', 'URL') }}
+			        {{ Form::text('url'.$imgCount, null, ['class' => 'form-control']) }}
+			    </div>
+	    	</div>
+	    	<div>
+		        <input type='file' name="imgInp[]" accept=".png, .jpg, .jpeg" class="img col-md-4" id="imgInp{{$imgCount}}" onchange="cargarImagen(this)"/>
+		        <div id="pre-view{{$imgCount}}" class="col-md-3 delete-img-container">
+		        </div>
+	    	</div>
+	    </div>
+
 	   	{{ Form::hidden('cuantasImagenesHay', $imgCount, ['id' => 'cuantasCuantas']) }}
 
 	    <div class='form-group clearfix'>
