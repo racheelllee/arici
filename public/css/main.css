@@ -327,8 +327,17 @@ body {
         color: #82A6C0; }
     body main div#content i, body main div#content em {
       font-style: italic; }
+    body main div#content aside#video_chantier {
+      padding-top: 90px; }
+      body main div#content aside#video_chantier h2 {
+        font-size: 20px;
+        color: #005499; }
+      body main div#content aside#video_chantier iframe {
+        width: 100%;
+        max-width: 560px;
+        height: 315px; }
   body main#contact_page div#maps {
-    height: 100px;
+    height: 200px;
     margin-bottom: 25px; }
   body main#contact_page form {
     overflow: hidden; }
@@ -523,134 +532,6 @@ body {
             transform: translateY(-50%); }
         body main#realisation-page aside#others-ones ul#slider li:hover a {
           opacity: 1; }
-  body main#home section {
-    padding: 50px 10px; }
-    body main#home section h2 {
-      color: #005499;
-      text-transform: uppercase;
-      font-size: 2em;
-      margin-bottom: 20px; }
-    body main#home section a.seemore {
-      display: block;
-      padding: 10px 30px;
-      background: #005499;
-      color: white;
-      text-transform: uppercase;
-      font-size: 16px;
-      text-decoration: none;
-      margin: 50px auto 0 auto;
-      width: 200px;
-      text-align: center; }
-      body main#home section a.seemore:hover {
-        background-color: #FB722C; }
-    body main#home section#chiffres ul {
-      width: 100%;
-      margin: 40px 0;
-      overflow: hidden;
-      text-align: center; }
-      @media all and (min-width: 900px) {
-        body main#home section#chiffres ul {
-          display: table; } }
-      body main#home section#chiffres ul li {
-        text-align: center;
-        display: inline-block;
-        margin: 0 -1px;
-        width: 100%;
-        vertical-align: top; }
-        @media all and (min-width: 900px) {
-          body main#home section#chiffres ul li {
-            display: table-cell;
-            float: none;
-            vertical-align: middle; } }
-        body main#home section#chiffres ul li h3 {
-          color: #FB722C;
-          font-size: 50px; }
-          body main#home section#chiffres ul li h3 b, body main#home section#chiffres ul li h3 strong {
-            font-size: 80px;
-            font-weight: bold; }
-        body main#home section#chiffres ul li p {
-          font-size: 20px;
-          color: #005499; }
-      @media all and (min-width: 600px) {
-        body main#home section#chiffres ul.first li {
-          width: 50%; } }
-      @media all and (min-width: 900px) {
-        body main#home section#chiffres ul.first li {
-          width: 33.33%; } }
-      body main#home section#chiffres ul.second li {
-        width: 50%; }
-        @media all and (min-width: 900px) {
-          body main#home section#chiffres ul.second li {
-            width: 25%; } }
-    body main#home section#realisations {
-      background-color: #FB722C; }
-      body main#home section#realisations h2 {
-        color: white; }
-      body main#home section#realisations a.seemore:hover {
-        background-color: #82A6C0; }
-      body main#home section#realisations ul {
-        width: 100%;
-        overflow: hidden; }
-        body main#home section#realisations ul li {
-          display: block;
-          height: 200px;
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
-          width: 60%;
-          margin: 20px auto;
-          float: none; }
-          @media all and (min-width: 900px) {
-            body main#home section#realisations ul li {
-              width: 30%;
-              margin: 0;
-              float: left; } }
-          @media all and (min-width: 900px) {
-            body main#home section#realisations ul li:nth-of-type(2) {
-              margin: 0 5%; } }
-          body main#home section#realisations ul li a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            background-color: rgba(251, 114, 44, 0.6);
-            opacity: 0; }
-            body main#home section#realisations ul li a span {
-              display: block;
-              font-size: 1.4rem;
-              text-align: center;
-              text-transform: uppercase;
-              letter-spacing: 2px;
-              position: relative;
-              top: 50%;
-              -webkit-transform: translateY(-50%);
-              -moz-transform: translateY(-50%);
-              -ms-transform: translateY(-50%);
-              -o-transform: translateY(-50%);
-              transform: translateY(-50%); }
-            body main#home section#realisations ul li a h3 {
-              display: block;
-              font-size: 1.4rem;
-              text-align: center;
-              margin: 1rem 0;
-              font-weight: bold;
-              position: relative;
-              top: 50%;
-              -webkit-transform: translateY(-50%);
-              -moz-transform: translateY(-50%);
-              -ms-transform: translateY(-50%);
-              -o-transform: translateY(-50%);
-              transform: translateY(-50%); }
-          body main#home section#realisations ul li:hover a {
-            opacity: 1; }
-    body main#home section#chantier aside {
-      text-align: center; }
-      body main#home section#chantier aside iframe {
-        width: 100%;
-        max-width: 560px;
-        height: 315px; }
   body main nav#menu-categorias {
     display: block;
     text-align: center;
@@ -775,5 +656,129 @@ body {
           background-color: #82A6C0; }
       body main ul.pagination li:nth-last-of-type(1) span:before, body main ul.pagination li:nth-last-of-type(1) a:before {
         content: '>'; }
+
+section {
+  padding: 50px 10px; }
+  section h2 {
+    color: #005499;
+    text-transform: uppercase;
+    font-size: 2em;
+    margin-bottom: 20px; }
+  section a.seemore {
+    display: block;
+    padding: 10px 30px;
+    background: #005499;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 50px auto 0 auto;
+    width: 200px;
+    text-align: center; }
+    section a.seemore:hover {
+      background-color: #FB722C; }
+  section#chiffres ul {
+    width: 100%;
+    margin: 40px 0;
+    overflow: hidden;
+    text-align: center; }
+    @media all and (min-width: 900px) {
+      section#chiffres ul {
+        display: table; } }
+    section#chiffres ul li {
+      text-align: center;
+      display: inline-block;
+      margin: 0 -1px;
+      width: 100%;
+      vertical-align: top; }
+      @media all and (min-width: 900px) {
+        section#chiffres ul li {
+          display: table-cell;
+          float: none;
+          vertical-align: middle; } }
+      section#chiffres ul li h3 {
+        color: #FB722C;
+        font-size: 50px; }
+        section#chiffres ul li h3 b, section#chiffres ul li h3 strong {
+          font-size: 80px;
+          font-weight: bold; }
+      section#chiffres ul li p {
+        font-size: 20px;
+        color: #005499;
+        text-transform: uppercase; }
+    @media all and (min-width: 600px) {
+      section#chiffres ul.first li {
+        width: 50%; } }
+    @media all and (min-width: 900px) {
+      section#chiffres ul.first li {
+        width: 33.33%; } }
+    section#chiffres ul.second li {
+      width: 50%; }
+      @media all and (min-width: 900px) {
+        section#chiffres ul.second li {
+          width: 25%; } }
+  section#realisations {
+    background-color: #FB722C; }
+    section#realisations h2 {
+      color: white; }
+    section#realisations a.seemore:hover {
+      background-color: #82A6C0; }
+    section#realisations ul {
+      width: 100%;
+      overflow: hidden; }
+      section#realisations ul li {
+        display: block;
+        height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 60%;
+        margin: 20px auto;
+        float: none; }
+        @media all and (min-width: 900px) {
+          section#realisations ul li {
+            width: 30%;
+            margin: 0;
+            float: left; } }
+        @media all and (min-width: 900px) {
+          section#realisations ul li:nth-of-type(2) {
+            margin: 0 5%; } }
+        section#realisations ul li a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          text-decoration: none;
+          color: white;
+          background-color: rgba(251, 114, 44, 0.6);
+          opacity: 0; }
+          section#realisations ul li a span {
+            display: block;
+            font-size: 1.4rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%); }
+          section#realisations ul li a h3 {
+            display: block;
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: bold;
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%); }
+        section#realisations ul li:hover a {
+          opacity: 1; }
 
 /*# sourceMappingURL=main.css.map */

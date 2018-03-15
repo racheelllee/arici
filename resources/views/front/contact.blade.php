@@ -1,4 +1,4 @@
-@extends('layouts.front')
+    @extends('layouts.front')
 @section('content')
     <main id="contact_page">
         <div id="slideshow">
@@ -37,6 +37,6 @@
             </form>
         </div>
     </main>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_Ve-pl6jYcSPNMokBQPUbaZ45Fpb5N0M&callback=initMap"></script>
 
 @endsection

@@ -82,6 +82,7 @@
                     </li>
                 </ul>
             </footer>
+            @yield('extend_footer')
         </div>
     </body>
 </html>
