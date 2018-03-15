@@ -19,7 +19,7 @@ body {
     color: white;
     text-align: right; }
     body header div#label-orange p {
-      padding: 5px 50px;
+      padding: 5px 70px;
       font-size: 12px; }
   body header div#label-blue {
     display: block;
@@ -45,7 +45,7 @@ body {
           display: block;
           width: 75px;
           height: 72px;
-          margin-left: 20%;
+          margin-left: 23%;
           text-indent: -9999px;
           background: transparent url(../imagenes/arici-logo.png) no-repeat;
           -webkit-background-size: contain;
@@ -84,7 +84,7 @@ body {
         padding: 0 10px 0 50px; }
         @media all and (min-width: 600px) {
           body header div#label-blue div#navegacion div#tel {
-            padding-right: 50px; } }
+            padding-right: 70px; } }
         body header div#label-blue div#navegacion div#tel:before {
           content: '';
           display: block;
@@ -152,7 +152,7 @@ body {
               position: relative;
               top: 0px;
               display: table;
-              padding: 10px 50px 0 0;
+              padding: 10px 70px 0 0;
               border: none;
               border-top: 1px solid #DDE5EC; } }
           body header div#label-blue div#navegacion nav ul li {
@@ -170,7 +170,7 @@ body {
             @media all and (min-width: 900px) {
               body header div#label-blue div#navegacion nav ul li.righted {
                 position: relative;
-                left: 7%; } }
+                left: 4%; } }
             body header div#label-blue div#navegacion nav ul li a {
               padding-top: 10px;
               display: block;
@@ -218,7 +218,13 @@ body {
       position: relative; }
       body main div#slideshow div.item img {
         width: 100%;
-        height: auto; }
+        height: auto;
+        max-height: 640px;
+        -webkit-object-fit: contain;
+        -moz-object-fit: contain;
+        -ms-object-fit: contain;
+        -o-object-fit: contain;
+        object-fit: contain; }
       body main div#slideshow div.item div.legend {
         position: absolute;
         left: 25%;
@@ -422,13 +428,20 @@ body {
   body main#realisation-page div#main {
     width: 100%;
     position: relative; }
+    body main#realisation-page div#main div#slideshow {
+      max-width: 960px;
+      margin: auto; }
     body main#realisation-page div#main div#contenu {
       display: block;
-      width: 100%;
+      max-width: 960px;
+      margin: auto;
       padding: 0 10px 80px 10px;
       box-sizing: border-box;
       overflow: hidden;
       margin-top: 30px; }
+      @media all and (min-width: 1200px) {
+        body main#realisation-page div#main div#contenu {
+          box-sizing: content-box; } }
       body main#realisation-page div#main div#contenu section {
         width: 100%; }
         @media all and (min-width: 600px) {
@@ -477,6 +490,8 @@ body {
       font-size: 1.4rem; }
     body main#realisation-page aside#others-ones ul#slider {
       width: 100%;
+      max-width: 960px;
+      margin: 1rem auto;
       overflow: hidden; }
       body main#realisation-page aside#others-ones ul#slider li {
         display: block;
@@ -489,8 +504,8 @@ body {
         float: none; }
         @media all and (min-width: 900px) {
           body main#realisation-page aside#others-ones ul#slider li {
-            width: 30%;
-            margin: 0;
+            width: 33.33%;
+            margin: 0 !important;
             float: left; } }
         @media all and (min-width: 900px) {
           body main#realisation-page aside#others-ones ul#slider li:nth-of-type(2) {
@@ -510,6 +525,8 @@ body {
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
+            width: 90%;
+            margin: auto;
             position: relative;
             top: 50%;
             -webkit-transform: translateY(-50%);
@@ -521,9 +538,10 @@ body {
             display: block;
             font-size: 1.4rem;
             text-align: center;
-            margin: 1rem 0;
             font-weight: bold;
             position: relative;
+            width: 90%;
+            margin: 1rem auto;
             top: 50%;
             -webkit-transform: translateY(-50%);
             -moz-transform: translateY(-50%);

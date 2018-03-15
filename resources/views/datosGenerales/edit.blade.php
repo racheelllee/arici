@@ -55,7 +55,7 @@
 		    </div>
 	    @endforeach
 
-	    <div class='col-md-12' id="inputs-files{{$imgCount}}">
+	    <div class='col-md-12 linea' id="inputs-files{{$imgCount}}">
 	    	<div class="col-md-6">
 			    <div class='form-group'>
 			        {{ Form::label('url', 'URL') }}

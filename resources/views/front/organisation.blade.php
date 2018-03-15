@@ -18,39 +18,24 @@
 @endsection
 
 @section('extend_footer')
-    <section id="chiffres">
+    <section id="organigramme">
         <div class="wrap">
-            <h2>Arici en chiffres</h2>
-            <ul class="first">
+            <h2>Organigramme</h2>
+            <ul id="slider">
                 <li>
-                    <h3>± <b>1000</b></h3>
-                    <p>réalisations</p>
+                    <img src="http://lorempixel.com/200/500/" alt="Robert Arici - Arici">
+                    <h2>Robert Arici</h2>
+                    <span>Directeur Général</span>
                 </li>
                 <li>
-                    <h3>± <b>100</b></h3>
-                    <p>salariés</p>
+                    <img src="http://lorempixel.com/200/500/" alt="Robert Arici - Arici">
+                    <h2>Germaine Ménard</h2>
+                    <span>Directrice adjointe</span>
                 </li>
                 <li>
-                    <h3><b>24</b> M€</h3>
-                    <p>Chiffre d'affaire 2016</p>
-                </li>
-            </ul>
-            <ul class="second">
-                <li>
-                    <h3><b>1</b></h3>
-                    <p>bureau d'étude</p>
-                </li>
-                <li>
-                    <h3><b>5</b></h3>
-                    <p>conducteurs de travaux</p>
-                </li>
-                <li>
-                    <h3><b>10</b></h3>
-                    <p>chefs de chantier</p>
-                </li>
-                <li>
-                    <h3><b>4</b></h3>
-                    <p>chefs d'équipe</p>
+                    <img src="http://lorempixel.com/200/500/" alt="Robert Arici - Arici">
+                    <h2>Jean Claude Dusse</h2>
+                    <span>Comique en boite</span>
                 </li>
             </ul>
         </div>

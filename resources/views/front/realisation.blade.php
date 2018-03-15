@@ -43,21 +43,20 @@
         </div>
         <aside id="others-ones">
             <h3>Les autres chantiers du secteur</h3>
-            <ul id="slider">
+            <ul id="slider"><!--
                 @foreach ($otherRealisations as $oR)
                     @if($oR->imagenesProductos->count() == 0)
-                        <li class="item" style="background-image:url(/imagenes/placeholder-img.png)">
+                        --><li class="item" style="background-image:url(/imagenes/placeholder-img.png)">
                     @else
-                        <li style="background-image:url(/{{$oR->imagenesProductos[0]->imagen}})">
+                        --><li style="background-image:url(/{{$oR->imagenesProductos[0]->imagen}})">
                     @endif
                         <a href="{{ route('realisation', $oR->slug) }}" class="overlay">
                             <span>{{$oR->categorias->nombre}}</span>
-                            <h2>{{$oR->titulo}}</h2>
+                            <h3>{{$oR->titulo}}</h3>
                         </a>
-                    </div>
+                    </li><!--
                 @endforeach
-                <li></li>
-            </ul>
+            --></ul>
         </aside>
     </main>
 @endsection

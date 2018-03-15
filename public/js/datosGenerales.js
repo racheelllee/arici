@@ -3,10 +3,10 @@ $(document).ready(function(){
 	    event.preventDefault();
 	    var urlId = $(this).data('urlid');
 	    swal({
-			title: "Esta seguro?",
-			text: "Esta acción no se puede revertir...",
+			title: "Êtes-vous sûr?",
+			text: "Cette action est irréeversible...",
 			icon: "warning",
-			buttons: ["Cancelar", "Borrar definitivamente"],
+			buttons: ["Annuler", "Supprimer définitevement"],
 		}).then(function(action){
         	if(action === true){
         		$.ajax({
@@ -38,10 +38,10 @@ function deleteImg(button){
 	if ($(button).data('imgid') !== '') {
 		var imgId = $(button).data('imgid');
 		swal({
-			title: "Esta seguro?",
-			text: "Esta acción no se puede revertir...",
+			title: "Êtes-vous sûr?",
+			text: "Cette action est irréeversible...",
 			icon: "warning",
-			buttons: ["Cancelar", "Borrar definitivamente"],
+			buttons: ["Annuler", "Supprimer définitevement"],
 		}).then(function(action){
 			if(action === true){
         		$.ajax({
@@ -58,7 +58,17 @@ function deleteImg(button){
 			}
 		});
 	}else{
-		$(button).closest('.form-group').remove();	
+		swal({
+			title: "Êtes-vous sûr?",
+			text: "Cette action est irréeversible...",
+			icon: "warning",
+			buttons: ["Annuler", "Supprimer définitevement"],
+		}).then(function(action){
+			console.log(action, $(button).closest('.linea'));
+			if(action === true){
+				$(button).closest('.linea').remove();
+        	}
+		});
 	}
 	return false;
 }
@@ -66,13 +76,13 @@ function deleteImg(button){
 function readURL(input, i) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
-    $('#pre-view'+i).html('<img id="blah'+i+'" src="#" alt="your image" style="height:100px; width:auto;" /><a href="#" class="delete-img" onclick="deleteImg(this);return false;" data-imgid=""><i class="fa fa-trash"></i></a>');
+    $('#pre-view'+i).html('<img id="blah'+i+'" src="#" alt="your image" style="height:100px; width:auto;" /><a href="#" onclick="deleteImg(this);return false;" class="delete-img" data-imgid=""><i class="fa fa-trash"></i></a>');
     reader.onload = function(e) {
       $("#blah"+i).attr('src', e.target.result);
     }
     reader.readAsDataURL(input.files[0]);
     if($('#inputs-files'+(i+1)).length<1){
-	    $('#inputs-files'+i).after('<div class="col-md-12" id="inputs-files'+(i+1)+'">'+
+	    $('#inputs-files'+i).after('<div class="col-md-12 linea" id="inputs-files'+(i+1)+'">'+
 		        				  	'<div class="col-md-6">'+
 										'<div class="form-group">'+
 											   '<label for="url">URL</label>'+
