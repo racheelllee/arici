@@ -27,6 +27,7 @@ Route::post('/contact', 'FrontController@sendMail')->name('contact.sendMail');
 // Authentication Routes...
 Route::get('dashboard', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('dashboard', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...

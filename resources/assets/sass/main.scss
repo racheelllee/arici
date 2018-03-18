@@ -27,7 +27,7 @@ body{
 			text-align:right;
 
 			p{
-				padding:5px 50px;
+				padding:5px 70px;
 				font-size:12px;
 			}
 
@@ -60,7 +60,7 @@ body{
 						display: block;
 						width: 75px;
 						height:72px;
-						margin-left: 20%;
+						margin-left: 23%;
 						text-indent: -9999px;
 						background:transparent url(../imagenes/arici-logo.png) no-repeat;
 						-webkit-background-size: contain;
@@ -109,7 +109,7 @@ body{
 					float:right;
 					padding: 0 10px 0 50px;
 					@media all and (min-width: $mobile){
-						padding-right:50px;
+						padding-right:70px;
 					}
 					&:before{
 						content: '';
@@ -185,7 +185,7 @@ body{
 							position: relative;
 							top:0px;
 							display: table;
-							padding:10px 50px 0 0;
+							padding:10px 70px 0 0;
 							border:none;
 							border-top:1px solid $ultraLightblue;
 						}
@@ -204,7 +204,7 @@ body{
 							&.righted{
 								@media all and (min-width: $tablette){
 									position: relative;
-									left:7%;
+									left:4%;
 								}
 							}
 							a{
@@ -268,42 +268,52 @@ body{
 		div#slideshow{
 			display: block;
 			position: relative;
-			div.item{
-				display: block;
-				width: 100%;
-				position: relative;
-				img{
-					width:100%;
-					height:auto;
+			ul{
+				li.item{
+					display: block;
+					width: 100%;
+					position: relative;
+					img{
+						width:100%;
+						height:auto;
+						max-height: 640px;
+						-webkit-object-fit:contain;
+						-moz-object-fit:contain;
+						-ms-object-fit:contain;
+						-o-object-fit:contain;
+						object-fit:contain;
+					}
 				}
-				div.legend{
-					position: absolute;
-					left: 25%;
-					color: white;
-					font-size: 20px;
-					bottom: 10px;
-					line-height: 1.1;
+			}
+			h2{
+				position: absolute;
+				left: 25%;
+				z-index: 9999;
+				pointer-events: none;
+				color: white;
+				font-size: 20px;
+				bottom: 10px;
+				line-height: 1.1;
+				@media all and (min-width:$mobile){
+					font-size: 35px;
+					bottom: 25px;
+				}
+				@media all and (min-width:$tablette){
+					font-size: 50px;
+					bottom: 40px;
+				}
+				p{
+					text-shadow:3px 3px 2px rgba(20, 20, 20, 0.3);
+					color: white !important; 
+				}
+				b, strong{
+					font-size: 30px;
+					font-weight: 600;
 					@media all and (min-width:$mobile){
-						font-size: 35px;
-						bottom: 25px;
+						font-size: 55px;
 					}
 					@media all and (min-width:$tablette){
-						font-size: 50px;
-						bottom: 40px;
-					}
-					p{
-						text-shadow:3px 3px 2px rgba(20, 20, 20, 0.3);
-						color: white !important; 
-					}
-					b, strong{
-						font-size: 30px;
-						font-weight: 600;
-						@media all and (min-width:$mobile){
-							font-size: 55px;
-						}
-						@media all and (min-width:$tablette){
-							font-size: 80px;
-						}
+						font-size: 80px;
 					}
 				}
 			}
@@ -415,11 +425,26 @@ body{
 				font-style: italic;
 			}
 
+			aside{
+				&#video_chantier{
+					padding-top: 90px;
+					h2{
+						font-size: 20px;
+						color:$blue;
+					}
+					iframe{
+						width: 100%;
+						max-width: 560px;
+						height: 315px;
+					}
+				}
+			}
+
 		}
 		
 		&#contact_page{
 			div#maps{
-				height:100px;
+				height:400px;
 				margin-bottom:25px;
 			}
 			form{
@@ -528,14 +553,22 @@ body{
 			div#main{
 				width: 100%;
 				position:relative;
+				div#slideshow{
+					max-width: 960px;
+					margin:auto;
+				}
 				div#contenu{
 					display: block;
-					width:100%;
+					max-width:960px;
+					margin: auto;
 					padding:0 10px 80px 10px;
 					box-sizing: border-box;
 					overflow: hidden;
 					margin-top: 30px;
-					
+					@media all and (min-width: $desktop){
+						box-sizing:content-box;
+					}
+
 					section{
 						width:100%;
 						@media all and (min-width: $mobile){
@@ -597,6 +630,8 @@ body{
 				}
 				ul#slider{
 					width:100%;
+					max-width: 960px;
+					margin:1rem auto;
 					overflow: hidden;
 					li{
 						display: block;
@@ -609,8 +644,8 @@ body{
 						float: none;
 
 						@media all and (min-width: $tablette){
-							width: 30%;
-							margin: 0;
+							width: 33.33%;
+							margin: 0 !important;
 							float: left;
 						}
 
@@ -636,7 +671,8 @@ body{
 								text-align: center;
 								text-transform: uppercase;
 								letter-spacing: 2px;
-
+								width: 90%;
+								margin: auto;
 								position: relative;
 								top:50%;
 								-webkit-transform:translateY(-50%);
@@ -649,9 +685,10 @@ body{
 								display: block;
 								font-size: 1.4rem;
 								text-align: center;
-								margin: 1rem 0;
 								font-weight: bold;
 								position: relative;
+								width: 90%;
+								margin: 1rem auto;
 								top:50%;
 								-webkit-transform:translateY(-50%);
 								-moz-transform:translateY(-50%);
@@ -665,185 +702,6 @@ body{
 							a{
 								opacity: 1;
 							}
-						}
-					}
-				}
-			}
-		}
-
-		&#home{
-			section{
-				padding:50px 10px;
-				h2{
-					color:$blue;
-					text-transform: uppercase;
-					font-size: 2em;
-					margin-bottom: 20px;
-				}
-
-				a.seemore{
-					display: block;
-					padding: 10px 30px;
-					background: $blue;
-					color: white;
-					text-transform: uppercase;
-					font-size: 16px;
-					text-decoration: none;
-					margin:50px auto 0 auto;
-					width: 200px;
-					text-align: center;
-					&:hover{
-						background-color:$orange;
-					}
-				}
-			
-				&#chiffres{
-					ul{
-						width:100%;
-						margin:40px 0;
-						overflow: hidden;
-						text-align:center;
-						@media all and (min-width: $tablette){
-							display: table;
-						}
-						li{
-							text-align: center;
-							display: inline-block;
-							margin:0 -1px;
-							width:100%;
-							vertical-align: top;
-							@media all and (min-width: $tablette){
-								display: table-cell;
-								float: none;
-								vertical-align: middle;
-							}
-							h3{
-								color:$orange;
-								font-size: 50px;
-								b, strong{
-									font-size: 80px;
-									font-weight: bold;
-								}
-							}
-							p{
-								font-size: 20px;
-								color:$blue;
-							}
-						}
-						&.first{
-							li{
-								@media all and (min-width: $mobile){
-									width:50%;
-								}
-								@media all and (min-width: $tablette){
-									width:33.33%;
-								}
-							}
-						}
-						&.second{
-							li{
-								width:50%;
-								@media all and (min-width: $tablette){
-									width:25%;
-								}
-							}
-						}
-
-					}
-				}
-
-				&#realisations{
-					background-color: $orange;
-					h2{
-						color:white;
-					}
-					a.seemore{
-						&:hover{
-							background-color:$lightblue;
-						}
-					}
-					ul{
-						width:100%;
-						overflow: hidden;
-						li{
-							display: block;
-							height: 200px;
-							background-size: cover;
-							background-repeat: no-repeat;
-							background-position: center;
-							width: 60%;
-							margin: 20px auto;
-							float: none;
-
-							@media all and (min-width: $tablette){
-								width: 30%;
-								margin: 0;
-								float: left;
-							}
-
-							&:nth-of-type(2){
-								@media all and (min-width: $tablette){
-									margin:0 5%;
-								}
-							}
-
-							a{
-								display: block;
-								width:100%;
-								height: 100%;
-								text-align: center;
-								text-decoration: none;
-								color:white;
-								background-color: rgba(251, 114, 44, 0.6);
-								opacity: 0;
-
-								span{
-									display: block;
-									font-size: 1.4rem;
-									text-align: center;
-									text-transform: uppercase;
-									letter-spacing: 2px;
-
-									position: relative;
-									top:50%;
-									-webkit-transform:translateY(-50%);
-									-moz-transform:translateY(-50%);
-									-ms-transform:translateY(-50%);
-									-o-transform:translateY(-50%);
-									transform:translateY(-50%);
-								}
-								h3{
-									display: block;
-									font-size: 1.4rem;
-									text-align: center;
-									margin: 1rem 0;
-									font-weight: bold;
-									position: relative;
-									top:50%;
-									-webkit-transform:translateY(-50%);
-									-moz-transform:translateY(-50%);
-									-ms-transform:translateY(-50%);
-									-o-transform:translateY(-50%);
-									transform:translateY(-50%);
-								}
-							}
-
-							&:hover{
-								a{
-									opacity: 1;
-								}
-							}
-						}
-					}
-				}
-
-				&#chantier{
-					& aside{
-						text-align: center;
-						iframe{
-							width: 100%;
-							max-width: 560px;
-							height: 315px;
 						}
 					}
 				}
@@ -1022,5 +880,225 @@ body{
 			}
 		}
 
+	}
+}
+
+section{
+	padding:50px 10px;
+	h2{
+		color:$blue;
+		text-transform: uppercase;
+		font-size: 2em;
+		margin-bottom: 20px;
+	}
+
+	a.seemore{
+		display: block;
+		padding: 10px 30px;
+		background: $blue;
+		color: white;
+		text-transform: uppercase;
+		font-size: 16px;
+		text-decoration: none;
+		margin:50px auto 0 auto;
+		width: 200px;
+		text-align: center;
+		&:hover{
+			background-color:$orange;
+		}
+	}
+
+	&#chiffres{
+		ul{
+			width:100%;
+			margin:40px 0;
+			overflow: hidden;
+			text-align:center;
+			@media all and (min-width: $tablette){
+				display: table;
+			}
+			li{
+				text-align: center;
+				display: inline-block;
+				margin:0 -1px;
+				width:100%;
+				vertical-align: top;
+				@media all and (min-width: $tablette){
+					display: table-cell;
+					float: none;
+					vertical-align: middle;
+				}
+				h3{
+					color:$orange;
+					font-size: 50px;
+					b, strong{
+						font-size: 80px;
+						font-weight: bold;
+					}
+				}
+				p{
+					font-size: 20px;
+					color:$blue;
+					text-transform: uppercase;
+				}
+			}
+			&.first{
+				li{
+					@media all and (min-width: $mobile){
+						width:50%;
+					}
+					@media all and (min-width: $tablette){
+						width:33.33%;
+					}
+				}
+			}
+			&.second{
+				li{
+					width:50%;
+					@media all and (min-width: $tablette){
+						width:25%;
+					}
+				}
+			}
+
+		}
+	}
+
+	&#realisations{
+		background-color: $orange;
+		h2{
+			color:white;
+		}
+		a.seemore{
+			&:hover{
+				background-color:$lightblue;
+			}
+		}
+		ul{
+			width:100%;
+			overflow: hidden;
+			li{
+				display: block;
+				height: 200px;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+				width: 60%;
+				margin: 20px auto;
+				float: none;
+
+				@media all and (min-width: $tablette){
+					width: 30%;
+					margin: 0;
+					float: left;
+				}
+
+				&:nth-of-type(2){
+					@media all and (min-width: $tablette){
+						margin:0 5%;
+					}
+				}
+
+				a{
+					display: block;
+					width:100%;
+					height: 100%;
+					text-align: center;
+					text-decoration: none;
+					color:white;
+					background-color: rgba(251, 114, 44, 0.6);
+					opacity: 0;
+
+					span{
+						display: block;
+						font-size: 1.4rem;
+						text-align: center;
+						text-transform: uppercase;
+						letter-spacing: 2px;
+
+						position: relative;
+						top:50%;
+						-webkit-transform:translateY(-50%);
+						-moz-transform:translateY(-50%);
+						-ms-transform:translateY(-50%);
+						-o-transform:translateY(-50%);
+						transform:translateY(-50%);
+					}
+					h3{
+						display: block;
+						font-size: 1.4rem;
+						text-align: center;
+						margin: 1rem 0;
+						font-weight: bold;
+						position: relative;
+						top:50%;
+						-webkit-transform:translateY(-50%);
+						-moz-transform:translateY(-50%);
+						-ms-transform:translateY(-50%);
+						-o-transform:translateY(-50%);
+						transform:translateY(-50%);
+					}
+				}
+
+				&:hover{
+					a{
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&#organigramme{
+		h2{
+			text-transform: none;
+			font-size: 3em;
+		}
+		h3#chantiers{
+			color: $blue;
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 1.4em;
+			margin-bottom: 20px;
+		}
+		ul{
+			text-align: center;
+			width: 100%;
+			margin: 0 0 30px 0;
+			li{
+				display: inline-block;
+				margin:0 -2px;
+				padding: 10px;
+				box-sizing:border-box;
+				img{
+					max-width: 100%;
+					height: auto;
+					margin-bottom: 10px;
+				}
+				h3{
+					color:black;
+					font-size: 15px;
+					font-weight: bold;
+				}
+				span{
+					color:$blue;
+				}
+			}
+			&#directeur{
+				li{
+					width: 50%;
+				}
+			}
+			&#administratifs{
+				li{
+					width: 40%;
+				}
+			}
+			&#team{
+				li{
+					width: 25%;
+				}
+			}
+		}
 	}
 }

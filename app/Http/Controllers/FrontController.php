@@ -12,18 +12,6 @@ use Mail;
 
 class FrontController extends Controller
 {
-    	/**
-         * Display the home page.
-         *
-         * @return Response
-         */
-        public function welcome()
-        {
-            $datosGenerales = DatosGenerales::first();
-            $realisations = Productos::with('imagenesProductos')->with('categorias')->paginate(3);
-            return view('front.welcome', ['general'=>$datosGenerales, 'realisations' => $realisations]);        
-        }
-
         /**
          * Display the Philosophy page.
          *
@@ -57,12 +45,12 @@ class FrontController extends Controller
         {
             $datosGenerales = DatosGenerales::first();
             if(is_null($category)){
-                $realisations = Productos::with('imagenesProductos')->with('categorias')->paginate(10);
+                $realisations = Productos::with('imagenesProductos')->with('categorias')->orderBy('id', 'DESC')->paginate(10);
                 $categorias = Categorias::all();
                 return view('front.realisations', ['general'=>$datosGenerales, 'categorias'=>$categorias, 'realisations'=>$realisations]);  
             } else {
                 $categorias = Categorias::all();
-                $realisations = Productos::with('imagenesProductos')->with('categorias')->where('categorias_id', $category)->paginate(10);
+                $realisations = Productos::with('imagenesProductos')->with('categorias')->where('categorias_id', $category)->orderBy('id', 'DESC')->paginate(10);
                 return view('front.realisations', ['general'=>$datosGenerales, 'categorias'=>$categorias, 'realisations'=>$realisations]);  
             }
         }
@@ -121,24 +109,24 @@ class FrontController extends Controller
             $canSend = true;
             $error = [];
 
-            if (strlen($request->nom) < 1) {
+            if (strlen($request->input('nom')) < 1) {
                 $canSend = false;
                 array_push($error, 'Vous devez renseigner votre nom');
             }
-            if (strlen($request->courriel) < 1) {
+            if (strlen($request->input('courriel')) < 1) {
                 $canSend = false;
                 array_push($error, 'Vous devez renseigner votre email');
             } else {
-                if (!filter_var($request->courriel, FILTER_VALIDATE_EMAIL)){
+                if (!filter_var($request->input('courriel'), FILTER_VALIDATE_EMAIL)){
                     $canSend = false;
                     array_push($error, 'Vous devez renseigner un email valide');
                 }
             }
-            if (strlen($request->sujet) < 1) {
+            if (strlen($request->input('sujet')) < 1) {
                 $canSend = false;
                 array_push($error, 'Vous devez renseigner le sujet de votre message');
             }
-            if (strlen($request->message) < 1) {
+            if (strlen($request->input('message')) < 1) {
                 $canSend = false;
                 array_push($error, 'Vous devez renseigner un message');
             }
@@ -149,10 +137,10 @@ class FrontController extends Controller
             } else {
                 $datosGenerales = DatosGenerales::first(['correo_contacto']);
                 $para      = $datosGenerales->correo_contacto;
-                $titulo    = $request->sujet;
-                $mensaje   = $request->message . '<br>' .$request->nom;
-                $cabeceras = "From: ".$request->nom."<".$request->courriel."> \r\n";
-                $cabeceras .= "Reply-To: ".$request->nom."<".$request->courriel."> \r\n";
+                $titulo    = $request->input('sujet');
+                $mensaje   = $request->input('message') . '<br>' .$request->input('nom');
+                $cabeceras = "From: ".$request->input('nom')."<".$request->input('courriel')."> \r\n";
+                $cabeceras .= "Reply-To: ".$request->input('nom')."<".$request->input('courriel')."> \r\n";
                 $cabeceras .= "X-Mailer: PHP/" . phpversion();
                 $ok = mail($para, $titulo, $mensaje, $cabeceras);
                 

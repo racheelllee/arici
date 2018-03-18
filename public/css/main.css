@@ -19,7 +19,7 @@ body {
     color: white;
     text-align: right; }
     body header div#label-orange p {
-      padding: 5px 50px;
+      padding: 5px 70px;
       font-size: 12px; }
   body header div#label-blue {
     display: block;
@@ -45,7 +45,7 @@ body {
           display: block;
           width: 75px;
           height: 72px;
-          margin-left: 20%;
+          margin-left: 23%;
           text-indent: -9999px;
           background: transparent url(../imagenes/arici-logo.png) no-repeat;
           -webkit-background-size: contain;
@@ -84,7 +84,7 @@ body {
         padding: 0 10px 0 50px; }
         @media all and (min-width: 600px) {
           body header div#label-blue div#navegacion div#tel {
-            padding-right: 50px; } }
+            padding-right: 70px; } }
         body header div#label-blue div#navegacion div#tel:before {
           content: '';
           display: block;
@@ -152,7 +152,7 @@ body {
               position: relative;
               top: 0px;
               display: table;
-              padding: 10px 50px 0 0;
+              padding: 10px 70px 0 0;
               border: none;
               border-top: 1px solid #DDE5EC; } }
           body header div#label-blue div#navegacion nav ul li {
@@ -170,7 +170,7 @@ body {
             @media all and (min-width: 900px) {
               body header div#label-blue div#navegacion nav ul li.righted {
                 position: relative;
-                left: 7%; } }
+                left: 4%; } }
             body header div#label-blue div#navegacion nav ul li a {
               padding-top: 10px;
               display: block;
@@ -212,40 +212,48 @@ body {
   body main div#slideshow {
     display: block;
     position: relative; }
-    body main div#slideshow div.item {
+    body main div#slideshow ul li.item {
       display: block;
       width: 100%;
       position: relative; }
-      body main div#slideshow div.item img {
+      body main div#slideshow ul li.item img {
         width: 100%;
-        height: auto; }
-      body main div#slideshow div.item div.legend {
-        position: absolute;
-        left: 25%;
-        color: white;
-        font-size: 20px;
-        bottom: 10px;
-        line-height: 1.1; }
+        height: auto;
+        max-height: 640px;
+        -webkit-object-fit: contain;
+        -moz-object-fit: contain;
+        -ms-object-fit: contain;
+        -o-object-fit: contain;
+        object-fit: contain; }
+    body main div#slideshow h2 {
+      position: absolute;
+      left: 25%;
+      z-index: 9999;
+      pointer-events: none;
+      color: white;
+      font-size: 20px;
+      bottom: 10px;
+      line-height: 1.1; }
+      @media all and (min-width: 600px) {
+        body main div#slideshow h2 {
+          font-size: 35px;
+          bottom: 25px; } }
+      @media all and (min-width: 900px) {
+        body main div#slideshow h2 {
+          font-size: 50px;
+          bottom: 40px; } }
+      body main div#slideshow h2 p {
+        text-shadow: 3px 3px 2px rgba(20, 20, 20, 0.3);
+        color: white !important; }
+      body main div#slideshow h2 b, body main div#slideshow h2 strong {
+        font-size: 30px;
+        font-weight: 600; }
         @media all and (min-width: 600px) {
-          body main div#slideshow div.item div.legend {
-            font-size: 35px;
-            bottom: 25px; } }
+          body main div#slideshow h2 b, body main div#slideshow h2 strong {
+            font-size: 55px; } }
         @media all and (min-width: 900px) {
-          body main div#slideshow div.item div.legend {
-            font-size: 50px;
-            bottom: 40px; } }
-        body main div#slideshow div.item div.legend p {
-          text-shadow: 3px 3px 2px rgba(20, 20, 20, 0.3);
-          color: white !important; }
-        body main div#slideshow div.item div.legend b, body main div#slideshow div.item div.legend strong {
-          font-size: 30px;
-          font-weight: 600; }
-          @media all and (min-width: 600px) {
-            body main div#slideshow div.item div.legend b, body main div#slideshow div.item div.legend strong {
-              font-size: 55px; } }
-          @media all and (min-width: 900px) {
-            body main div#slideshow div.item div.legend b, body main div#slideshow div.item div.legend strong {
-              font-size: 80px; } }
+          body main div#slideshow h2 b, body main div#slideshow h2 strong {
+            font-size: 80px; } }
     body main div#slideshow div.owl-nav {
       position: absolute;
       top: 50%;
@@ -327,8 +335,17 @@ body {
         color: #82A6C0; }
     body main div#content i, body main div#content em {
       font-style: italic; }
+    body main div#content aside#video_chantier {
+      padding-top: 90px; }
+      body main div#content aside#video_chantier h2 {
+        font-size: 20px;
+        color: #005499; }
+      body main div#content aside#video_chantier iframe {
+        width: 100%;
+        max-width: 560px;
+        height: 315px; }
   body main#contact_page div#maps {
-    height: 100px;
+    height: 400px;
     margin-bottom: 25px; }
   body main#contact_page form {
     overflow: hidden; }
@@ -413,13 +430,20 @@ body {
   body main#realisation-page div#main {
     width: 100%;
     position: relative; }
+    body main#realisation-page div#main div#slideshow {
+      max-width: 960px;
+      margin: auto; }
     body main#realisation-page div#main div#contenu {
       display: block;
-      width: 100%;
+      max-width: 960px;
+      margin: auto;
       padding: 0 10px 80px 10px;
       box-sizing: border-box;
       overflow: hidden;
       margin-top: 30px; }
+      @media all and (min-width: 1200px) {
+        body main#realisation-page div#main div#contenu {
+          box-sizing: content-box; } }
       body main#realisation-page div#main div#contenu section {
         width: 100%; }
         @media all and (min-width: 600px) {
@@ -468,6 +492,8 @@ body {
       font-size: 1.4rem; }
     body main#realisation-page aside#others-ones ul#slider {
       width: 100%;
+      max-width: 960px;
+      margin: 1rem auto;
       overflow: hidden; }
       body main#realisation-page aside#others-ones ul#slider li {
         display: block;
@@ -480,8 +506,8 @@ body {
         float: none; }
         @media all and (min-width: 900px) {
           body main#realisation-page aside#others-ones ul#slider li {
-            width: 30%;
-            margin: 0;
+            width: 33.33%;
+            margin: 0 !important;
             float: left; } }
         @media all and (min-width: 900px) {
           body main#realisation-page aside#others-ones ul#slider li:nth-of-type(2) {
@@ -501,6 +527,8 @@ body {
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
+            width: 90%;
+            margin: auto;
             position: relative;
             top: 50%;
             -webkit-transform: translateY(-50%);
@@ -512,9 +540,10 @@ body {
             display: block;
             font-size: 1.4rem;
             text-align: center;
-            margin: 1rem 0;
             font-weight: bold;
             position: relative;
+            width: 90%;
+            margin: 1rem auto;
             top: 50%;
             -webkit-transform: translateY(-50%);
             -moz-transform: translateY(-50%);
@@ -523,134 +552,6 @@ body {
             transform: translateY(-50%); }
         body main#realisation-page aside#others-ones ul#slider li:hover a {
           opacity: 1; }
-  body main#home section {
-    padding: 50px 10px; }
-    body main#home section h2 {
-      color: #005499;
-      text-transform: uppercase;
-      font-size: 2em;
-      margin-bottom: 20px; }
-    body main#home section a.seemore {
-      display: block;
-      padding: 10px 30px;
-      background: #005499;
-      color: white;
-      text-transform: uppercase;
-      font-size: 16px;
-      text-decoration: none;
-      margin: 50px auto 0 auto;
-      width: 200px;
-      text-align: center; }
-      body main#home section a.seemore:hover {
-        background-color: #FB722C; }
-    body main#home section#chiffres ul {
-      width: 100%;
-      margin: 40px 0;
-      overflow: hidden;
-      text-align: center; }
-      @media all and (min-width: 900px) {
-        body main#home section#chiffres ul {
-          display: table; } }
-      body main#home section#chiffres ul li {
-        text-align: center;
-        display: inline-block;
-        margin: 0 -1px;
-        width: 100%;
-        vertical-align: top; }
-        @media all and (min-width: 900px) {
-          body main#home section#chiffres ul li {
-            display: table-cell;
-            float: none;
-            vertical-align: middle; } }
-        body main#home section#chiffres ul li h3 {
-          color: #FB722C;
-          font-size: 50px; }
-          body main#home section#chiffres ul li h3 b, body main#home section#chiffres ul li h3 strong {
-            font-size: 80px;
-            font-weight: bold; }
-        body main#home section#chiffres ul li p {
-          font-size: 20px;
-          color: #005499; }
-      @media all and (min-width: 600px) {
-        body main#home section#chiffres ul.first li {
-          width: 50%; } }
-      @media all and (min-width: 900px) {
-        body main#home section#chiffres ul.first li {
-          width: 33.33%; } }
-      body main#home section#chiffres ul.second li {
-        width: 50%; }
-        @media all and (min-width: 900px) {
-          body main#home section#chiffres ul.second li {
-            width: 25%; } }
-    body main#home section#realisations {
-      background-color: #FB722C; }
-      body main#home section#realisations h2 {
-        color: white; }
-      body main#home section#realisations a.seemore:hover {
-        background-color: #82A6C0; }
-      body main#home section#realisations ul {
-        width: 100%;
-        overflow: hidden; }
-        body main#home section#realisations ul li {
-          display: block;
-          height: 200px;
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
-          width: 60%;
-          margin: 20px auto;
-          float: none; }
-          @media all and (min-width: 900px) {
-            body main#home section#realisations ul li {
-              width: 30%;
-              margin: 0;
-              float: left; } }
-          @media all and (min-width: 900px) {
-            body main#home section#realisations ul li:nth-of-type(2) {
-              margin: 0 5%; } }
-          body main#home section#realisations ul li a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            background-color: rgba(251, 114, 44, 0.6);
-            opacity: 0; }
-            body main#home section#realisations ul li a span {
-              display: block;
-              font-size: 1.4rem;
-              text-align: center;
-              text-transform: uppercase;
-              letter-spacing: 2px;
-              position: relative;
-              top: 50%;
-              -webkit-transform: translateY(-50%);
-              -moz-transform: translateY(-50%);
-              -ms-transform: translateY(-50%);
-              -o-transform: translateY(-50%);
-              transform: translateY(-50%); }
-            body main#home section#realisations ul li a h3 {
-              display: block;
-              font-size: 1.4rem;
-              text-align: center;
-              margin: 1rem 0;
-              font-weight: bold;
-              position: relative;
-              top: 50%;
-              -webkit-transform: translateY(-50%);
-              -moz-transform: translateY(-50%);
-              -ms-transform: translateY(-50%);
-              -o-transform: translateY(-50%);
-              transform: translateY(-50%); }
-          body main#home section#realisations ul li:hover a {
-            opacity: 1; }
-    body main#home section#chantier aside {
-      text-align: center; }
-      body main#home section#chantier aside iframe {
-        width: 100%;
-        max-width: 560px;
-        height: 315px; }
   body main nav#menu-categorias {
     display: block;
     text-align: center;
@@ -775,5 +676,163 @@ body {
           background-color: #82A6C0; }
       body main ul.pagination li:nth-last-of-type(1) span:before, body main ul.pagination li:nth-last-of-type(1) a:before {
         content: '>'; }
+
+section {
+  padding: 50px 10px; }
+  section h2 {
+    color: #005499;
+    text-transform: uppercase;
+    font-size: 2em;
+    margin-bottom: 20px; }
+  section a.seemore {
+    display: block;
+    padding: 10px 30px;
+    background: #005499;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 50px auto 0 auto;
+    width: 200px;
+    text-align: center; }
+    section a.seemore:hover {
+      background-color: #FB722C; }
+  section#chiffres ul {
+    width: 100%;
+    margin: 40px 0;
+    overflow: hidden;
+    text-align: center; }
+    @media all and (min-width: 900px) {
+      section#chiffres ul {
+        display: table; } }
+    section#chiffres ul li {
+      text-align: center;
+      display: inline-block;
+      margin: 0 -1px;
+      width: 100%;
+      vertical-align: top; }
+      @media all and (min-width: 900px) {
+        section#chiffres ul li {
+          display: table-cell;
+          float: none;
+          vertical-align: middle; } }
+      section#chiffres ul li h3 {
+        color: #FB722C;
+        font-size: 50px; }
+        section#chiffres ul li h3 b, section#chiffres ul li h3 strong {
+          font-size: 80px;
+          font-weight: bold; }
+      section#chiffres ul li p {
+        font-size: 20px;
+        color: #005499;
+        text-transform: uppercase; }
+    @media all and (min-width: 600px) {
+      section#chiffres ul.first li {
+        width: 50%; } }
+    @media all and (min-width: 900px) {
+      section#chiffres ul.first li {
+        width: 33.33%; } }
+    section#chiffres ul.second li {
+      width: 50%; }
+      @media all and (min-width: 900px) {
+        section#chiffres ul.second li {
+          width: 25%; } }
+  section#realisations {
+    background-color: #FB722C; }
+    section#realisations h2 {
+      color: white; }
+    section#realisations a.seemore:hover {
+      background-color: #82A6C0; }
+    section#realisations ul {
+      width: 100%;
+      overflow: hidden; }
+      section#realisations ul li {
+        display: block;
+        height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 60%;
+        margin: 20px auto;
+        float: none; }
+        @media all and (min-width: 900px) {
+          section#realisations ul li {
+            width: 30%;
+            margin: 0;
+            float: left; } }
+        @media all and (min-width: 900px) {
+          section#realisations ul li:nth-of-type(2) {
+            margin: 0 5%; } }
+        section#realisations ul li a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          text-decoration: none;
+          color: white;
+          background-color: rgba(251, 114, 44, 0.6);
+          opacity: 0; }
+          section#realisations ul li a span {
+            display: block;
+            font-size: 1.4rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%); }
+          section#realisations ul li a h3 {
+            display: block;
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: bold;
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%); }
+        section#realisations ul li:hover a {
+          opacity: 1; }
+  section#organigramme h2 {
+    text-transform: none;
+    font-size: 3em; }
+  section#organigramme h3#chantiers {
+    color: #005499;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    margin-bottom: 20px; }
+  section#organigramme ul {
+    text-align: center;
+    width: 100%;
+    margin: 0 0 30px 0; }
+    section#organigramme ul li {
+      display: inline-block;
+      margin: 0 -2px;
+      padding: 10px;
+      box-sizing: border-box; }
+      section#organigramme ul li img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px; }
+      section#organigramme ul li h3 {
+        color: black;
+        font-size: 15px;
+        font-weight: bold; }
+      section#organigramme ul li span {
+        color: #005499; }
+    section#organigramme ul#directeur li {
+      width: 50%; }
+    section#organigramme ul#administratifs li {
+      width: 40%; }
+    section#organigramme ul#team li {
+      width: 25%; }
 
 /*# sourceMappingURL=main.css.map */

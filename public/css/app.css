@@ -5802,7 +5802,8 @@ table tr td.herramientas, table tr th.herramientas {
   text-align: center; }
 
 .delete-img-container {
-  position: relative; }
+  position: relative;
+  text-align: center; }
   .delete-img-container .delete-img {
     position: absolute;
     top: 0;
@@ -5833,9 +5834,19 @@ table tr td.herramientas, table tr th.herramientas {
     .delete-img-container .delete-img:hover {
       opacity: 1; }
 
-.leyenda .trumbowyg-box {
+#leyenda_content .trumbowyg-box {
   min-height: 50px; }
-.leyenda .trumbowyg-editor {
+#leyenda_content .trumbowyg-editor {
   min-height: 50px; }
+
+.leyenda {
+  display: none; }
+
+.linea {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid black; }
+  .linea:nth-of-type(2n) {
+    border-left: 1px solid black; }
 
 /*# sourceMappingURL=app.css.map */

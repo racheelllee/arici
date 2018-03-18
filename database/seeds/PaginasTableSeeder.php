@@ -15,6 +15,7 @@ class PaginasTableSeeder extends Seeder
             'id' => 1,
             'titulo' => 'philosophie',
             'slug' => str_slug('philosophie', '-'),
+            'leyenda' => 'Depuis 50 ans,<strong>bâtir ensemble</strong>',
             'contenido' => 'Vous satisfaire et réussir. Lorsque nous recevons un projet, nous mettons tout en œuvre pour apporter une réponse appropriée à chaque demande. Toute l’équipe d’Arici est impliquée, l’ensemble de ses compétences mobilisé : ingénieurs, conducteurs de travaux, chefs de chantier, chefs d’équipe et compagnons expérimentés, etc.
 
 				Ce savoir-faire et ce savoir-être font partie de notre ADN depuis un demi-siècle. Ils sont l’héritage d’un homme, Robert Arici. Le fondateur de l’entreprise veille d’ailleurs à leur transmission lorsqu’il passe le témoin en 1999 à l’un des comptables de la société, Jean-Bernard Maron, et à l’un de ses dessinateurs-métreurs, Bernard Dartiailh.
@@ -28,6 +29,7 @@ class PaginasTableSeeder extends Seeder
             'id' => 2,
             'titulo' => 'prestations',
             'slug' => str_slug('prestations', '-'),
+            'leyenda' => "De l'<strong>étude</strong><br>à la <strong>réalisation…</strong><br>",
             'contenido' => 'Polyvalence et remise en question permettent à Arici de répondre à toutes les problématiques : construction, rénovation, restauration ou restructuration. L’entreprise se positionne sur les marchés des collectivités et de tout corps d’État, en mobilisant un encadrement spécialisé dans différents métiers et des compétences spécifiques.
 
 				L’expertise de son équipe, des employés du bureau d’étude en amont au personnel de chantier en aval, permet à Arici de travailler à la réalisation de bâtiments industriels, de logements ou d’équipements publics tels que des établissements d’hébergement pour personnes âgées dépendantes et des crèches.
@@ -41,6 +43,7 @@ class PaginasTableSeeder extends Seeder
             'id' => 3,
             'titulo' => 'organisation',
             'slug' => str_slug('organisation', '-'),
+            'leyenda' => "Assurer<br>le <strong>contact</strong> et l'<strong>efficacité…</strong><br>",
             'contenido' => 'Administrations, comptabilité, gestion des chantiers, bureau d’études, chefs de chantier, chefs d’équipe, personnel de chantier, dépôt, installation et maintenance… La performance d’Arici s’appuie sur les qualités humaines et professionnelles de ses collaborateurs.
 
 				Ils sont parties prenantes des projets et de la réussite d’Arici. La direction et le conseil d’administration s’engagent naturellement en faveur de leur formation et d’une prévention « Santé, Hygiène et Sécurité ».
@@ -54,6 +57,7 @@ class PaginasTableSeeder extends Seeder
             'id' => 4,
             'titulo' => 'contact',
             'slug' => str_slug('contact', '-'),
+            'slug' => "",
             'contenido' => "Formulaire de Contact
 
 					Parce que le contact est important, chez Arici nous mettons un trait d'honneur à ce que vous puissiez nous contacter facilement et rapidement. Voila pourquoi nous mettons à votre disposition le formulaire de contact ci-dessous.

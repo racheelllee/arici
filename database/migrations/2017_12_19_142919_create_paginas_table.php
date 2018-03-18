@@ -18,6 +18,7 @@ class CreatePaginasTable extends Migration
             $table->string('titulo');
             $table->string('slug')->unique();
             $table->text('contenido');
+            $table->text('leyenda')->nullable();
             $table->timestamps();
         });
     }

@@ -15,17 +15,19 @@
         </nav>
         <div id="main">
             <div id="slideshow">
-                @if ($realisation->imagenesProductos->count() == 0)
-                    <div class="item">
-                        <img src="/imagenes/placeholder-img.png">
-                    </div>
-                @else
-                    @foreach ($realisation->imagenesProductos as $img)
-                        <div class="item">
-                            <img src="/{{$img->imagen}}">
-                        </div>
-                    @endforeach
-                @endif
+                <ul>
+                    @if ($realisation->imagenesProductos->count() == 0)
+                        <li class="item">
+                            <img src="/imagenes/placeholder-img.png">
+                        </li>
+                    @else
+                        @foreach ($realisation->imagenesProductos as $img)
+                            <li class="item">
+                                <img src="/{{$img->imagen}}">
+                            </li>
+                        @endforeach
+                    @endif
+                </ul>
             </div>
             <div id="contenu">
                 <section>
@@ -43,21 +45,20 @@
         </div>
         <aside id="others-ones">
             <h3>Les autres chantiers du secteur</h3>
-            <ul id="slider">
+            <ul id="slider"><!--
                 @foreach ($otherRealisations as $oR)
                     @if($oR->imagenesProductos->count() == 0)
-                        <li class="item" style="background-image:url(/imagenes/placeholder-img.png)">
+                        --><li class="item" style="background-image:url(/imagenes/placeholder-img.png)">
                     @else
-                        <li style="background-image:url(/{{$oR->imagenesProductos[0]->imagen}})">
+                        --><li style="background-image:url(/{{$oR->imagenesProductos[0]->imagen}})">
                     @endif
                         <a href="{{ route('realisation', $oR->slug) }}" class="overlay">
                             <span>{{$oR->categorias->nombre}}</span>
-                            <h2>{{$oR->titulo}}</h2>
+                            <h3>{{$oR->titulo}}</h3>
                         </a>
-                    </div>
+                    </li><!--
                 @endforeach
-                <li></li>
-            </ul>
+            --></ul>
         </aside>
     </main>
 @endsection

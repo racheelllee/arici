@@ -40,6 +40,7 @@
           @endif
           </tbody>
         </table>
+        {{ $productos->links() }}
       </div>
 @endsection
 @section('scripts')

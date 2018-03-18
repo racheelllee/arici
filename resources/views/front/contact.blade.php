@@ -1,18 +1,18 @@
-@extends('layouts.front')
+    @extends('layouts.front')
 @section('content')
     <main id="contact_page">
         <div id="slideshow">
-            @foreach ($pagina->imagenesPaginas as $img)
-                <div class="item">
-                    <img src="/{{$img->imagen}}">
-                    <div class="legend">
-                        {!!$img->leyenda!!}
-                    </div>
-                </div>
-            @endforeach
+            <ul>
+                @foreach ($pagina->imagenesPaginas as $img)
+                    <li class="item">
+                        <img src="/{{$img->imagen}}">
+                    </li>
+                @endforeach
+            </ul>
+            <h2>{!!$pagina->leyenda!!}</h2>
         </div>
+        <div id="maps"></div>
         <div id="content">
-            <div id="maps"></div>
             {!!$pagina->contenido!!}
             {{ Form::open(array('route' => 'contact.sendMail','method'=>'POST', 'id' => 'contact_form')) }}
                 <div class="form-group ontwo">
@@ -37,6 +37,6 @@
             </form>
         </div>
     </main>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_Ve-pl6jYcSPNMokBQPUbaZ45Fpb5N0M&callback=initMap"></script>
 
 @endsection
