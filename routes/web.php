@@ -61,3 +61,8 @@ Route::get('dashboard/datos_generales/{id}/edit', 'DatosGeneralesController@edit
 Route::put('dashboard/datos_generales/{id}/update', 'DatosGeneralesController@update')->name('datos_generales.update');
 Route::delete('dashboard/datos_generales/removeimg/{id}', 'DatosGeneralesController@removeimg');
 
+
+//CHIFFRES CLES
+Route::get('dashboard/chiffres_cles', 'ChiffresClesController@index')->name('chiffres_cles.index');
+Route::post('dashboard/editChiffres', 'ChiffresClesController@editChiffres');
+

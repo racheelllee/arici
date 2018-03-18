@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CategoriasTableSeeder::class, 
             ProductosTableSeeder::class, 
             DatosGeneralesTableSeeder::class, 
+            ChiffresClesTableSeeder::class, 
         ]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinksDatosGeneralesTable extends Migration
+class CreateChiffresClesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateLinksDatosGeneralesTable extends Migration
      */
     public function up()
     {
-        Schema::create('links_datos_generales', function (Blueprint $table) {
+        Schema::create('chiffres_cles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('url');
-            $table->string('image');
-            $table->integer('datos_generales_id');
+            $table->string('label');
+            $table->string('cantidad');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateLinksDatosGeneralesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('links_datos_generales');
+        Schema::drop('chiffres_cles');
     }
 }
