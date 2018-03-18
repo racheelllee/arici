@@ -82,16 +82,17 @@ function readURL(input, i) {
     }
     reader.readAsDataURL(input.files[0]);
     if($('#inputs-files'+(i+1)).length<1){
-	    $('#inputs-files'+i).after('<div class="col-md-12 linea" id="inputs-files'+(i+1)+'">'+
-		        				  	'<div class="col-md-6">'+
+	    $('#inputs-files'+i).after('<div class="col-md-6 linea" id="inputs-files'+(i+1)+'">'+
+								    '<div>'+
+			        					'<input type="file" accept=".png, .jpg, .jpeg" class="img col-md-4" name="imgInp[]" id="imgInp'+(i+1)+'" onchange="cargarImagen(this)"/>'+
+			        					'<div id="pre-view'+(i+1)+'" class="col-md-4">'+
+		        				  	'</div>'+
+		        				  	'<div class="col-md-12">'+
 										'<div class="form-group">'+
 											   '<label for="url">URL</label>'+
 											   	'<input type="text" name="url'+(i+1)+'" class="form-control" />'+
 										'</div>'+
 								    '</div>'+
-		        					'<input type="file" accept=".png, .jpg, .jpeg" class="img col-md-4" name="imgInp[]" id="imgInp'+(i+1)+'" onchange="cargarImagen(this)"/>'+
-		        					'<div id="pre-view'+(i+1)+'" class="col-md-4">'+
-		        				  	'</div>'+
 		    					 '</div>');
     }
   }
