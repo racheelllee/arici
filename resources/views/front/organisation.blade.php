@@ -2,42 +2,78 @@
 @section('content')
     <main>
         <div id="slideshow">
-            @foreach ($pagina->imagenesPaginas as $img)
-                <div class="item">
-                    <img src="/{{$img->imagen}}">
-                    <div class="legend">
-                        {!!$img->leyenda!!}
-                    </div>
-                </div>
-            @endforeach
+            <ul>
+                @foreach ($pagina->imagenesPaginas as $img)
+                    <li class="item">
+                        <img src="/{{$img->imagen}}">
+                    </li>
+                @endforeach
+            </ul>
+            <h2>{!!$pagina->leyenda!!}</h2>
         </div>
         <div id="content">
             {!!$pagina->contenido!!}
         </div>
     </main>
-@endsection
 
-@section('extend_footer')
     <section id="organigramme">
         <div class="wrap">
-            <h2>Organigramme</h2>
-            <ul id="slider">
+            <h2>Notre équipe</h2>
+            <ul id="directeur">
                 <li>
-                    <img src="http://lorempixel.com/200/500/" alt="Robert Arici - Arici">
-                    <h2>Robert Arici</h2>
-                    <span>Directeur Général</span>
+                    <img src="http://lorempixel.com/500/200/" alt="Robert Arici - Arici">
+                    <h3>Erick BORDES et Janick GRASSI</h3>
+                    <span>Direction Générale</span>
+                </li>
+            </ul>
+            <ul id="administratifs">
+                <li>
+                    <img src="http://lorempixel.com/250/180/" alt="Robert Arici - Arici">
+                    <ul>
+                        <li>
+                            <h3>Valérie GARRAS</h3>
+                            <span>Responsable service Comptabilité</span>
+                        </li>
+                        <li>
+                            <h3>Christelle Brassac</h3>
+                            <span>ADMINISTRATION & FINANCES</span>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <img src="http://lorempixel.com/200/500/" alt="Robert Arici - Arici">
-                    <h2>Germaine Ménard</h2>
-                    <span>Directrice adjointe</span>
+                    <img src="http://lorempixel.com/250/180/" alt="Robert Arici - Arici">
+                    <ul>
+                        <li>
+                            <h3>Jean-Marie CATTAÏ</h3>
+                            <span>Responsable d'études BUREAU D'ÉTUDES</span>
+                        </li>
+                        <li>
+                            <h3>Jean-Marie CATTAÏ</h3>
+                            <span>Responsable d'études BUREAU D'ÉTUDES</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="chantiers">Gestion des chantiers</h3>
+            <ul id="team">
+                <li>
+                    <img src="http://lorempixel.com/100/200/" alt="Robert Arici - Arici">
+                    <h3>Baptiste CAZABAT</h3>
                 </li>
                 <li>
-                    <img src="http://lorempixel.com/200/500/" alt="Robert Arici - Arici">
-                    <h2>Jean Claude Dusse</h2>
-                    <span>Comique en boite</span>
+                    <img src="http://lorempixel.com/100/200/" alt="Robert Arici - Arici">
+                    <h3>Jordi PALACIN</h3>
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/100/200/" alt="Robert Arici - Arici">
+                    <h3>Damien Marchand</h3>
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/100/200/" alt="Robert Arici - Arici">
+                    <h3>Julie GILLION</h3>
                 </li>
             </ul>
         </div>
     </section>
+
 @endsection

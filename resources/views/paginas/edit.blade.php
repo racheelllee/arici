@@ -10,9 +10,14 @@
 	        {{ Form::text('titulo', $pagina->titulo, ['class' => 'form-control', 'id' => 'titulo']) }}
 	    </div>
 
+	    <div class='form-group' id="leyenda_content">
+	        {{ Form::label('leyenda', 'Légende') }}
+	        {{ Form::textarea('leyenda', $pagina->leyenda, ['class' => 'form-control', 'cols' => '0', 'rows' => '0', 'style'=>'height:100px;']) }}
+	    </div>
+
 	    <div class='form-group'>
 	        {{ Form::label('contenido', 'Contenu') }}
-	        {{ Form::textarea('contenido', $pagina->contenido, ['class' => 'form-control']) }}
+	        {{ Form::textarea('contenido', $pagina->contenido, ['class' => 'form-control', 'style'=>'height:20px;']) }}
 	    </div>
       	<h4>Images</h4>
 	    @foreach($pagina->imagenesPaginas as $key => $imagenPagina)
@@ -70,7 +75,10 @@
 			    ],
 			    svgPath: '{{ asset("css/icons.svg")}}'
 			});
-			$('.leyenda textarea').each(function(){
+			$('.leyenda').each(function(){
+				$(this).hide();
+			});
+			$('textarea#leyenda').each(function(){
 				$(this).trumbowyg({
 					btns: [
 					        ['strong', 'em', 'del'],

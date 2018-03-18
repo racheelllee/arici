@@ -12,18 +12,6 @@ use Mail;
 
 class FrontController extends Controller
 {
-    	/**
-         * Display the home page.
-         *
-         * @return Response
-         */
-        public function welcome()
-        {
-            $datosGenerales = DatosGenerales::first();
-            $realisations = Productos::with('imagenesProductos')->with('categorias')->paginate(3);
-            return view('front.welcome', ['general'=>$datosGenerales, 'realisations' => $realisations]);        
-        }
-
         /**
          * Display the Philosophy page.
          *
@@ -57,12 +45,12 @@ class FrontController extends Controller
         {
             $datosGenerales = DatosGenerales::first();
             if(is_null($category)){
-                $realisations = Productos::with('imagenesProductos')->with('categorias')->paginate(10);
+                $realisations = Productos::with('imagenesProductos')->with('categorias')->orderBy('id', 'DESC')->paginate(10);
                 $categorias = Categorias::all();
                 return view('front.realisations', ['general'=>$datosGenerales, 'categorias'=>$categorias, 'realisations'=>$realisations]);  
             } else {
                 $categorias = Categorias::all();
-                $realisations = Productos::with('imagenesProductos')->with('categorias')->where('categorias_id', $category)->paginate(10);
+                $realisations = Productos::with('imagenesProductos')->with('categorias')->where('categorias_id', $category)->orderBy('id', 'DESC')->paginate(10);
                 return view('front.realisations', ['general'=>$datosGenerales, 'categorias'=>$categorias, 'realisations'=>$realisations]);  
             }
         }

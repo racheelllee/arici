@@ -30,7 +30,7 @@ function initMap() {
 		init:function(){
 			if ($('div#content').length > 0) { site.firstLetter(); }
 			if ($('main#contact_page').length>0) { site.contact.init(); }
-			if ($('div#slideshow').length > 0 && $('div#slideshow div.item').length > 1) {site.slideshow.init(); }
+			if ($('div#slideshow').length > 0 && $('div#slideshow ul li.item').length > 1) {site.slideshow.init(); }
 			$('nav a#burger').click(function(event){
 				$(this).parent().find('ul').toggleClass('activated');
 				event.preventDefault();
@@ -51,7 +51,7 @@ function initMap() {
 	};
 	site.slideshow = {
 		init: function(){
-			$('div#slideshow').addClass('owl-carousel');
+			$('div#slideshow ul').addClass('owl-carousel');
 			$('.owl-carousel').owlCarousel({
 				loop:true,
 				nav:true,

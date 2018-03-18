@@ -212,11 +212,11 @@ body {
   body main div#slideshow {
     display: block;
     position: relative; }
-    body main div#slideshow div.item {
+    body main div#slideshow ul li.item {
       display: block;
       width: 100%;
       position: relative; }
-      body main div#slideshow div.item img {
+      body main div#slideshow ul li.item img {
         width: 100%;
         height: auto;
         max-height: 640px;
@@ -225,33 +225,35 @@ body {
         -ms-object-fit: contain;
         -o-object-fit: contain;
         object-fit: contain; }
-      body main div#slideshow div.item div.legend {
-        position: absolute;
-        left: 25%;
-        color: white;
-        font-size: 20px;
-        bottom: 10px;
-        line-height: 1.1; }
+    body main div#slideshow h2 {
+      position: absolute;
+      left: 25%;
+      z-index: 9999;
+      pointer-events: none;
+      color: white;
+      font-size: 20px;
+      bottom: 10px;
+      line-height: 1.1; }
+      @media all and (min-width: 600px) {
+        body main div#slideshow h2 {
+          font-size: 35px;
+          bottom: 25px; } }
+      @media all and (min-width: 900px) {
+        body main div#slideshow h2 {
+          font-size: 50px;
+          bottom: 40px; } }
+      body main div#slideshow h2 p {
+        text-shadow: 3px 3px 2px rgba(20, 20, 20, 0.3);
+        color: white !important; }
+      body main div#slideshow h2 b, body main div#slideshow h2 strong {
+        font-size: 30px;
+        font-weight: 600; }
         @media all and (min-width: 600px) {
-          body main div#slideshow div.item div.legend {
-            font-size: 35px;
-            bottom: 25px; } }
+          body main div#slideshow h2 b, body main div#slideshow h2 strong {
+            font-size: 55px; } }
         @media all and (min-width: 900px) {
-          body main div#slideshow div.item div.legend {
-            font-size: 50px;
-            bottom: 40px; } }
-        body main div#slideshow div.item div.legend p {
-          text-shadow: 3px 3px 2px rgba(20, 20, 20, 0.3);
-          color: white !important; }
-        body main div#slideshow div.item div.legend b, body main div#slideshow div.item div.legend strong {
-          font-size: 30px;
-          font-weight: 600; }
-          @media all and (min-width: 600px) {
-            body main div#slideshow div.item div.legend b, body main div#slideshow div.item div.legend strong {
-              font-size: 55px; } }
-          @media all and (min-width: 900px) {
-            body main div#slideshow div.item div.legend b, body main div#slideshow div.item div.legend strong {
-              font-size: 80px; } }
+          body main div#slideshow h2 b, body main div#slideshow h2 strong {
+            font-size: 80px; } }
     body main div#slideshow div.owl-nav {
       position: absolute;
       top: 50%;
@@ -343,7 +345,7 @@ body {
         max-width: 560px;
         height: 315px; }
   body main#contact_page div#maps {
-    height: 200px;
+    height: 400px;
     margin-bottom: 25px; }
   body main#contact_page form {
     overflow: hidden; }
@@ -798,5 +800,39 @@ section {
             transform: translateY(-50%); }
         section#realisations ul li:hover a {
           opacity: 1; }
+  section#organigramme h2 {
+    text-transform: none;
+    font-size: 3em; }
+  section#organigramme h3#chantiers {
+    color: #005499;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    margin-bottom: 20px; }
+  section#organigramme ul {
+    text-align: center;
+    width: 100%;
+    margin: 0 0 30px 0; }
+    section#organigramme ul li {
+      display: inline-block;
+      margin: 0 -2px;
+      padding: 10px;
+      box-sizing: border-box; }
+      section#organigramme ul li img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px; }
+      section#organigramme ul li h3 {
+        color: black;
+        font-size: 15px;
+        font-weight: bold; }
+      section#organigramme ul li span {
+        color: #005499; }
+    section#organigramme ul#directeur li {
+      width: 50%; }
+    section#organigramme ul#administratifs li {
+      width: 40%; }
+    section#organigramme ul#team li {
+      width: 25%; }
 
 /*# sourceMappingURL=main.css.map */

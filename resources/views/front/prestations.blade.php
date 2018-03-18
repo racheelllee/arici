@@ -2,14 +2,14 @@
 @section('content')
     <main>
         <div id="slideshow">
-            @foreach ($pagina->imagenesPaginas as $img)
-                <div class="item">
-                    <img src="/{{$img->imagen}}">
-                    <div class="legend">
-                        {!!$img->leyenda!!}
-                    </div>
-                </div>
-            @endforeach
+            <ul>
+                @foreach ($pagina->imagenesPaginas as $img)
+                    <li class="item">
+                        <img src="/{{$img->imagen}}">
+                    </li>
+                @endforeach
+            </ul>
+            <h2>{!!$pagina->leyenda!!}</h2>
         </div>
         <div id="content">
             {!!$pagina->contenido!!}

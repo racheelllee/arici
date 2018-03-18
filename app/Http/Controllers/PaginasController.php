@@ -63,6 +63,7 @@ class PaginasController extends Controller
         $pagina->titulo = $request->titulo;
         $pagina->contenido = $request->contenido;
         $pagina->slug = $request->slug ;
+        $pagina->leyenda = $request->leyenda;
         $pagina->save();
         return redirect('/dashboard/paginas');
 
@@ -112,6 +113,7 @@ class PaginasController extends Controller
             $pagina->titulo = $request->titulo;
             $pagina->slug = $request->slug;
             $pagina->contenido = $request->contenido;
+            $pagina->leyenda = $request->leyenda;
             if($pagina->save()){
                 //imagenes y leyendas
                 if($request->hasFile('imgInp')){

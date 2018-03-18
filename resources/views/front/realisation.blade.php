@@ -15,17 +15,19 @@
         </nav>
         <div id="main">
             <div id="slideshow">
-                @if ($realisation->imagenesProductos->count() == 0)
-                    <div class="item">
-                        <img src="/imagenes/placeholder-img.png">
-                    </div>
-                @else
-                    @foreach ($realisation->imagenesProductos as $img)
-                        <div class="item">
-                            <img src="/{{$img->imagen}}">
-                        </div>
-                    @endforeach
-                @endif
+                <ul>
+                    @if ($realisation->imagenesProductos->count() == 0)
+                        <li class="item">
+                            <img src="/imagenes/placeholder-img.png">
+                        </li>
+                    @else
+                        @foreach ($realisation->imagenesProductos as $img)
+                            <li class="item">
+                                <img src="/{{$img->imagen}}">
+                            </li>
+                        @endforeach
+                    @endif
+                </ul>
             </div>
             <div id="contenu">
                 <section>

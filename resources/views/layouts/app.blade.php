@@ -65,8 +65,7 @@
                               <a class="nav-link" href="{{ route('datos_generales.edit', 1) }}">Informations Générales</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Deconnexion</a>
-
+                                <a class="nav-link" href="{{ route('logout') }}">Deconnexion</a>
                             </li>
                         @endguest
                     </ul>

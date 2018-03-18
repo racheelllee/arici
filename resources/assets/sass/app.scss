@@ -58,11 +58,15 @@ table{
 	}
 }
 
-.leyenda{
+#leyenda_content{
 	.trumbowyg-box{
 		min-height:50px;
 	}
 	.trumbowyg-editor{
 		min-height:50px;
 	}
+}
+
+.leyenda{
+	display: none;
 }
