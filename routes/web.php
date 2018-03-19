@@ -66,4 +66,5 @@ Route::delete('dashboard/datos_generales/removeimg/{id}', 'DatosGeneralesControl
 //CHIFFRES CLES
 Route::get('dashboard/chiffres_cles', 'ChiffresClesController@index')->name('chiffres_cles.index');
 Route::post('dashboard/editChiffres', 'ChiffresClesController@editChiffres');
+Route::delete('dashboard/deleteChiffres/{id}', 'ChiffresClesController@deleteChiffres');
 

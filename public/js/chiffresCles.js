@@ -12,17 +12,22 @@ $(document).ready(function(){
 		});
 	});
 
+
 	$('#addChiffre').click(function(){
-		 var combien = $('.lista').length;
-		$('#list'+(combien)).after('<div class="col-md-12 lista" id="list0">'+
-										'<div class="form-group col-md-6">'+
+		var combien = $('.lista').length;
+		console.log(combien);
+		$('.lista').last().after('<div class="col-md-12 lista" id="list0">'+
+										'<div class="form-group col-md-5">'+
 											'<label for="label">Label</label>'+
 											'<input name="label" class="form-control" type="text" />'+
 										'</div>'+
-										'<div class="form-group col-md-6">'+
+										'<div class="form-group col-md-5">'+
 											'<label for="cantidad">cantidad</label>'+
 											'<input name="cantidad" class="form-control" type="text" />'+
 										'</div>'+
+									    '<div class="col-md-1">'+
+									    	'<a href="" id="0" onclick="deleteChiffre(this);return false;"><i class="fa fa-trash delete" style="line-height:6	"></i></a>'+
+									    '</div>'+
 									'</div>');
 	});
 });
@@ -43,4 +48,23 @@ function edit(input, id, reload){
 	        }
 		});
 	}
+}
+
+
+function deleteChiffre(este){
+	console.log(este);
+	var id =este.id;
+	if(este.id != 0){
+		$.ajax({
+			headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+			type: 'DELETE',
+			url: '/dashboard/deleteChiffres/'+id,
+			success: function(data){
+				$(este).closest('.lista').remove();
+			}
+		});
+	}else{
+		$(este).closest('.lista').remove();
+	}
+
 }

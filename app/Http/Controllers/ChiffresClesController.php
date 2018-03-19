@@ -57,4 +57,12 @@ class ChiffresClesController extends Controller
     	}
     }
 
+    public function deleteChiffres($id){
+        $chiffresC = ChiffresCles::findOrFail($id);
+        if($chiffresC->delete()){
+            echo "true";
+        }
+        die();
+    }
+
 }
