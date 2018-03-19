@@ -61,8 +61,14 @@
                             <li class="nav-item">
                               <a class="nav-link" href="{{ route('productos.index') }}">Réalisations</a>
                             </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ route('datos_generales.edit', 1) }}">Informations Générales</a>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Extras
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('datos_generales.edit', 1) }}">Informations Générales</a></li>
+                                    <li><a href="{{ route('chiffres_cles.index') }}">Chiffres Clés</a></li>
+                                    <li><a href="#">Organigramme</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}">Deconnexion</a>

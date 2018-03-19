@@ -41,26 +41,37 @@
 @endsection
 @section('scripts')
    	<script src="{{ asset('js/products.js') }}"></script>
-   	<script src="{{ asset('js/trumbowyg.min.js')}}"></script>
-    <script src="{{ asset('js/trumbowyg.colors.js')}}"></script>
+	<script src="{{ asset('js/trumbowyg.min.js')}}"></script>
+	<script src="{{ asset('js/lang/fr.min.js')}}"></script>
+	<script src="{{ asset('js/trumbowyg.noembed.js')}}"></script>
+	<script src="{{ asset('js/trumbowyg.upload.js')}}"></script>
+	<script src="{{ asset('js/trumbowyg.colors.js')}}"></script>
    	<script type="text/javascript">
    		$(document).ready(function(){
    			$('#contenido').trumbowyg({
-			    // btns: ['strong', 'em', '|', 'insertImage'],
-			    btns: [
-			        ['formatting'],
-			        ['strong', 'em', 'del'],
-			       	['foreColor', 'backColor'],
-			        ['superscript', 'subscript'],
-			        ['link'],
-					['insertImage'],
-			        ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-			        ['unorderedList', 'orderedList'],
-			        ['horizontalRule'],
-			        ['removeformat'],
-			        ['fullscreen']
-			    ],
-			    svgPath: '{{ asset("css/icons.svg")}}'
+				// btns: ['strong', 'em', '|', 'insertImage'],
+				btns: [
+					['formatting'],
+					['strong', 'em', 'del', 'underline'],
+					['foreColor', 'backColor'],
+					['superscript', 'subscript'],
+					['link'],
+					['upload'],
+					['noembed'],
+					['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+					['unorderedList', 'orderedList'],
+					['horizontalRule'],
+					['removeformat'],
+					['fullscreen']
+				],
+				lang: 'fr',
+				svgPath: '{{ asset("css/icons.svg")}}',
+				plugins: {
+					upload: {
+						serverPath : '/dashboard/paginas/uploadImageEditor',
+						headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+					}
+				}
 			});
    		});
    	</script>

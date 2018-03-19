@@ -335,15 +335,17 @@ body {
         color: #82A6C0; }
     body main div#content i, body main div#content em {
       font-style: italic; }
-    body main div#content aside#video_chantier {
-      padding-top: 90px; }
-      body main div#content aside#video_chantier h2 {
-        font-size: 20px;
-        color: #005499; }
-      body main div#content aside#video_chantier iframe {
-        width: 100%;
-        max-width: 560px;
-        height: 315px; }
+    body main div#content img {
+      max-width: 100%;
+      height: auto;
+      max-height: 500px;
+      display: block;
+      margin: 0 auto;
+      -webkit-object-fit: contain;
+      -moz-object-fit: contain;
+      -ms-object-fit: contain;
+      -o-object-fit: contain;
+      object-fit: contain; }
   body main#contact_page div#maps {
     height: 400px;
     margin-bottom: 25px; }
@@ -470,6 +472,49 @@ body {
           font-size: 14px; }
           body main#realisation-page div#main div#contenu section div.content p {
             margin-top: 20px; }
+          body main#realisation-page div#main div#contenu section div.content h1 {
+            font-size: 3em; }
+          body main#realisation-page div#main div#contenu section div.content h2 {
+            font-size: 2.5em; }
+          body main#realisation-page div#main div#contenu section div.content h3 {
+            font-size: 2em; }
+          body main#realisation-page div#main div#contenu section div.content h4 {
+            font-size: 1.5em; }
+          body main#realisation-page div#main div#contenu section div.content h1, body main#realisation-page div#main div#contenu section div.content h2, body main#realisation-page div#main div#contenu section div.content h3, body main#realisation-page div#main div#contenu section div.content h4 {
+            color: #FB722C;
+            margin: 15px 0; }
+          body main#realisation-page div#main div#contenu section div.content ul li {
+            list-style: disc; }
+          body main#realisation-page div#main div#contenu section div.content ol li {
+            list-style: upper-hexadecimal; }
+          body main#realisation-page div#main div#contenu section div.content sup {
+            vertical-align: super;
+            font-size: smaller; }
+          body main#realisation-page div#main div#contenu section div.content sub {
+            vertical-align: sub;
+            font-size: smaller; }
+          body main#realisation-page div#main div#contenu section div.content b, body main#realisation-page div#main div#contenu section div.content strong {
+            font-weight: bold; }
+          body main#realisation-page div#main div#contenu section div.content hr {
+            color: #bcbcbc; }
+          body main#realisation-page div#main div#contenu section div.content a {
+            text-decoration: underline;
+            color: #FB722C; }
+            body main#realisation-page div#main div#contenu section div.content a:hover {
+              color: #82A6C0; }
+          body main#realisation-page div#main div#contenu section div.content i, body main#realisation-page div#main div#contenu section div.content em {
+            font-style: italic; }
+          body main#realisation-page div#main div#contenu section div.content img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            display: block;
+            margin: 0 auto;
+            -webkit-object-fit: contain;
+            -moz-object-fit: contain;
+            -ms-object-fit: contain;
+            -o-object-fit: contain;
+            object-fit: contain; }
       body main#realisation-page div#main div#contenu aside {
         width: 100%; }
         @media all and (min-width: 600px) {
@@ -702,27 +747,19 @@ section {
     margin: 40px 0;
     overflow: hidden;
     text-align: center; }
-    @media all and (min-width: 900px) {
-      section#chiffres ul {
-        display: table; } }
     section#chiffres ul li {
       text-align: center;
       display: inline-block;
-      margin: 0 -1px;
+      margin: 15px -2px;
       width: 100%;
       vertical-align: top; }
-      @media all and (min-width: 900px) {
-        section#chiffres ul li {
-          display: table-cell;
-          float: none;
-          vertical-align: middle; } }
       section#chiffres ul li h3 {
         color: #FB722C;
         font-size: 50px; }
         section#chiffres ul li h3 b, section#chiffres ul li h3 strong {
           font-size: 80px;
           font-weight: bold; }
-      section#chiffres ul li p {
+      section#chiffres ul li > p {
         font-size: 20px;
         color: #005499;
         text-transform: uppercase; }
@@ -773,26 +810,28 @@ section {
           background-color: rgba(251, 114, 44, 0.6);
           opacity: 0; }
           section#realisations ul li a span {
+            position: relative;
+            top: 50%;
             display: block;
             font-size: 1.4rem;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
-            position: relative;
-            top: 50%;
+            padding: 0 15px;
             -webkit-transform: translateY(-50%);
             -moz-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             -o-transform: translateY(-50%);
             transform: translateY(-50%); }
           section#realisations ul li a h3 {
+            position: relative;
+            top: 50%;
             display: block;
             font-size: 1.4rem;
             text-align: center;
             margin: 1rem 0;
+            padding: 0 15px;
             font-weight: bold;
-            position: relative;
-            top: 50%;
             -webkit-transform: translateY(-50%);
             -moz-transform: translateY(-50%);
             -ms-transform: translateY(-50%);

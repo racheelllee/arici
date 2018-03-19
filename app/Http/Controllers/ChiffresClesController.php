@@ -30,8 +30,12 @@ class ChiffresClesController extends Controller
      */
     public function index()
     {
-		$chiffresC = ChiffresCles::all();
-        return view('chiffresCles.index', ['chiffresC' => $chiffresC]);    	
+        $chiffresC = ChiffresCles::all();
+        $params = ['chiffresC' => $chiffresC];
+        if (isset($_GET['res']) && $_GET['res']==true) {
+            $params['message'] = ['Success', 'Les informations ont bien été sauvegardées'];   
+        }
+        return view('chiffresCles.index', $params);
     }
 
     /**

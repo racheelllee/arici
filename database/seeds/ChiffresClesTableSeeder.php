@@ -14,7 +14,7 @@ class ChiffresClesTableSeeder extends Seeder
         DB::table('chiffres_cles')->insert([
             'id' => 1,
             'label' => 'réalisations',
-            'cantidad' => '± 1000',
+            'cantidad' => '± <strong>1000</strong>',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime()
         ]);

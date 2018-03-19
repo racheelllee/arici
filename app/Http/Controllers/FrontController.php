@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\DatosGenerales;
 use App\Paginas;
 use App\Categorias;
+use App\ChiffresCles;
 use App\Productos;
 use DB;
 use Mail;
@@ -21,7 +22,8 @@ class FrontController extends Controller
         {
             $datosGenerales = DatosGenerales::first();
             $pagina = Paginas::with('imagenesPaginas')->findOrFail(1);
-            return view('front.philosophie', ['general'=>$datosGenerales, 'pagina'=>$pagina]);        
+            $chiffres = ChiffresCles::all();
+            return view('front.philosophie', ['general'=>$datosGenerales, 'pagina'=>$pagina, 'chiffres'=>$chiffres]);        
         }
 
         /**
