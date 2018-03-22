@@ -5834,13 +5834,37 @@ table tr td.herramientas, table tr th.herramientas {
     .delete-img-container .delete-img:hover {
       opacity: 1; }
 
-#leyenda_content .trumbowyg-box {
+#leyenda_content .trumbowyg-box,
+.lista .trumbowyg-box {
   min-height: 50px; }
-#leyenda_content .trumbowyg-editor {
+#leyenda_content .trumbowyg-editor,
+.lista .trumbowyg-editor {
   min-height: 50px; }
+#leyenda_content a.delete-icon,
+.lista a.delete-icon {
+  font-size: 25px;
+  color: #005499;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 50px;
+  display: block;
+  margin: 60px 0 0 0; }
+  #leyenda_content a.delete-icon:hover,
+  .lista a.delete-icon:hover {
+    color: #FB722C; }
 
-.leyenda {
-  display: none; }
+a#addChiffre {
+  background: #005499;
+  font-size: 16px;
+  border: none; }
+  a#addChiffre i {
+    font-size: 20px;
+    margin-right: 10px; }
+  a#addChiffre:hover {
+    background: #FB722C; }
 
 .linea {
   padding-top: 20px;

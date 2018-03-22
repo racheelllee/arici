@@ -50,6 +50,7 @@ Route::get('dashboard/usuarios/delete/{id}', 'Auth\RegisterController@delete')->
 Route::resource('dashboard/paginas', 'PaginasController');
 Route::post('dashboard/checkslug', 'PaginasController@checkslug');
 Route::delete('dashboard/paginas/removeimg/{id}', 'PaginasController@removeimg');
+Route::post('dashboard/paginas/uploadImageEditor', 'PaginasController@uploadImageEditor');
 
 //PRODUCTOS
 Route::resource('dashboard/productos', 'ProductosController');

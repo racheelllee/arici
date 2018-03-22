@@ -13,7 +13,6 @@ $(document).ready(function(){
 	        url: '/dashboard/checkslug', 
 	        data: { 'titulo': titulo }, 
 	        success: function(data){
-	        	console.log(data);
 	        	$('#hidden').val(data);
 	        }
 		});
@@ -71,9 +70,9 @@ function readURL(input, i) {
 		        					'<div id="pre-view'+(i+1)+'" class="col-md-3 delete-img-container">'+
 		        				  	'</div>'+
 		    						'<div class="form-group col-md-6 leyenda">'+
-		    							'<label>Leyenda</label>'+
-		    							'<textarea class="form-control" name="leyenda'+(i+1)+'"></textarea>'+
-		    						'</div>'+	
+		    							'<label>Copyright</label>'+
+		    							'<input name="leyenda'+(i+1)+'" value="" class="form-control" type="text">'+
+		    						'</div>'+
 		    					 '</div>');
     }
   }

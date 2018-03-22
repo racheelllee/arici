@@ -180,13 +180,8 @@ class PaginasController extends Controller
      */
     public function destroy($id)
     {
-
         echo json_encode(array("test"=>true));
         die();
-        dd('que pasaaaa');
-        // $pagina = Paginas::findOrFail($id);
-        // $pagina->delete();
-        return redirect::to('paginas');
     }
 
     /**
@@ -239,5 +234,25 @@ class PaginasController extends Controller
         die();
     }
 
+    /**
+     *
+     * Upload images from Editor
+     *
+     */
+    public function uploadImageEditor(Request $request){
+        if ($request->hasFile('fileToUpload')) {
+            $image = Input::file('fileToUpload');
+            $filename = uniqid().'.'. $image->getClientOriginalExtension();
+            $path = public_path('imagenes/'.$filename);
+            Image::make($image->getRealPath())->save($path);
+            echo json_encode(["success"=>true, "file"=>'/imagenes/'.$filename]);
+            die();
+        } else {
+            echo json_encode(["success"=>false, "file"=>""]);
+            die();
+        }
+
+        dd($request->hasFile('fileToUpload'));
+    }
        
 }

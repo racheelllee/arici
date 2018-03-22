@@ -6,6 +6,9 @@
                 @foreach ($pagina->imagenesPaginas as $img)
                     <li class="item">
                         <img src="/{{$img->imagen}}">
+                        @if (strlen(trim($img->leyenda)))
+                        <p class="copyright">{{$img->leyenda}}</p>
+                        @endif
                     </li>
                 @endforeach
             </ul>
