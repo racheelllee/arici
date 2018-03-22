@@ -72,7 +72,7 @@ class FrontController extends Controller
             $otherRealisations = Productos::with('imagenesProductos')->with('categorias')->where([
                 ['categorias_id', '=', $category],
                 ['slug', '!=', $slug]
-            ])->get();
+            ])->paginate(3);
             return view('front.realisation', ['general'=>$datosGenerales, 'categorias'=>$categorias, 'realisation'=> $realisation, 'otherRealisations' => $otherRealisations]);        
         }
 

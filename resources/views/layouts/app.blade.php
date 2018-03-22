@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/picker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/trumbowyg.min.css')}}" type="text/css" rel="stylesheet">
     <link href="{{ asset('css/trumbowyg.colors.css')}}" type="text/css" rel="stylesheet">
     <script src="{{ asset('js/jquery.js') }}"></script>

@@ -95,10 +95,14 @@ function readURL(input, i) {
     reader.readAsDataURL(input.files[0]);
     if($('#inputs-files'+(i+1)).length<1){
 	    $('#inputs-files'+i).after('<div class="form-group row" id="inputs-files'+(i+1)+'">'+
-		        					'<input type="file" accept=".png, .jpg, .jpeg" class="img col-md-4" name="imgInp[]" id="imgInp'+(i+1)+'" onchange="cargarImagen(this)"/>'+
+		        					'<input type="file" accept=".png, .jpg, .jpeg" class="img col-md-3" name="imgInp[]" id="imgInp'+(i+1)+'" onchange="cargarImagen(this)"/>'+
 		        					'<div id="pre-view'+(i+1)+'" class="col-md-3 delete-img-container">'+
 		        				  	'</div>'+
-		    					 	'</div>');
+							        '<div class="form-group col-md-6 leyenda">'+
+							        	'<label for="leyenda'+(i+1)+'">Copyright</label>'+
+							        	'<input name="leyenda'+(i+1)+'" id="leyenda'+(i+1)+'" class="form-control" type="text">'+
+									'</div>'+
+		    					 '</div>');
     }
   }
 }

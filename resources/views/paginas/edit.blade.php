@@ -30,8 +30,8 @@
 					</a>
 				</div>
 				<div class='form-group col-md-6 leyenda'>
-					{{ Form::label('leyenda', 'Légende') }}
-					{{ Form::textarea('leyenda'.$key, $pagina->imagenesPaginas[$key]->leyenda, ['class' => 'form-control', 'cols' => '0', 'rows' => '0', 'style'=>'height:100px;']) }}
+					{{ Form::label('leyenda', 'Copyright') }}
+					{{ Form::text('leyenda'.$key, $imagenPagina->leyenda, ['class' => 'form-control']) }}
 				</div>
 			</div>
 		@endforeach
@@ -40,8 +40,8 @@
 			<div id="pre-view{{$imgCount}}" class="col-md-3 delete-img-container">
 			</div>
 			<div class='form-group col-md-6 leyenda'>
-				{{ Form::label('leyenda', 'Légende') }}
-				{{ Form::textarea('leyenda'.$imgCount, '', ['class' => 'form-control', 'cols' => '0', 'rows' => '0', 'style'=>'height:100px;']) }}
+				{{ Form::label('leyenda'.$imgCount, 'Copyright') }}
+				{{ Form::text('leyenda'.$imgCount, '', ['class' => 'form-control']) }}
 			</div>
 		</div>
 		{{ Form::hidden('slug', $pagina->slug, ['id' => 'hidden']) }}
@@ -85,9 +85,6 @@
 						headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
 					}
 				}
-			});
-			$('.leyenda').each(function(){
-				$(this).hide();
 			});
 			$('textarea#leyenda').each(function(){
 				$(this).trumbowyg({

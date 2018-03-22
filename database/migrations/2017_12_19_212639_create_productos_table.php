@@ -21,6 +21,7 @@ class CreateProductosTable extends Migration
             $table->string('nombre_cliente')->nullable();
             $table->string('nombre_arquitecto')->nullable();
             $table->integer('categorias_id');
+            $table->timestamp('fecha_creacion')->nullable();
             $table->timestamps();
         });
     }

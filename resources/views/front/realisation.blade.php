@@ -24,6 +24,9 @@
                         @foreach ($realisation->imagenesProductos as $img)
                             <li class="item">
                                 <img src="/{{$img->imagen}}">
+                                @if (strlen(trim($img->leyenda)))
+                                <p class="copyright">{{$img->leyenda}}</p>
+                                @endif
                             </li>
                         @endforeach
                     @endif
@@ -40,6 +43,9 @@
                     <p id="category">{{ $realisation->categorias->nombre }}</p>
                     <p><strong>Client: </strong>{{ $realisation->nombre_cliente }}</p>
                     <p><strong>Architecte: </strong>{{ $realisation->nombre_arquitecto }}</p>
+                    @if (!is_null($realisation->fecha_creacion))
+                        <p><strong>Date de Création: </strong>{{ date('F Y', strtotime($realisation->fecha_creacion)) }}</p>
+                    @endif
                 </aside>
             </div>
         </div>

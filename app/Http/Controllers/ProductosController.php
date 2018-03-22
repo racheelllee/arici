@@ -67,6 +67,7 @@ class ProductosController extends Controller
             $producto->titulo = $request->titulo;
             $producto->contenido = $request->contenido;
             $producto->slug = $request->slug;
+            $producto->fecha_creacion = (strlen(trim($request->fecha_creacion)) > 0)?date('Y-m-15 12:30:30', strtotime($request->fecha_creacion)):null;
             $producto->nombre_arquitecto = $request->nombre_arquitecto; 
             $producto->nombre_cliente =  $request->nombre_cliente;
             $producto->categorias_id = $request->categoria;
@@ -142,6 +143,7 @@ class ProductosController extends Controller
             $producto = Productos::findOrFail($id);
             $producto->titulo = $request->titulo;
             $producto->slug = $request->slug;
+            $producto->fecha_creacion = (strlen(trim($request->fecha_creacion)) > 0) ? date('Y-m-15 12:30:30', strtotime($request->fecha_creacion)) : null;
             $producto->contenido = $request->contenido;
             $producto->nombre_cliente = $request->nombre_cliente;
             $producto->nombre_arquitecto = $request->nombre_arquitecto;
@@ -153,7 +155,6 @@ class ProductosController extends Controller
                         if((int)$request->cuantasImagenesHay >= $key+1){ 
                         //edita el registro existente
                             $todasImagenesProductos = DB::table('imagenes_productos')->where('productos_id', $id)->get();
-                            
                             $idImageP = $todasImagenesProductos[$key]->id;
                             $imagenProductos = ImagenesProductos::find($idImageP);
                             $imagenProductos->leyenda = Input::get('leyenda'.$key);
