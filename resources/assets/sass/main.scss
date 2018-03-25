@@ -717,6 +717,7 @@ body{
 							width: 33.33%;
 							margin: 0  -2px !important;
 							display: inline-block;
+							vertical-align: middle;
 						}
 
 						&:nth-of-type(2){
@@ -1116,10 +1117,32 @@ section{
 		}
 	}
 
+	&#confiance{
+		h2{
+			font-size: 48px;
+		}
+		ul{
+			text-align: center;
+			li{
+				vertical-align: middle;
+				display: inline-block;
+				margin:0 -2px;
+				padding:20px;
+				width: 25%;
+				box-sizing:border-box;
+
+				img{
+					max-width: 100%;
+					height:auto;
+				}
+			}
+		}
+	}
+
 	&#organigramme{
 		h2{
 			text-transform: none;
-			font-size: 3em;
+			font-size: 48px;
 		}
 		h3#chantiers{
 			color: $blue;
