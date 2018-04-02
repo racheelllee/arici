@@ -39,6 +39,16 @@
 				{{ Form::text('nombre_arquitecto', null, ['class' => 'form-control']) }}
 			</div>
 		</div>
+		<hr>
+		<div>
+			<div class="row">
+				<h4 class="col-xs-6">Articles de Presse</h4>
+				<input class="col-xs-6" type="file" name="pdf_productos" id="pdf_productos" multiple>
+			</div>
+			<div id="all_pdfs" class="row">
+			</div>
+		</div>
+		<hr>
 		<h4>Images</h4>
 		<div class='form-group row' id="inputs-files0">
 			<input type='file' name="imgInp[]" accept=".png, .jpg, .jpeg" class="img col-md-3" id="imgInp0" onchange="cargarImagen(this)"/>
@@ -52,7 +62,7 @@
 		{{ Form::hidden('slug', null, ['id' => 'hidden']) }}
 		<div class='clearfix'></div>
 		<div class='form-group'>
-			{{ Form::submit('Crear', ['class' => 'btn btn-primary']) }}
+			{{ Form::submit('Créer', ['class' => 'btn btn-primary']) }}
 		</div>
 	{{ Form::close() }}
 @endsection

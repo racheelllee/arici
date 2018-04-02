@@ -38,6 +38,21 @@
                     <div class="content">
                         {!!$realisation->contenido!!}
                     </div>
+                    @if ($realisation->pdfProductos->count() > 0)
+                        <div id="pdfs">
+                            <h3>Revue de Presse</h3>
+                            <ul id="pdfs-list">
+                            @foreach ($realisation->pdfProductos as $pdf)
+                                <li>
+                                    <a href="/{{$pdf->path}}" target="_blank">                                    
+                                        <img src="/imagenes/pdf.gif" alt="pdf">
+                                        <span>{{$pdf->realname}}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </section>
                 <aside>
                     <p id="category">{{ $realisation->categorias->nombre }}</p>

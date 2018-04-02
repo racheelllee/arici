@@ -45,13 +45,15 @@
 				<input class="col-xs-6" type="file" name="pdf_productos" id="pdf_productos" multiple>
 			</div>
 			<div id="all_pdfs" class="row">
+				@foreach($producto->pdfProductos as $key => $pdf)
 				<div class="pdf col-xs-4 col-sm-2 delete-pdf-container">
 					<img src="/imagenes/pdf.gif" alt="pdf">
-					<span>SUD OUEST 28-02-2017.pdf</span>
-					<a href="#" class="delete-pdf">
+					<span>{{$pdf->realname}}</span>
+					<a href="#" class="delete-pdf" onclick="deletepdf(this);return false;" data-pdfid="{{$pdf->id}}">
 						<i class="fa fa-trash"></i>
 					</a>
 				</div>
+				@endforeach
 			</div>
 		</div>
 		<hr>
@@ -83,7 +85,7 @@
 		{{ Form::hidden('slug', $producto->slug, ['id' => 'hidden']) }}
 		{{ Form::hidden('cuantasImagenesHay', $imgCount, ['id' => 'cuantasCuantas']) }}
 		<div class='form-group clearfix'>
-			{{ Form::submit('Editar', ['class' => 'btn btn-primary']) }}
+			{{ Form::submit('Éditer', ['class' => 'btn btn-primary']) }}
 		</div>
 	{{ Form::close() }}
 @endsection

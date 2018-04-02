@@ -669,6 +669,39 @@ body{
 								object-fit:contain;
 							}
 						}
+						div#pdfs{
+							h3{
+								margin: 30px 0 10px 0;
+								text-transform: uppercase;
+								color: #005499;
+								font-size: 18px;
+								font-weight: 600;
+							}
+							ul#pdfs-list{
+								li{
+									display: inline-block;
+									margin-right: 15px;
+									width:100%;
+									max-width: 140px;
+									a{
+										display: table;
+										width: 100%;
+										color:#626262;
+										text-decoration: none;
+										&:hover{
+											color:$orange;
+										}
+										img, span{
+											display: table-cell;
+											vertical-align: bottom;
+										}
+										img{
+											padding-right: 5px;
+										}
+									}
+								}
+							}
+						}
 					}
 
 					aside{

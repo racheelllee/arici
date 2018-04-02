@@ -79,6 +79,14 @@ class ProductosController extends Controller
             $producto->maitre_oeuvre =  $request->maitre_oeuvre;
             $producto->categorias_id = $request->categoria;
             if($producto->save()){
+                // Linker les PDF
+                if ($request->has('pdfId')) {
+                    foreach ($request->pdfId as $idPdf) {
+                        $pdf = PdfProductos::findOrFail($idPdf);
+                        $pdf->productos_id = $producto->id;
+                        $pdf->save();
+                    }
+                }
                 //imagenes
                 if($request->hasFile('imgInp')){
                     foreach($request->file('imgInp') as  $key =>$f){
@@ -146,11 +154,8 @@ class ProductosController extends Controller
             $producto->maitre_oeuvre =  $request->maitre_oeuvre;
             $producto->categorias_id = $request->categoria;
             if($producto->save()){
-                var_dump($request);
-                die();
                 // Linker les PDF
                 if ($request->has('pdfId')) {
-                    var_dump($request->pdfId);
                     foreach ($request->pdfId as $idPdf) {
                         $pdf = PdfProductos::findOrFail($idPdf);
                         $pdf->productos_id = $id;
@@ -314,6 +319,23 @@ class ProductosController extends Controller
             array_push($resp, false);
         }
         echo json_encode($resp);
+        die();
+    }
+
+    /**
+     * Add a new PDF to the productos_pdf table.
+     *
+     * @param  Request
+     * @return id du nouveau PDF
+     */
+    public function deletepdf($id)
+    {
+        $pdf = PdfProductos::findOrFail($id);
+        if($pdf->delete()){
+            echo "true";
+            //Hay que borrar el pdf del disco!!!
+            unlink(public_path($pdf->path));
+        }
         die();
     }
 }

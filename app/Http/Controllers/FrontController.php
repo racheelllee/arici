@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DatosGenerales;
 use App\LinksDatosGenerales;
+use App\PdfProductos;
 use App\Paginas;
 use App\Categorias;
 use App\ChiffresCles;
@@ -70,7 +71,7 @@ class FrontController extends Controller
             $categorias = Categorias::all();
             $realisation = Productos::with('categorias')->where('slug', $slug)->first();
             $category = $realisation->categorias->id;
-            $otherRealisations = Productos::with('imagenesProductos')->with('categorias')->where([
+            $otherRealisations = Productos::with('imagenesProductos')->with('categorias')->with('pdfProductos')->where([
                 ['categorias_id', '=', $category],
                 ['slug', '!=', $slug]
             ])->get();

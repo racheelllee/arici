@@ -1,5 +1,56 @@
 $(document).ready(function(){
 
+	//PDF File
+	$("input#pdf_productos").change(function(){
+
+		var formData = new FormData();
+		// En premier on créér les nouveaux emplacements des PDF en FRONT
+		$.each(this.files, function(){
+			var nPdfTag = '<div class="pdf col-xs-4 col-sm-2 delete-pdf-container newpdf">'+
+							'<img src="/imagenes/pdf.gif" alt="pdf">'+
+							'<span>'+this.name+'</span>'+
+							'<a href="#" class="delete-pdf" onclick="deletepdf(this);return false;" data-pdfid="0">'+
+								'<i class="fa fa-trash"></i>'+
+							'</a>'+
+							'<div class="overlay-loading">'+
+								'<i class="fa fa-cog fa-spin"></i>'+
+							'</div>'+
+						'</div>';
+			$('div#all_pdfs').append(nPdfTag);
+			formData.append('pdfs[]', this);
+		});
+
+		// On envoie ensuite les fichiers au serveur
+		$.ajax({
+			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+			data: formData,
+			dataType: 'JSON',
+			processData: false,
+			contentType: false,
+			type: 'POST',
+			url: '/dashboard/productos/uploadpdf',
+			success: function(data){
+				$.each(data, function(k, v){
+					if (v == false) {
+						$('div.newpdf').eq(0).remove();
+					} else {
+						var div = $('div.newpdf').get(0);
+						$(div).find('.overlay-loading').remove();
+						$(div).find('.delete-pdf').data('pdfid', v);
+						$(div).prepend('<input type="hidden" name="pdfId[]" value="'+v+'">');
+						$(div).removeClass('newpdf');
+					}
+				});
+			},
+			error: function(){
+				$('div.newpdf').each(function(){
+					$(this).remove();
+				});
+				alert('Le chargement des PDF a échoué');
+			}
+		});
+	});
+	
 	$('.delete-item').click(function(event){
 	    event.preventDefault();
 	    var urlId = $(this).data('urlid'),
@@ -105,4 +156,27 @@ function readURL(input, i) {
 		    					 '</div>');
     }
   }
+}
+
+function deletepdf(button){
+	var pdfId = $(button).data('pdfid');
+	swal({
+		title: "Vous êtes sûr?",
+		text: "Cette action est irréversible...",
+		icon: "warning",
+		buttons: ["Annuler", "Supprimer Définitivement"],
+	}).then(function(action){
+		if(action === true){
+			$.ajax({
+				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				type: 'DELETE',
+				url: '/dashboard/productos/deletepdf/' + pdfId,
+				success:function(data){
+					if (data === true || data === 'true') {
+						$(button).closest('.delete-pdf-container').remove();  	
+					}
+				}
+			});
+		}
+	});
 }

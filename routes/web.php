@@ -55,6 +55,7 @@ Route::post('dashboard/paginas/uploadImageEditor', 'PaginasController@uploadImag
 //PRODUCTOS
 Route::resource('dashboard/productos', 'ProductosController');
 Route::post('dashboard/productos/uploadpdf', 'ProductosController@uploadpdf');
+Route::delete('dashboard/productos/deletepdf/{id}', 'ProductosController@deletepdf');
 Route::delete('dashboard/productos/removeimg/{id}', 'ProductosController@removeimg');
 Route::post('dashboard/checkslugproducts', 'ProductosController@checkslug');
 
