@@ -3,30 +3,40 @@
 @section('content')
 	<h3>Créer une nouvelle réalisation</h3>
 	{{ Form::open(array('route' => 'productos.store','method'=>'POST', 'files' => true)) }}
-		<div class='form-group col-md-8'>
+		<div class='form-group'>
 			{{ Form::label('titulo', 'Titre') }}
-			{{ Form::text('titulo', null, ['class' => 'form-control']) }}
-		</div>
-		<div class='form-group col-md-4'>
-			{{ Form::label('fecha_creacion', 'Date de Création') }}
-			{{ Form::text('fecha_creacion', null, ['class' => 'form-control']) }}
+			{{ Form::text('titulo', null, ['class' => 'form-control', 'id' => 'titulo']) }}
 		</div>
 		<div class='form-group'>
 			{{ Form::label('contenido', 'Contenu') }}
-			{{ Form::textarea('contenido', null, ['class' => 'form-control froala']) }}
+			{{ Form::textarea('contenido', null, ['class' => 'form-control']) }}
+		</div>
+		<div class="row">
+			<div class='form-group col-xs-12 col-sd-12 col-md-4'>
+				{{ Form::label('categoria', 'Categoria') }}
+				{{ Form::select('categoria', $allCategorias, null, ['class' => 'form-control']) }}
+			</div>
+			<div class='form-group col-xs-12 col-sd-12 col-md-4'>
+				{{ Form::label('montant_ht', 'Montant HT') }}
+				{{ Form::text('montant_ht', null, ['class' => 'form-control']) }}
+			</div>
+			<div class='form-group col-xs-12 col-sd-12 col-md-4'>
+				{{ Form::label('fecha_creacion', 'Année de Création') }}
+				{{ Form::text('fecha_creacion', null, ['class' => 'form-control']) }}
+			</div>
 		</div>
 		<div class="row">
 			<div class='form-group col-xs-12 col-sd-6 col-md-4'>
-				{{ Form::label('nombre_arquitecto', 'Architecte') }}
-				{{ Form::text('nombre_arquitecto', null, ['class' => 'form-control']) }}
-			</div>
-			<div class='form-group col-xs-12 col-sd-6 col-md-4'>
-				{{ Form::label('nombre_cliente', 'Client') }}
+				{{ Form::label('nombre_cliente', "Maître d'ouvrage") }}
 				{{ Form::text('nombre_cliente', null, ['class' => 'form-control']) }}
 			</div>
 			<div class='form-group col-xs-12 col-sd-12 col-md-4'>
-				{{ Form::label('categoria', 'Catégorie') }}
-				{{ Form::select('categoria', $allCategorias, null, ['class' => 'form-control']) }}
+				{{ Form::label('maitre_oeuvre', "Maître d'œuvre") }}
+				{{ Form::text('maitre_oeuvre', null, ['class' => 'form-control']) }}
+			</div>
+			<div class='form-group col-xs-12 col-sd-6 col-md-4'>
+				{{ Form::label('nombre_arquitecto', 'Architecte') }}
+				{{ Form::text('nombre_arquitecto', null, ['class' => 'form-control']) }}
 			</div>
 		</div>
 		<h4>Images</h4>
@@ -56,12 +66,6 @@
 	<script src="{{ asset('js/trumbowyg.colors.js')}}"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-
-			pickmeup('#fecha_creacion', {
-				default_date:false,
-				format	: 'd-m-Y',
-				view:'months'
-			});
 
 			$('#contenido').trumbowyg({
 				// btns: ['strong', 'em', '|', 'insertImage'],

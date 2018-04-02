@@ -73,7 +73,7 @@ class FrontController extends Controller
             $otherRealisations = Productos::with('imagenesProductos')->with('categorias')->where([
                 ['categorias_id', '=', $category],
                 ['slug', '!=', $slug]
-            ])->paginate(3);
+            ])->get();
             return view('front.realisation', ['general'=>$datosGenerales, 'categorias'=>$categorias, 'realisation'=> $realisation, 'otherRealisations' => $otherRealisations]);        
         }
 
@@ -141,19 +141,18 @@ class FrontController extends Controller
                 $datosGenerales = DatosGenerales::first(['correo_contacto']);
                 $para      = $datosGenerales->correo_contacto;
                 $titulo    = $request->input('sujet');
-                $mensaje   = $request->input('message') . '<br>' .$request->input('nom');
+                $mensaje   = str_replace(PHP_EOL,"<br>",$request->input('message')) . '<br>' .$request->input('nom');
                 $cabeceras = "From: ".$request->input('nom')."<".$request->input('courriel')."> \r\n";
                 $cabeceras .= "Reply-To: ".$request->input('nom')."<".$request->input('courriel')."> \r\n";
+                $cabeceras .= "MIME-Version: 1.0\r\n";
+                $cabeceras .= "Content-Type: text/html; charset=UTF-8\r\n";
                 $cabeceras .= "X-Mailer: PHP/" . phpversion();
-                $ok = mail($para, $titulo, $mensaje, $cabeceras);
-                
-                if ($ok === true) {
+                if (mail($para, $titulo, $mensaje, $cabeceras)) {
                     echo json_encode(true);
                 } else {
                     echo json_encode(['Une erreur est survenue, veuillez rééssayer ultérieurement.']);
                 }
-
             }
-
+            die();
         }
     }

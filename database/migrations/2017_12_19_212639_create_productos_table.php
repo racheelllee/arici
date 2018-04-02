@@ -17,11 +17,13 @@ class CreateProductosTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->text('contenido');
+            $table->string('fecha_creacion')->nullable();
             $table->string('slug')->unique();
             $table->string('nombre_cliente')->nullable();
             $table->string('nombre_arquitecto')->nullable();
+            $table->string('maitre_oeuvre')->nullable();
+            $table->string('montant_ht')->nullable();
             $table->integer('categorias_id');
-            $table->timestamp('fecha_creacion')->nullable();
             $table->timestamps();
         });
     }

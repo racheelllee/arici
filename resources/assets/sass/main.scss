@@ -696,6 +696,7 @@ body{
 				h3{
 					text-align: center;
 					font-size: 1.4rem;
+					text-transform: uppercase;
 				}
 				ul#slider{
 					width:100%;
@@ -703,6 +704,7 @@ body{
 					margin:1rem auto;
 					overflow: hidden;
 					text-align: center;
+					position: relative;
 					li{
 						display: block;
 						height: 200px;
@@ -773,6 +775,48 @@ body{
 							a{
 								opacity: 1;
 							}
+						}
+					}
+					div.owl-item{
+						li{
+							width: 100%;
+						}
+					}
+					div.owl-nav{
+						position: absolute;
+						pointer-events:none;
+						top:50%;
+						left:0;
+						width:100%;
+						overflow: hidden;
+						-webkit-transform: translateY(-50%);
+						-moz-transform: translateY(-50%);
+						-ms-transform: translateY(-50%);
+						-o-transform: translateY(-50%);
+						transform: translateY(-50%);
+						div.owl-prev,
+						div.owl-next{
+							pointer-events:all;
+							float:left;
+							display: block;
+							width:45px;
+							height:35px;
+							text-indent: -9999px;
+							opacity: .5;
+							background:transparent url(../imagenes/prev.png) no-repeat;
+							-webkit-background-size: contain;
+							-moz-background-size: contain;
+							-ms-background-size: contain;
+							-o-background-size: contain;
+							background-size: contain;
+							&:hover{
+								cursor:pointer;
+								opacity: .8;
+							}
+						}
+						div.owl-next{
+							float: right;
+							background-image: url(../imagenes/next.png);
 						}
 					}
 				}
@@ -1120,20 +1164,41 @@ section{
 	&#confiance{
 		h2{
 			font-size: 48px;
+			text-transform: none;
 		}
 		ul{
 			text-align: center;
+			margin: 0 -15px;
 			li{
 				vertical-align: middle;
 				display: inline-block;
 				margin:0 -2px;
-				padding:20px;
-				width: 25%;
 				box-sizing:border-box;
-
+				a{
+					display: block;
+					width: 100%;
+					height: 100%;
+					padding:35px;
+					box-sizing:border-box;
+				}
 				img{
 					max-width: 100%;
 					height:auto;
+					-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+					-moz-filter: grayscale(100%);
+					-ms-filter: grayscale(100%);
+					-o-filter: grayscale(100%);
+					filter: grayscale(100%);
+				}
+
+				&:hover{
+					img{
+						-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+						-moz-filter: grayscale(0%);
+						-ms-filter: grayscale(0%);
+						-o-filter: grayscale(0%);
+						filter: grayscale(0%);		
+					}
 				}
 			}
 		}
@@ -1151,15 +1216,19 @@ section{
 			font-size: 1.4em;
 			margin-bottom: 20px;
 		}
-		ul{
+		ul#team,
+		ul#administratifs,
+		ul#directeur{
 			text-align: center;
 			width: 100%;
 			margin: 0 0 30px 0;
-			li{
+			& > li{
 				display: inline-block;
+				vertical-align: top;
 				margin:0 -2px;
-				padding: 10px;
+				padding: 30px;
 				box-sizing:border-box;
+				width: 100%;
 				img{
 					max-width: 100%;
 					height: auto;
@@ -1173,20 +1242,50 @@ section{
 				span{
 					color:$blue;
 				}
+				ul{
+					li{
+						width: 50% !important;
+						display: inline-block;
+						vertical-align: top;
+						margin:0 -2px;
+						padding: 0 10px;
+						box-sizing:border-box;
+					}
+				}
 			}
 			&#directeur{
 				li{
-					width: 50%;
+					@media all and (min-width:$mobile){
+						width: 60%;
+						padding: 10px;
+					}
 				}
 			}
 			&#administratifs{
 				li{
-					width: 40%;
+					@media all and (min-width:$mobile){
+						width: 45%;
+					}
 				}
 			}
 			&#team{
+				box-sizing:border-box;
+				@media all and (min-width:$mobile){
+					padding:0 3%;
+				}
 				li{
-					width: 25%;
+					padding-top:0;
+					padding-bottom:0;
+					width: 50%;
+					@media all and (min-width:$mobile){
+						width: 25%;
+					}
+					img{
+						max-width: 95%;
+						@media all and (min-width:$mobile){
+							max-width: 80%;
+						}
+					}
 				}
 			}
 		}

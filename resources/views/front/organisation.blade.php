@@ -25,8 +25,8 @@
             <ul id="directeur">
                 <li>
                     <img src="/imagenes/grassi-bordes.jpg" alt="Robert Arici - Arici">
-                    <h3>Erick BORDES et Janick GRASSI</h3>
-                    <span>Direction Générale</span>
+                    <h3>Janick GRASSI et Eric BORDES</h3>
+                    <span>DIRECTION GÉNÉRALE</span>
                 </li>
             </ul>
             <ul id="administratifs">
@@ -35,45 +35,41 @@
                     <ul>
                         <li>
                             <h3>Valérie GARRAS</h3>
-                            <span>Responsable service Comptabilité</span>
+                            <span>Responsable Service Comptabilité</span>
                         </li>
                         <li>
-                            <h3>Christelle Brassac</h3>
-                            <span>ADMINISTRATION & FINANCES</span>
+                            <h3>Christelle BRASSAC</h3>
+                            <span>Directrice Administrative et Financière</span>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <img src="/imagenes/cattai.jpg" alt="Robert Arici - Arici">
-                    <ul>
-                        <li>
-                            <h3>Jean-Marie CATTAÏ</h3>
-                            <span>Responsable d'études BUREAU D'ÉTUDES</span>
-                        </li>
-                        <li>
-                            <h3>Jean-Marie CATTAÏ</h3>
-                            <span>Responsable d'études BUREAU D'ÉTUDES</span>
-                        </li>
-                    </ul>
+                    <h3>Éric CHASSAGNE  et Jean-Marie CATTAÏ</h3>
+                    <span>BUREAU D'ÉTUDES</span>
                 </li>
             </ul>
             <h3 id="chantiers">Gestion des chantiers</h3>
             <ul id="team">
                 <li>
                     <img src="/imagenes/damien-guillaume-marchand.jpg" alt="Robert Arici - Arici">
-                    <h3>Damien Guillaume MARCHAND</h3>
+                    <h3>Damien MARCHAND</h3>
+                    <span>Conducteur de Travaux</span>
                 </li>
                 <li>
                     <img src="/imagenes/jordi-clement-palacin.jpg" alt="Robert Arici - Arici">
-                    <h3>Jordi Clement PALACIN</h3>
+                    <h3>Jordi PALACIN</h3>
+                    <span>Conducteur de Travaux</span>
                 </li>
                 <li>
                     <img src="/imagenes/pierre-robin-lechat-meteau.jpg" alt="Robert Arici - Arici">
-                    <h3>Pierre Robin LECHAT METEAU</h3>
+                    <h3>Pierre LECHAT-METEAU</h3>
+                    <span>Conducteur de Travaux</span>
                 </li>
                 <li>
                     <img src="/imagenes/josselin-quilibrano.jpg" alt="Robert Arici - Arici">
                     <h3>Josselin QUILIBRANO</h3>
+                    <span>Conducteur de Travaux</span>
                 </li>
             </ul>
         </div>
