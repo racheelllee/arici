@@ -66,6 +66,8 @@ class OrganizacionesController extends Controller
             }else{
                 if(!$org->update()){
                     return redirect('/dashboard/organizaciones')->with('alert-error', 'Organization pas editer, Il y a un error.');
+                }else{
+                    echo "true";
                 }
             }
             die();

@@ -69,7 +69,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ route('datos_generales.edit', 1) }}">Informations Générales</a></li>
                                     <li><a href="{{ route('chiffres_cles.index') }}">Chiffres Clés</a></li>
-                                    <li><a href="#">Organigramme</a></li>
+                                    <li><a href="{{ route('organizaciones.index') }}">Organigramme</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">

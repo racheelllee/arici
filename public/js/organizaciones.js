@@ -1,21 +1,32 @@
 $(document).ready(function(){
+
+	transformToEditor();
+
 	$('#savee').click(function(){
 		$('.lista').each(function(key, val){
-			if($(this).find('input[name="imgInp[]"]').get(0).files.length > 0){
-				var txt = $(this).attr('id');
-				var id = txt.match(/\d/g);
-				id = parseInt(id.join(""));
+			var txt = $(this).attr('id');
+			var id = txt.match(/\d/g);
+			id = parseInt(id.join(""));
+			if (id == 0) {
+				if($(this).find('input[name="imgInp[]"]').get(0).files.length > 0){
+					var flag = false;
+					if (key == $('.lista').length-1) {
+						flag = true;
+					}
+					edit(this, id, flag);
+				}else{
+					swal({
+						title: "Attention",
+						text: "Vous devez selectioner une image",
+						icon: "warning"
+					});
+				}
+			} else {
 				var flag = false;
 				if (key == $('.lista').length-1) {
 					flag = true;
 				}
 				edit(this, id, flag);
-			}else{
-				swal({
-					title: "Attention",
-					text: "Vous devez selectioner une image",
-					icon: "warning"
-				});
 			}
 		});
 	});
@@ -29,20 +40,19 @@ $(document).ready(function(){
 									'<img id="blah'+combien+'" src="#" alt="your image" style="height: 100px; width: auto;">'+
 								'</div>'+ 
 								'<div class="form-group col-md-4">'+
-									'<label for="texto">Text</label>'+
 									'<textarea name="texto" class="form-control newtextarea"></textarea>'+
 								'</div>'+ 
 								'<div class="form-group col-md-2">'+
 									'<label for="nivel">Niveau</label>'+
 									'<select id="nivel" name="nivel" class="form-control">'+
-										'<option value="0" selected="selected">0</option>'+
-										'<option value="1">1</option>'+
-										'<option value="2">2</option>'+
+										'<option value="0">Direction</option>'+
+										'<option value="1">Responsables</option>'+
+										'<option value="2" selected="selected">Gestion des chantiers</option>'+
 									'</select>'+
 								'</div>'+
 								'<div class="col-md-1">'+
-							    	'<a href="" id="0" class="delete-icon" onclick="deleteOrganizacion(this);return false;"><i class="fa fa-trash"></i></a>'+
-							    '</div>'+
+									'<a href="" id="0" class="delete-icon" onclick="deleteOrganizacion(this);return false;"><i class="fa fa-trash"></i></a>'+
+								'</div>'+
 							'</div>');
 		transformToEditor();
 		return false;
@@ -59,30 +69,39 @@ function cargarImagen(input){
 
 function readURL(input, i) {
   if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    $('#pre-view'+i).html('<img id="blah'+i+'" src="#" alt="your image" style="height:100px; width:auto;" /><a href="#" class="delete-img" onclick="deleteImg(this);return false;" data-imgid=""><i class="fa fa-trash"></i></a>');
-    reader.onload = function(e) {
-      $("#blah"+i).attr('src', e.target.result);
-    }
-    reader.readAsDataURL(input.files[0]);
+	var reader = new FileReader();
+	$('#pre-view'+i).html('<img id="blah'+i+'" src="#" alt="your image" style="height:100px; width:auto;" /><a href="#" class="delete-img" onclick="deleteImg(this);return false;" data-imgid=""><i class="fa fa-trash"></i></a>');
+	reader.onload = function(e) {
+	  $("#blah"+i).attr('src', e.target.result);
+	}
+	reader.readAsDataURL(input.files[0]);
   }
 }
 
 
 function deleteOrganizacion(input){
 	var id =input.id;
-	if(input.id != 0){
-		$.ajax({
-			headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-			type: 'DELETE',
-			url: '/dashboard/deleteOrganizacion/'+id,
-			success: function(data){
+	swal({
+		title: "Êtes-vous sûr ?",
+		text: "Cette action est irréversible!",
+		icon: "warning",
+		buttons: ["Annuler", "Supprimer Définitivement"],
+	}).then(function(action){
+		if(action === true){
+			if(input.id != 0){
+				$.ajax({
+					headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+					type: 'DELETE',
+					url: '/dashboard/deleteOrganizacion/'+id,
+					success: function(data){
+						$(input).closest('.lista').remove();
+					}
+				});
+			}else{
 				$(input).closest('.lista').remove();
 			}
-		});
-	}else{
-		$(input).closest('.lista').remove();
-	}
+		}
+	});
 
 }
 
@@ -100,11 +119,11 @@ function edit(linea, id, reload){
 		form.append('nivel', nivel);
 		$.ajax({ 
 			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-	        type: 'POST', 
-	        url: '/dashboard/editOrganizacion',
-	        processData: false,
-	        contentType: false, 
-	        data: form,
+			type: 'POST', 
+			url: '/dashboard/editOrganizacion',
+			processData: false,
+			contentType: false, 
+			data: form,
 				success:function(){
 					if(reload == true){
 						window.location.href='/dashboard/organizaciones?res=true';
