@@ -18,10 +18,37 @@ table{
 	}
 }
 
-.delete-img-container{
+div#all_pdfs{
+	div.pdf{
+		display: table;
+		img, span{
+			display: table-cell;
+			vertical-align: bottom 
+		}
+	}
+}
+
+.overlay-loading{
+	position: absolute;
+	top:0;
+	left:0;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	background-color: rgba(0,0,0,0.4);
+	i{
+		line-height: 50px;
+		font-size: 30px;
+		color:white;
+	}
+}
+
+.delete-img-container,
+.delete-pdf-container{
 	position:relative;
 	text-align: center;
-	.delete-img{
+	.delete-img,
+	.delete-pdf{
 		position: absolute;
 		top:0;left:0;
 		height:100%;

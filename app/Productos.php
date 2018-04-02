@@ -16,6 +16,14 @@ class Productos extends Model
         return $this->hasMany('App\ImagenesProductos');
     }
 
+    /**
+     * Cada producto tiene pdf.
+     */
+    public function pdfProductos()
+    {
+        return $this->hasMany('App\PdfProductos');
+    }
+
      /**
      * Cada producto tiene una categoria.
      */

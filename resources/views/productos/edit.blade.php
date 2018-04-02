@@ -38,6 +38,23 @@
 				{{ Form::text('nombre_arquitecto', $producto->nombre_arquitecto, ['class' => 'form-control']) }}
 			</div>
 		</div>
+		<hr>
+		<div>
+			<div class="row">
+				<h4 class="col-xs-6">Articles de Presse</h4>
+				<input class="col-xs-6" type="file" name="pdf_productos" id="pdf_productos" multiple>
+			</div>
+			<div id="all_pdfs" class="row">
+				<div class="pdf col-xs-4 col-sm-2 delete-pdf-container">
+					<img src="/imagenes/pdf.gif" alt="pdf">
+					<span>SUD OUEST 28-02-2017.pdf</span>
+					<a href="#" class="delete-pdf">
+						<i class="fa fa-trash"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<hr>
 		<h4>Images</h4>
 		@foreach($producto->imagenesProductos as $key => $imagenProducto)
 			<div class='form-group row' id="inputs-files{{$key}}">

@@ -41,6 +41,9 @@
                 </section>
                 <aside>
                     <p id="category">{{ $realisation->categorias->nombre }}</p>
+                    @if (!is_null($realisation->fecha_creacion) && strlen(trim($realisation->fecha_creacion)) > 0)
+                        <p><strong>Année de Création: </strong>{{ $realisation->fecha_creacion }}</p>
+                    @endif
                     @if (!is_null($realisation->montant_ht) && strlen(trim($realisation->montant_ht)) > 0)
                         <p><strong>Montant total HT: </strong>{{ $realisation->montant_ht }}</p>
                     @endif
@@ -52,9 +55,6 @@
                     @endif
                     @if (!is_null($realisation->nombre_arquitecto) && strlen(trim($realisation->nombre_arquitecto)) > 0)
                         <p><strong>Architecte: </strong>{{ $realisation->nombre_arquitecto }}</p>
-                    @endif
-                    @if (!is_null($realisation->fecha_creacion) && strlen(trim($realisation->fecha_creacion)) > 0)
-                        <p><strong>Année de Création: </strong>{{ $realisation->fecha_creacion }}</p>
                     @endif
                 </aside>
             </div>

@@ -5801,10 +5801,33 @@ button.close {
 table tr td.herramientas, table tr th.herramientas {
   text-align: center; }
 
-.delete-img-container {
+div#all_pdfs div.pdf {
+  display: table; }
+  div#all_pdfs div.pdf img, div#all_pdfs div.pdf span {
+    display: table-cell;
+    vertical-align: bottom; }
+
+.overlay-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4); }
+  .overlay-loading i {
+    line-height: 50px;
+    font-size: 30px;
+    color: white; }
+
+.delete-img-container,
+.delete-pdf-container {
   position: relative;
   text-align: center; }
-  .delete-img-container .delete-img {
+  .delete-img-container .delete-img,
+  .delete-img-container .delete-pdf,
+  .delete-pdf-container .delete-img,
+  .delete-pdf-container .delete-pdf {
     position: absolute;
     top: 0;
     left: 0;
@@ -5816,9 +5839,18 @@ table tr td.herramientas, table tr th.herramientas {
     background-color: rgba(0, 0, 0, 0.4);
     opacity: 0;
     z-index: 10; }
-    .delete-img-container .delete-img, .delete-img-container .delete-img * {
+    .delete-img-container .delete-img, .delete-img-container .delete-img *,
+    .delete-img-container .delete-pdf,
+    .delete-img-container .delete-pdf *,
+    .delete-pdf-container .delete-img,
+    .delete-pdf-container .delete-img *,
+    .delete-pdf-container .delete-pdf,
+    .delete-pdf-container .delete-pdf * {
       transition: all .3s; }
-    .delete-img-container .delete-img i {
+    .delete-img-container .delete-img i,
+    .delete-img-container .delete-pdf i,
+    .delete-pdf-container .delete-img i,
+    .delete-pdf-container .delete-pdf i {
       position: relative;
       top: 25%;
       display: block;
@@ -5829,9 +5861,15 @@ table tr td.herramientas, table tr th.herramientas {
       line-height: 40px;
       margin: auto;
       opacity: 0.6; }
-      .delete-img-container .delete-img i:hover {
+      .delete-img-container .delete-img i:hover,
+      .delete-img-container .delete-pdf i:hover,
+      .delete-pdf-container .delete-img i:hover,
+      .delete-pdf-container .delete-pdf i:hover {
         opacity: 1; }
-    .delete-img-container .delete-img:hover {
+    .delete-img-container .delete-img:hover,
+    .delete-img-container .delete-pdf:hover,
+    .delete-pdf-container .delete-img:hover,
+    .delete-pdf-container .delete-pdf:hover {
       opacity: 1; }
 
 #leyenda_content .trumbowyg-box,

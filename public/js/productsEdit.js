@@ -1,21 +1,72 @@
 $(document).ready(function(){
+
+	//PDF File
+	$("input#pdf_productos").change(function(){
+
+		var formData = new FormData();
+		// En premier on créér les nouveaux emplacements des PDF en FRONT
+		$.each(this.files, function(){
+			var nPdfTag = '<div class="pdf col-xs-4 col-sm-2 delete-pdf-container newpdf">'+
+							'<img src="/imagenes/pdf.gif" alt="pdf">'+
+							'<span>'+this.name+'</span>'+
+							'<a href="#" class="delete-pdf">'+
+								'<i class="fa fa-trash"></i>'+
+							'</a>'+
+							'<div class="overlay-loading">'+
+								'<i class="fa fa-cog fa-spin"></i>'+
+							'</div>'+
+						'</div>';
+			$('div#all_pdfs').append(nPdfTag);
+			formData.append('pdfs[]', this);
+		});
+
+		// On envoie ensuite les fichiers au serveur
+		$.ajax({
+			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+			data: formData,
+			dataType: 'JSON',
+			processData: false,
+			contentType: false,
+			type: 'POST',
+			url: '/dashboard/productos/uploadpdf',
+			success: function(data){
+				$.each(data, function(k, v){
+					if (v == false) {
+						$('div.newpdf').eq(0).remove();
+					} else {
+						var div = $('div.newpdf').get(0);
+						$(div).find('.overlay-loading').remove();
+						$(div).prepend('<input type="hidden" name="pdfId[]" value="'+v+'">');
+						$(div).removeClass('newpdf');
+					}
+				});
+			},
+			error: function(){
+				$('div.newpdf').each(function(){
+					$(this).remove();
+				});
+				alert('Le chargement des PDF a échoué');
+			}
+		});
+	});
+
 	$('.delete-item').click(function(event){
-	    event.preventDefault();
-	    var urlId = $(this).data('urlid');
-	    swal({
+		event.preventDefault();
+		var urlId = $(this).data('urlid');
+		swal({
 			title: "Esta seguro?",
 			text: "Esta acción no se puede revertir...",
 			icon: "warning",
 			buttons: ["Cancelar", "Borrar definitivamente"],
 		}).then(function(action){
-        	if(action === true){
-        		$.ajax({
-        			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        			type: 'DELETE',
-        			url: '/dashboard/productos/' + urlId,
-        			success: function(data){
-	        			console.log(data);
-        			}
+			if(action === true){
+				$.ajax({
+					headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+					type: 'DELETE',
+					url: '/dashboard/productos/' + urlId,
+					success: function(data){
+						console.log(data);
+					}
 				});
 			}
 		});
@@ -31,13 +82,13 @@ $(document).ready(function(){
 	
 		$.ajax({ 
 			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-	        type: 'POST', 
-	        url: '/dashboard/checkslug', 
-	        data: { 'titulo': titulo }, 
-	        success: function(data){
-	        	console.log(data);
-	        	$('#hidden').val(data);
-	        }
+			type: 'POST', 
+			url: '/dashboard/checkslug', 
+			data: { 'titulo': titulo }, 
+			success: function(data){
+				console.log(data);
+				$('#hidden').val(data);
+			}
 		});
 	}
 	$('#titulo').keyup(makeSlug);
@@ -60,10 +111,10 @@ function deleteImg(button){
 			buttons: ["Cancelar", "Borrar definitivamente"],
 		}).then(function(action){
 			if(action === true){
-        		$.ajax({
-        			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        			type: 'DELETE',
-        			url: '/dashboard/productos/removeimg/' + imgId,
+				$.ajax({
+					headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+					type: 'DELETE',
+					url: '/dashboard/productos/removeimg/' + imgId,
 					success:function(data){
 						if (data === true || data === 'true') {
 							$(button).closest('.form-group').remove();
@@ -81,23 +132,23 @@ function deleteImg(button){
 
 function readURL(input, i) {
   if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    $('#pre-view'+i).html('<img id="blah'+i+'" src="#" alt="your image" style="height:100px; width:auto;" /><a href="#" class="delete-img" onclick="deleteImg(this);return false;" data-imgid=""><i class="fa fa-trash"></i></a>');
-    reader.onload = function(e) {
-      $("#blah"+i).attr('src', e.target.result);
-    }
-    reader.readAsDataURL(input.files[0]);
-    if($('#inputs-files'+(i+1)).length<1){
-	    $('#inputs-files'+i).after('<div class="form-group row" id="inputs-files'+(i+1)+'">'+
-		        					'<input type="file" accept=".png, .jpg, .jpeg" class="img col-md-3" name="imgInp[]" id="imgInp'+(i+1)+'" onchange="cargarImagen(this)"/>'+
-		        					'<div id="pre-view'+(i+1)+'" class="col-md-3 delete-img-container">'+
-		        				  	'</div>'+
-							        '<div class="form-group col-md-6 leyenda">'+
-							        	'<label for="leyenda'+(i+1)+'">Copyright</label>'+
-							        	'<input name="leyenda'+(i+1)+'" id="leyenda'+(i+1)+'" class="form-control" type="text">'+
+	var reader = new FileReader();
+	$('#pre-view'+i).html('<img id="blah'+i+'" src="#" alt="your image" style="height:100px; width:auto;" /><a href="#" class="delete-img" onclick="deleteImg(this);return false;" data-imgid=""><i class="fa fa-trash"></i></a>');
+	reader.onload = function(e) {
+	  $("#blah"+i).attr('src', e.target.result);
+	}
+	reader.readAsDataURL(input.files[0]);
+	if($('#inputs-files'+(i+1)).length<1){
+		$('#inputs-files'+i).after('<div class="form-group row" id="inputs-files'+(i+1)+'">'+
+									'<input type="file" accept=".png, .jpg, .jpeg" class="img col-md-3" name="imgInp[]" id="imgInp'+(i+1)+'" onchange="cargarImagen(this)"/>'+
+									'<div id="pre-view'+(i+1)+'" class="col-md-3 delete-img-container">'+
 									'</div>'+
-		    					 '</div>');
-    }
+									'<div class="form-group col-md-6 leyenda">'+
+										'<label for="leyenda'+(i+1)+'">Copyright</label>'+
+										'<input name="leyenda'+(i+1)+'" id="leyenda'+(i+1)+'" class="form-control" type="text">'+
+									'</div>'+
+								 '</div>');
+	}
   }
 }
 

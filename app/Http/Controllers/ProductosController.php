@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Productos;
 use App\Categorias;
 use App\ImagenesProductos;
+use App\PdfProductos;
 use DB;
 use Validator;
 use Illuminate\Support\Facades\Input;
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Redirect;
 
 class ProductosController extends Controller
 {
+
+    /*Global Var for the upload of PDF*/
+    private $authorized_files = array('application/pdf', 'image/jpeg', 'image/png', 'image/jpg', 'image/gif');
+
      /**
      * Create a new controller instance.
      *
@@ -61,7 +66,7 @@ class ProductosController extends Controller
 
         if($validation->fails()){
             return redirect('/dashboard/productos')
-                ->with('alert-error', "Le produit n'a pas était crée, il y a eu un problème.");
+                ->with('alert-error', "Le produit n'a pas été créé, il y a eu un problème.");
         } else{
             $producto = new Productos();
             $producto->titulo = $request->titulo;
@@ -98,18 +103,6 @@ class ProductosController extends Controller
 
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -118,7 +111,7 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        $producto = Productos::with('imagenesProductos')->findOrFail($id);
+        $producto = Productos::with('imagenesProductos')->with('pdfProductos')->findOrFail($id);
         $allCategorias = Categorias::pluck('nombre', 'id')->all();
         return view('productos.edit', ['producto'=> $producto, 'imgCount' => count($producto->imagenesProductos), 'allCategorias' => $allCategorias]);
     }
@@ -153,6 +146,17 @@ class ProductosController extends Controller
             $producto->maitre_oeuvre =  $request->maitre_oeuvre;
             $producto->categorias_id = $request->categoria;
             if($producto->save()){
+                var_dump($request);
+                die();
+                // Linker les PDF
+                if ($request->has('pdfId')) {
+                    var_dump($request->pdfId);
+                    foreach ($request->pdfId as $idPdf) {
+                        $pdf = PdfProductos::findOrFail($idPdf);
+                        $pdf->productos_id = $id;
+                        $pdf->save();
+                    }
+                }
                 //imagenes y leyendas
                 if($request->hasFile('imgInp')){
                     foreach($request->file('imgInp') as  $key =>$f){
@@ -278,4 +282,38 @@ class ProductosController extends Controller
         die();
     }
 
+    /**
+     * Add a new PDF to the productos_pdf table.
+     *
+     * @param  Request
+     * @return id du nouveau PDF
+     */
+    public function uploadpdf(Request $request)
+    {
+        $resp = [];
+        if($request->hasFile('pdfs')){
+            $files = Input::file('pdfs');
+            foreach($files as $file){
+                if (in_array($file->getMimeType(), $this->authorized_files)) {
+                    $filename = uniqid('pdf-') . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('pdf_productos/'), $filename);
+                    $pdfProductos = new PdfProductos();
+                    $pdfProductos->productos_id = 0;
+                    $pdfProductos->realname = $file->getClientOriginalName();
+                    $pdfProductos->path = 'pdf_productos/'.$filename;
+                    if($pdfProductos->save()){
+                        array_push($resp, $pdfProductos->id);
+                    }else{
+                        array_push($resp, false);
+                    }
+                } else {
+                    array_push($resp, false);
+                }
+            }
+        } else{
+            array_push($resp, false);
+        }
+        echo json_encode($resp);
+        die();
+    }
 }
