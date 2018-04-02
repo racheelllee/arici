@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DatosGenerales;
+use App\LinksDatosGenerales;
 use App\Paginas;
 use App\Categorias;
 use App\ChiffresCles;
@@ -20,7 +21,7 @@ class FrontController extends Controller
          */
         public function philosophie()
         {
-            $datosGenerales = DatosGenerales::first();
+            $datosGenerales = DatosGenerales::with('linksDatosGenerales')->first();
             $pagina = Paginas::with('imagenesPaginas')->findOrFail(1);
             $chiffres = ChiffresCles::all();
             return view('front.philosophie', ['general'=>$datosGenerales, 'pagina'=>$pagina, 'chiffres'=>$chiffres]);        
@@ -34,7 +35,7 @@ class FrontController extends Controller
         public function prestations()
         {
 
-            $datosGenerales = DatosGenerales::first();
+            $datosGenerales = DatosGenerales::with('linksDatosGenerales')->first();
             $pagina = Paginas::with('imagenesPaginas')->findOrFail(2);
             return view('front.prestations', ['general'=>$datosGenerales, 'pagina'=>$pagina]);  
         }
@@ -45,7 +46,7 @@ class FrontController extends Controller
          */
         public function realisations($category = null)
         {
-            $datosGenerales = DatosGenerales::first();
+            $datosGenerales = DatosGenerales::with('linksDatosGenerales')->first();
             if(is_null($category)){
                 $realisations = Productos::with('imagenesProductos')->with('categorias')->orderBy('id', 'DESC')->paginate(10);
                 $categorias = Categorias::all();
@@ -65,14 +66,14 @@ class FrontController extends Controller
          */
         public function realisation($slug)
         {
-            $datosGenerales = DatosGenerales::first();
+            $datosGenerales = DatosGenerales::with('linksDatosGenerales')->first();
             $categorias = Categorias::all();
             $realisation = Productos::with('categorias')->where('slug', $slug)->first();
             $category = $realisation->categorias->id;
             $otherRealisations = Productos::with('imagenesProductos')->with('categorias')->where([
                 ['categorias_id', '=', $category],
                 ['slug', '!=', $slug]
-            ])->paginate(3);
+            ])->get();
             return view('front.realisation', ['general'=>$datosGenerales, 'categorias'=>$categorias, 'realisation'=> $realisation, 'otherRealisations' => $otherRealisations]);        
         }
 
@@ -83,7 +84,7 @@ class FrontController extends Controller
          */
         public function organisation()
         {
-            $datosGenerales = DatosGenerales::first();
+            $datosGenerales = DatosGenerales::with('linksDatosGenerales')->first();
             $pagina = Paginas::with('imagenesPaginas')->findOrFail(3);
             return view('front.organisation', ['general'=>$datosGenerales, 'pagina'=>$pagina]);  
         }
@@ -95,7 +96,7 @@ class FrontController extends Controller
          */
         public function contact()
         {
-            $datosGenerales = DatosGenerales::first();
+            $datosGenerales = DatosGenerales::with('linksDatosGenerales')->first();
             $pagina = Paginas::with('imagenesPaginas')->findOrFail(4);
             return view('front.contact', ['general'=>$datosGenerales, 'pagina'=>$pagina]);  
 
@@ -140,19 +141,18 @@ class FrontController extends Controller
                 $datosGenerales = DatosGenerales::first(['correo_contacto']);
                 $para      = $datosGenerales->correo_contacto;
                 $titulo    = $request->input('sujet');
-                $mensaje   = $request->input('message') . '<br>' .$request->input('nom');
+                $mensaje   = str_replace(PHP_EOL,"<br>",$request->input('message')) . '<br>' .$request->input('nom');
                 $cabeceras = "From: ".$request->input('nom')."<".$request->input('courriel')."> \r\n";
                 $cabeceras .= "Reply-To: ".$request->input('nom')."<".$request->input('courriel')."> \r\n";
+                $cabeceras .= "MIME-Version: 1.0\r\n";
+                $cabeceras .= "Content-Type: text/html; charset=UTF-8\r\n";
                 $cabeceras .= "X-Mailer: PHP/" . phpversion();
-                $ok = mail($para, $titulo, $mensaje, $cabeceras);
-                
-                if ($ok === true) {
+                if (mail($para, $titulo, $mensaje, $cabeceras)) {
                     echo json_encode(true);
                 } else {
                     echo json_encode(['Une erreur est survenue, veuillez rééssayer ultérieurement.']);
                 }
-
             }
-
+            die();
         }
     }

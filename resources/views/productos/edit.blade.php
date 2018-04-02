@@ -2,30 +2,40 @@
 @section('content')
 	<h3>Éditer une réalisation</h3>
 	{{ Form::open(array('route' => array('productos.update', $producto->id),'method'=>'PUT', 'files' => true)) }}
-		<div class='form-group col-md-8'>
-			{{ Form::label('titulo', 'Titulo') }}
+		<div class='form-group'>
+			{{ Form::label('titulo', 'Titre') }}
 			{{ Form::text('titulo', $producto->titulo, ['class' => 'form-control', 'id' => 'titulo']) }}
 		</div>
-		<div class='form-group col-md-4'>
-			{{ Form::label('fecha_creacion', 'Date de Création') }}
-			{{ Form::text('fecha_creacion', (!is_null($producto->fecha_creacion))?date('d-m-Y', strtotime($producto->fecha_creacion)):'', ['class' => 'form-control']) }}
-		</div>
 		<div class='form-group'>
-			{{ Form::label('contenido', 'Contenido') }}
+			{{ Form::label('contenido', 'Contenu') }}
 			{{ Form::textarea('contenido', $producto->contenido, ['class' => 'form-control']) }}
 		</div>
 		<div class="row">
-			<div class='form-group col-xs-12 col-sd-6 col-md-4'>
-				{{ Form::label('nombre_cliente', 'Cliente') }}
-				{{ Form::text('nombre_cliente', $producto->nombre_cliente, ['class' => 'form-control']) }}
-			</div>
-			<div class='form-group col-xs-12 col-sd-6 col-md-4'>
-				{{ Form::label('nombre_arquitecto', 'Arquitecto') }}
-				{{ Form::text('nombre_arquitecto', $producto->nombre_arquitecto, ['class' => 'form-control']) }}
-			</div>
 			<div class='form-group col-xs-12 col-sd-12 col-md-4'>
 				{{ Form::label('categoria', 'Categoria') }}
 				{{ Form::select('categoria', $allCategorias, $producto->categorias_id, ['class' => 'form-control']) }}
+			</div>
+			<div class='form-group col-xs-12 col-sd-12 col-md-4'>
+				{{ Form::label('montant_ht', 'Montant HT') }}
+				{{ Form::text('montant_ht', $producto->montant_ht, ['class' => 'form-control']) }}
+			</div>
+			<div class='form-group col-xs-12 col-sd-12 col-md-4'>
+				{{ Form::label('fecha_creacion', 'Année de Création') }}
+				{{ Form::text('fecha_creacion', (!is_null($producto->fecha_creacion))?date('d-m-Y', strtotime($producto->fecha_creacion)):'', ['class' => 'form-control']) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class='form-group col-xs-12 col-sd-6 col-md-4'>
+				{{ Form::label('nombre_cliente', "Maître d'ouvrage") }}
+				{{ Form::text('nombre_cliente', $producto->nombre_cliente, ['class' => 'form-control']) }}
+			</div>
+			<div class='form-group col-xs-12 col-sd-12 col-md-4'>
+				{{ Form::label('maitre_oeuvre', "Maître d'œuvre") }}
+				{{ Form::text('maitre_oeuvre', $producto->maitre_oeuvre, ['class' => 'form-control']) }}
+			</div>
+			<div class='form-group col-xs-12 col-sd-6 col-md-4'>
+				{{ Form::label('nombre_arquitecto', 'Architecte') }}
+				{{ Form::text('nombre_arquitecto', $producto->nombre_arquitecto, ['class' => 'form-control']) }}
 			</div>
 		</div>
 		<h4>Images</h4>
@@ -63,7 +73,6 @@
 
 @section('scripts')
 	<script src="{{ asset('js/productsEdit.js') }}"></script>
-	<script src="{{ asset('js/picker.js') }}"></script>
 	<script src="{{ asset('js/trumbowyg.min.js')}}"></script>
 	<script src="{{ asset('js/lang/fr.min.js')}}"></script>
 	<script src="{{ asset('js/trumbowyg.noembed.js')}}"></script>
@@ -71,12 +80,6 @@
 	<script src="{{ asset('js/trumbowyg.colors.js')}}"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-
-			pickmeup('#fecha_creacion', {
-				default_date:false,
-				format	: 'd-m-Y',
-				view:'months'
-			});
 
 			$('#contenido').trumbowyg({
 				// btns: ['strong', 'em', '|', 'insertImage'],

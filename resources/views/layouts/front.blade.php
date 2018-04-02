@@ -60,29 +60,19 @@
                 </div>
             </header>
             @yield('content')
-            <footer>
-                <ul>
-                    <li>
-                        <a href="http://www.ffbatiment.fr/" target="_blank">
-                            <img src="/imagenes/imgfooter1.png">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.qualibat.com/" target="_blank">
-                            <img src="/imagenes/imgfooter2.png">
-                        </a>
-                    </li>
-                    <li>
-                        <img src="/imagenes/imgfooter3.png">
-                    </li>
-                    <li>
-                        <a href="https://www.oppbtp.com/" target="_blank">
-                            <img src="/imagenes/imgfooter4.png">
-                        </a>
-                    </li>
-                </ul>
-            </footer>
-            @yield('extend_footer')
+            @if(!empty($general->linksDatosGenerales))
+                <footer>
+                    <ul>
+                        @foreach($general->linksDatosGenerales as $fI)
+                            <li>
+                                <a href="{{$fI->url}}" target="_blank">
+                                    <img src="/{{$fI->image}}">
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </footer>
+            @endif
         </div>
     </body>
 </html>

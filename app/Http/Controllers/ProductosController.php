@@ -31,7 +31,7 @@ class ProductosController extends Controller
      */
     public function index()
     {
-		$productos = Productos::orderBy('id', 'DESC')->paginate(10);
+		$productos = Productos::orderBy('id', 'DESC')->get();
         return view('productos.index', ['productos'=> $productos]);    	
     }
      /**
@@ -67,9 +67,11 @@ class ProductosController extends Controller
             $producto->titulo = $request->titulo;
             $producto->contenido = $request->contenido;
             $producto->slug = $request->slug;
-            $producto->fecha_creacion = (strlen(trim($request->fecha_creacion)) > 0)?date('Y-m-15 12:30:30', strtotime($request->fecha_creacion)):null;
-            $producto->nombre_arquitecto = $request->nombre_arquitecto; 
+            $producto->fecha_creacion = $request->fecha_creacion;
+            $producto->nombre_arquitecto = $request->nombre_arquitecto;
             $producto->nombre_cliente =  $request->nombre_cliente;
+            $producto->montant_ht =  $request->montant_ht;
+            $producto->maitre_oeuvre =  $request->maitre_oeuvre;
             $producto->categorias_id = $request->categoria;
             if($producto->save()){
                 //imagenes
@@ -142,11 +144,13 @@ class ProductosController extends Controller
         } else{
             $producto = Productos::findOrFail($id);
             $producto->titulo = $request->titulo;
-            $producto->slug = $request->slug;
-            $producto->fecha_creacion = (strlen(trim($request->fecha_creacion)) > 0) ? date('Y-m-15 12:30:30', strtotime($request->fecha_creacion)) : null;
             $producto->contenido = $request->contenido;
-            $producto->nombre_cliente = $request->nombre_cliente;
+            $producto->slug = $request->slug;
+            $producto->fecha_creacion = $request->fecha_creacion;
             $producto->nombre_arquitecto = $request->nombre_arquitecto;
+            $producto->nombre_cliente =  $request->nombre_cliente;
+            $producto->montant_ht =  $request->montant_ht;
+            $producto->maitre_oeuvre =  $request->maitre_oeuvre;
             $producto->categorias_id = $request->categoria;
             if($producto->save()){
                 //imagenes y leyendas

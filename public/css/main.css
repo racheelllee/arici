@@ -543,13 +543,15 @@ body {
     margin: 3rem 0 1rem 0; }
     body main#realisation-page aside#others-ones h3 {
       text-align: center;
-      font-size: 1.4rem; }
+      font-size: 1.4rem;
+      text-transform: uppercase; }
     body main#realisation-page aside#others-ones ul#slider {
       width: 100%;
       max-width: 960px;
       margin: 1rem auto;
       overflow: hidden;
-      text-align: center; }
+      text-align: center;
+      position: relative; }
       body main#realisation-page aside#others-ones ul#slider li {
         display: block;
         height: 200px;
@@ -563,7 +565,8 @@ body {
           body main#realisation-page aside#others-ones ul#slider li {
             width: 33.33%;
             margin: 0  -2px !important;
-            display: inline-block; } }
+            display: inline-block;
+            vertical-align: middle; } }
         @media all and (min-width: 900px) {
           body main#realisation-page aside#others-ones ul#slider li:nth-of-type(2) {
             margin: 0 5%; } }
@@ -607,6 +610,42 @@ body {
             transform: translateY(-50%); }
         body main#realisation-page aside#others-ones ul#slider li:hover a {
           opacity: 1; }
+      body main#realisation-page aside#others-ones ul#slider div.owl-item li {
+        width: 100%; }
+      body main#realisation-page aside#others-ones ul#slider div.owl-nav {
+        position: absolute;
+        pointer-events: none;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%); }
+        body main#realisation-page aside#others-ones ul#slider div.owl-nav div.owl-prev,
+        body main#realisation-page aside#others-ones ul#slider div.owl-nav div.owl-next {
+          pointer-events: all;
+          float: left;
+          display: block;
+          width: 45px;
+          height: 35px;
+          text-indent: -9999px;
+          opacity: .5;
+          background: transparent url(../imagenes/prev.png) no-repeat;
+          -webkit-background-size: contain;
+          -moz-background-size: contain;
+          -ms-background-size: contain;
+          -o-background-size: contain;
+          background-size: contain; }
+          body main#realisation-page aside#others-ones ul#slider div.owl-nav div.owl-prev:hover,
+          body main#realisation-page aside#others-ones ul#slider div.owl-nav div.owl-next:hover {
+            cursor: pointer;
+            opacity: .8; }
+        body main#realisation-page aside#others-ones ul#slider div.owl-nav div.owl-next {
+          float: right;
+          background-image: url(../imagenes/next.png); }
   body main nav#menu-categorias {
     display: block;
     text-align: center;
@@ -852,39 +891,127 @@ section {
             transform: translateY(-50%); }
         section#realisations ul li:hover a {
           opacity: 1; }
+  section#confiance h2 {
+    font-size: 48px;
+    text-transform: none; }
+  section#confiance ul {
+    text-align: center;
+    margin: 0 -15px; }
+    section#confiance ul li {
+      vertical-align: middle;
+      display: inline-block;
+      margin: 0 -2px;
+      box-sizing: border-box; }
+      section#confiance ul li a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 35px;
+        box-sizing: border-box; }
+      section#confiance ul li img {
+        max-width: 100%;
+        height: auto;
+        -webkit-filter: grayscale(100%);
+        /* Safari 6.0 - 9.0 */
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%); }
+      section#confiance ul li:hover img {
+        -webkit-filter: grayscale(0%);
+        /* Safari 6.0 - 9.0 */
+        -moz-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+        -o-filter: grayscale(0%);
+        filter: grayscale(0%); }
   section#organigramme h2 {
     text-transform: none;
-    font-size: 3em; }
+    font-size: 48px; }
   section#organigramme h3#chantiers {
     color: #005499;
     text-align: center;
     text-transform: uppercase;
     font-size: 1.4em;
     margin-bottom: 20px; }
-  section#organigramme ul {
+  section#organigramme ul#team,
+  section#organigramme ul#administratifs,
+  section#organigramme ul#directeur {
     text-align: center;
     width: 100%;
     margin: 0 0 30px 0; }
-    section#organigramme ul li {
+    section#organigramme ul#team > li,
+    section#organigramme ul#administratifs > li,
+    section#organigramme ul#directeur > li {
       display: inline-block;
+      vertical-align: top;
       margin: 0 -2px;
-      padding: 10px;
-      box-sizing: border-box; }
-      section#organigramme ul li img {
+      padding: 30px;
+      box-sizing: border-box;
+      width: 100%; }
+      section#organigramme ul#team > li img,
+      section#organigramme ul#administratifs > li img,
+      section#organigramme ul#directeur > li img {
         max-width: 100%;
         height: auto;
         margin-bottom: 10px; }
-      section#organigramme ul li h3 {
+      section#organigramme ul#team > li h3,
+      section#organigramme ul#administratifs > li h3,
+      section#organigramme ul#directeur > li h3 {
         color: black;
         font-size: 15px;
         font-weight: 600; }
-      section#organigramme ul li span {
+      section#organigramme ul#team > li span,
+      section#organigramme ul#administratifs > li span,
+      section#organigramme ul#directeur > li span {
         color: #005499; }
-    section#organigramme ul#directeur li {
-      width: 50%; }
-    section#organigramme ul#administratifs li {
-      width: 40%; }
-    section#organigramme ul#team li {
-      width: 25%; }
+      section#organigramme ul#team > li ul li,
+      section#organigramme ul#administratifs > li ul li,
+      section#organigramme ul#directeur > li ul li {
+        width: 50% !important;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 -2px;
+        padding: 0 10px;
+        box-sizing: border-box; }
+    @media all and (min-width: 600px) {
+      section#organigramme ul#team#directeur li,
+      section#organigramme ul#administratifs#directeur li,
+      section#organigramme ul#directeur#directeur li {
+        width: 60%;
+        padding: 10px; } }
+    @media all and (min-width: 600px) {
+      section#organigramme ul#team#administratifs li,
+      section#organigramme ul#administratifs#administratifs li,
+      section#organigramme ul#directeur#administratifs li {
+        width: 45%; } }
+    section#organigramme ul#team#team,
+    section#organigramme ul#administratifs#team,
+    section#organigramme ul#directeur#team {
+      box-sizing: border-box; }
+      @media all and (min-width: 600px) {
+        section#organigramme ul#team#team,
+        section#organigramme ul#administratifs#team,
+        section#organigramme ul#directeur#team {
+          padding: 0 3%; } }
+      section#organigramme ul#team#team li,
+      section#organigramme ul#administratifs#team li,
+      section#organigramme ul#directeur#team li {
+        padding-top: 0;
+        padding-bottom: 0;
+        width: 50%; }
+        @media all and (min-width: 600px) {
+          section#organigramme ul#team#team li,
+          section#organigramme ul#administratifs#team li,
+          section#organigramme ul#directeur#team li {
+            width: 25%; } }
+        section#organigramme ul#team#team li img,
+        section#organigramme ul#administratifs#team li img,
+        section#organigramme ul#directeur#team li img {
+          max-width: 95%; }
+          @media all and (min-width: 600px) {
+            section#organigramme ul#team#team li img,
+            section#organigramme ul#administratifs#team li img,
+            section#organigramme ul#directeur#team li img {
+              max-width: 80%; } }
 
 /*# sourceMappingURL=main.css.map */
