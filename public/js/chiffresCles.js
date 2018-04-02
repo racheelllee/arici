@@ -57,19 +57,19 @@ function edit(linea, id, reload){
 }
 
 
-function deleteChiffre(este){
-	var id =este.id;
-	if(este.id != 0){
+function deleteChiffre(input){
+	var id =input.id;
+	if(input.id != 0){
 		$.ajax({
 			headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 			type: 'DELETE',
 			url: '/dashboard/deleteChiffres/'+id,
 			success: function(data){
-				$(este).closest('.lista').remove();
+				$(input).closest('.lista').remove();
 			}
 		});
 	}else{
-		$(este).closest('.lista').remove();
+		$(input).closest('.lista').remove();
 	}
 
 }

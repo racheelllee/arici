@@ -69,3 +69,10 @@ Route::get('dashboard/chiffres_cles', 'ChiffresClesController@index')->name('chi
 Route::post('dashboard/editChiffres', 'ChiffresClesController@editChiffres');
 Route::delete('dashboard/deleteChiffres/{id}', 'ChiffresClesController@deleteChiffres');
 
+//ORGANIZACIONES
+Route::get('dashboard/organizaciones', 'OrganizacionesController@index')->name('organizaciones.index');
+Route::post('dashboard/editOrganizacion', 'OrganizacionesController@editOrganizacion');
+Route::delete('dashboard/deleteOrganizacion/{id}', 'OrganizacionesController@deleteOrganizacion');
+
+
+

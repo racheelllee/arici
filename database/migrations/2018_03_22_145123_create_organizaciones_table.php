@@ -15,6 +15,9 @@ class CreateOrganizacionesTable extends Migration
     {
         Schema::create('organizaciones', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('imagen');
+            $table->string('texto');
+            $table->enum('nivel', ['0', '1', '2']);
             $table->timestamps();
         });
     }
