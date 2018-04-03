@@ -56,7 +56,9 @@ class PatrocinadoresController extends Controller
                 if(!$patrocinador->update()){
                     return redirect('/dashboard/patrocinadores')->with('alert-error', 'Sponsor pas editer, Il y a un error.');
                 }else{
-                    unlink(public_path($aux)); 
+                    if (file_exists(public_path($aux))) {
+                        unlink(public_path($aux)); 
+                    }
                     echo "true";
                 }
             }else{
@@ -95,6 +97,10 @@ class PatrocinadoresController extends Controller
         $patrocinador = Patrocinadores::findOrFail($id);
         if($patrocinador->delete()){
             echo "true";
+            //Hay que borrar el archivo del disco!!!
+            if (file_exists(public_path($patrocinador->imagen))) {
+                unlink(public_path($patrocinador->imagen));
+            }
         }
         die();
     }

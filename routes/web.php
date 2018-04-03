@@ -79,5 +79,5 @@ Route::delete('dashboard/deleteOrganizacion/{id}', 'OrganizacionesController@del
 //PATROCINADORES
 Route::get('dashboard/patrocinadores', 'PatrocinadoresController@index')->name('patrocinadores.index');
 Route::post('dashboard/editPatrocinador','PatrocinadoresController@editPatrocinador');
-Route::delete('dashboard/deletePatrocinador','PatrocinadorController@deletePatrocinador');
+Route::delete('dashboard/deletePatrocinador/{id}','PatrocinadoresController@deletePatrocinador');
 

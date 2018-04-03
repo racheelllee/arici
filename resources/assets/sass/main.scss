@@ -1262,18 +1262,17 @@ section{
 				padding: 30px;
 				box-sizing:border-box;
 				width: 100%;
+				color:$blue;
 				img{
 					max-width: 100%;
 					height: auto;
 					margin-bottom: 10px;
 				}
-				h3{
+				b, strong{
+					display: block;
 					color:black;
 					font-size: 15px;
 					font-weight: 600;
-				}
-				span{
-					color:$blue;
 				}
 				ul{
 					li{

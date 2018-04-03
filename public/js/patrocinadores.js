@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-	transformToEditor();
-
 	$('#savee').click(function(){
 		$('.lista').each(function(key, val){
 			var txt = $(this).attr('id');
@@ -35,14 +33,15 @@ $(document).ready(function(){
 		event.preventDefault();
 		var combien= $('.lista').length;
 		$(this).parent().before('<div id="list0" class="col-md-12 lista">'+
-								'<input name="imgInp[]" accept=".png, .jpg, .jpeg" id="imgInp'+combien+'" onchange="cargarImagen(this)" class="img col-md-2" style="margin-top: 3%;" type="file">'+ 
+								'<input name="imgInp[]" accept=".png, .jpg, .jpeg, .gif" id="imgInp'+combien+'" onchange="cargarImagen(this)" class="img col-md-2" style="margin-top: 3%;" type="file">'+ 
 								'<div id="pre-view0" class="col-md-3 delete-img-container" style="margin-top: 3%;">'+
-									'<img id="blah'+combien+'" src="#" alt="your image" style="height: 100px; width: auto;">'+
+									'<img id="blah'+combien+'" src="#" alt="your image">'+
 								'</div>'+ 
-								'<div class="form-group col-md-4">'+
-									'<textarea name="titulo" class="form-control newtextarea"></textarea>'+
+								'<div class="form-group col-md-3">'+
+									'<label>Titre</label>'+
+							        '<input type="text" name="titulo" class="form-control">'+
 								'</div>'+ 
-								'<div class="form-group col-md-2">'+
+								'<div class="form-group col-md-3">'+
 									'<label for="link">Lien</label>'+
 									'<input id="link" name="link" type="text" class="form-control">'+
 								'</div>'+
@@ -103,7 +102,7 @@ function deletePatrocinador(input){
 
 function edit(linea, id, reload){
 	var image = $(linea).find('input[name="imgInp[]"]').get(0).files[0];
-	var titulo= $(linea).find('textarea[name="titulo"]').val();
+	var titulo= $(linea).find('input[name="titulo"]').val();
 	var link = $(linea).find('input[name="link"]').val();
 	console.log(image, titulo, link);
 	if(titulo!='' && link!=''){

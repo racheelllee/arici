@@ -70,6 +70,7 @@
                                     <li><a href="{{ route('datos_generales.edit', 1) }}">Informations Générales</a></li>
                                     <li><a href="{{ route('chiffres_cles.index') }}">Chiffres Clés</a></li>
                                     <li><a href="{{ route('organizaciones.index') }}">Organigramme</a></li>
+                                    <li><a href="{{ route('patrocinadores.index') }}">Partenaires</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">

@@ -4,243 +4,670 @@ use Illuminate\Database\Seeder;
 
 class ProductosTableSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        DB::table('productos')->insert([
-            'id' => 1,
-            'titulo' => 'nom de chantier',
-            'slug' => str_slug('nom-de-chantier', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 3,
-            'nombre_cliente' => 'Alexander Mundet',
-            'nombre_arquitecto' => 'Agustin Recinas',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 2,
-            'titulo' => 'ceci est un test',
-            'slug' => str_slug('ceci est un test', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 5,
-            'nombre_cliente' => 'John Doe',
-            'nombre_arquitecto' => 'John Wick',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 3,
-            'titulo' => 'Bonjour de Simon',
-            'slug' => str_slug('bonjour-de-simon', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 1,
-            'nombre_cliente' => 'Jamel Debbouze',
-            'nombre_arquitecto' => 'Jean Rachid',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 4,
-            'titulo' => 'Institution',
-            'slug' => str_slug('institution', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 2,
-            'nombre_cliente' => 'Jean Claude Dusse',
-            'nombre_arquitecto' => 'Francois Rostand',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 5,
-            'titulo' => 'Hopital Pelegrin',
-            'slug' => str_slug('Hopital Pelegrin', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 1,
-            'nombre_cliente' => 'Maire Bordeaux',
-            'nombre_arquitecto' => 'Machi Chose',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 6,
-            'titulo' => 'Usinagaz',
-            'slug' => str_slug('Usinagaz', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 4,
-            'nombre_cliente' => 'Les pets de légende',
-            'nombre_arquitecto' => 'Excalibur',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 7,
-            'titulo' => 'Creuzet, 47200 Marmande',
-            'slug' => str_slug('creuzet', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 8,
-            'nombre_cliente' => 'Creuzet',
-            'nombre_arquitecto' => 'Jean Miche',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 8,
-            'titulo' => 'nom de chantier 2',
-            'slug' => str_slug('nom-de-chantier 2', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 2,
-            'nombre_cliente' => 'Deus Ex Machina',
-            'nombre_arquitecto' => 'I Robot',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 9,
-            'titulo' => "L'oeuf ou la poule",
-            'slug' => str_slug("L'oeuf ou la poule", '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 7,
-            'nombre_cliente' => 'La Poule',
-            'nombre_arquitecto' => "L'oeuf",
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 10,
-            'titulo' => 'nom de chantier 3',
-            'slug' => str_slug('nom-de-chantier 3', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 3,
-            'nombre_cliente' => 'Alexander Mundet',
-            'nombre_arquitecto' => 'Agustin Recinas',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 11,
-            'titulo' => 'nom de fabrication',
-            'slug' => str_slug('nom-de-fabrication', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 7,
-            'nombre_cliente' => 'Alexander Mundet',
-            'nombre_arquitecto' => 'Agustin Recinas',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('productos')->insert([
-            'id' => 12,
-            'titulo' => 'nom de chantier-12',
-            'slug' => str_slug('nom-de-chantier-12', '-'),
-            'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
-            'categorias_id' => 8,
-            'nombre_cliente' => 'Alexander Mundet',
-            'nombre_arquitecto' => 'Agustin Recinas',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
+        
 
-        DB::table('imagenes_productos')->insert([
-            'id' => 1,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 2,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 3,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 4,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 5,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 6,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 7,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 8,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 9,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 10,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 11,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-        DB::table('imagenes_productos')->insert([
-            'id' => 12,
-            'imagen' => 'imagenes_productos/1-5a7641033ace7.png',
-            'leyenda' => '',
-            'productos_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-
-       
+        \DB::table('productos')->delete();
+        
+        \DB::table('productos')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'titulo' => 'Cité de la Formation Professionnelle - Marmande',
+                'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
+                'fecha_creacion' => NULL,
+                'slug' => 'cite-de-la-formation-professionnelle-marmande',
+                'nombre_cliente' => 'Commune de Marmande',
+                'nombre_arquitecto' => 'Cabinet Morizet',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 1,
+                'created_at' => '2018-03-05 20:34:16',
+                'updated_at' => '2018-03-15 09:57:02',
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'titulo' => 'Tridôme - Marmande',
+                'contenido' => 'Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontiumcaedibus fecit victoriam luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum gentilitatem oppressi. Praediximus enim Montium.',
+                'fecha_creacion' => NULL,
+                'slug' => 'tridome-marmande',
+                'nombre_cliente' => 'SCI ISIS',
+                'nombre_arquitecto' => 'CIA International',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 7,
+                'created_at' => '2018-03-05 20:34:16',
+                'updated_at' => '2018-03-15 09:55:01',
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'titulo' => 'Résidence La Roseraie - Blanquefort',
+                'contenido' => 'Construction de 42 logements et 4 commerces.<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'residence-la-roseraie-blanquefort',
+                'nombre_cliente' => 'SEMI de Blanquefort',
+                'nombre_arquitecto' => 'CO-BE Architecture et Paysage',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-14 16:29:52',
+                'updated_at' => '2018-03-14 16:29:52',
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'titulo' => 'EHPAD - Monségur',
+                'contenido' => 'Construction du foyer de vie de Neujon à Monségur 33580<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'ehpad-monsegur',
+                'nombre_cliente' => 'Hôpital Local de Monségur',
+                'nombre_arquitecto' => 'Cabinet BL2 Architectures',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 6,
+                'created_at' => '2018-03-14 16:50:38',
+                'updated_at' => '2018-03-21 14:57:47',
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'titulo' => 'Centre de remise en forme Miwa - Fargues-Saint-Hilaire',
+                'contenido' => 'Construction du centre de remise en forme Miwa à Fargues-Saint-Hilaire 33370.<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'centre-de-remise-en-forme-miwa-fargues-saint-hilaire',
+                'nombre_cliente' => 'SCI Virginiane',
+                'nombre_arquitecto' => 'A2 Architectes',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 4,
+                'created_at' => '2018-03-15 09:44:18',
+                'updated_at' => '2018-03-20 19:29:17',
+            ),
+            5 => 
+            array (
+                'id' => 6,
+                'titulo' => 'École Maternelle du Centre - Marmande',
+                'contenido' => '<p>Extension de l\'École Maternelle du Centre à Marmande 47200.<br></p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'ecole-maternelle-du-centre-marmande',
+                'nombre_cliente' => 'Mairie de Marmande',
+                'nombre_arquitecto' => 'Arktic',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 1,
+                'created_at' => '2018-03-15 09:52:27',
+                'updated_at' => '2018-03-15 09:52:27',
+            ),
+            6 => 
+            array (
+                'id' => 7,
+                'titulo' => 'Plate-forme frigorifique Scofel - Samazan',
+                'contenido' => 'Construction d\'une plate-forme frigorifique et des bureaux annexes à Samazan 47250',
+                'fecha_creacion' => NULL,
+                'slug' => 'plate-forme-frigorifique-scofel-samazan',
+                'nombre_cliente' => 'SCI Logistic 47 et Thalium Promotion',
+                'nombre_arquitecto' => 'Archi Concept',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 2,
+                'created_at' => '2018-03-15 13:01:13',
+                'updated_at' => '2018-03-16 08:05:08',
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'titulo' => 'Buffalo Grill - Marmande',
+                'contenido' => 'Construction d\'un espace restauration Buffalo Grill à Marmande 47200.<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'buffalo-grill-marmande',
+                'nombre_cliente' => 'xxx',
+                'nombre_arquitecto' => 'xxx',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 7,
+                'created_at' => '2018-03-16 08:26:27',
+                'updated_at' => '2018-03-16 08:26:27',
+            ),
+            8 => 
+            array (
+                'id' => 9,
+                'titulo' => 'EHPAD Bellevue - Duras',
+                'contenido' => '<p>Construction de la résidence Bellevue pour personnes âgées. </p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'ehpad-bellevue-duras',
+                'nombre_cliente' => 'Domaines & Résidences',
+                'nombre_arquitecto' => 'Archi Conseil',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 6,
+                'created_at' => '2018-03-16 09:50:33',
+                'updated_at' => '2018-03-16 09:57:16',
+            ),
+            9 => 
+            array (
+                'id' => 10,
+                'titulo' => 'Résidence Jeu de Paume - Mérignac',
+                'contenido' => 'Construction de 57 logements collectifs et de 4 maisons jumelées à Mérignac 33700.<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'r',
+                'nombre_cliente' => 'ICADE Promotion',
+                'nombre_arquitecto' => 'Alexandre Lacaze',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-16 09:55:59',
+                'updated_at' => '2018-03-16 12:44:55',
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'titulo' => 'Résidence Moov Access - Mérignac',
+                'contenido' => 'Construction de 30 logements et d\'une antenne Domofrance.<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'residence-moov-access-merignac',
+                'nombre_cliente' => 'Domofrance',
+                'nombre_arquitecto' => 'Debarre Duplantier Associés',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-16 10:21:05',
+                'updated_at' => '2018-03-16 10:21:05',
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'titulo' => 'Plate-forme logistique - Saint-Loubès',
+                'contenido' => 'Construction d\'une plate-forme logistique à Saint-Loubès 33450.<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'plate-forme-logistique-saint-loubes',
+                'nombre_cliente' => 'SCI Immo Saint-Loubès',
+                'nombre_arquitecto' => 'Cabinet de La Serre',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 2,
+                'created_at' => '2018-03-16 10:36:32',
+                'updated_at' => '2018-03-16 10:36:32',
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'titulo' => 'Club house Golf de Barbaste',
+                'contenido' => 'Création d\'un club house et d\'un restaurant à Barbaste 47230<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'club-house-golf-de-barbaste',
+                'nombre_cliente' => 'SARL Le Clipper',
+                'nombre_arquitecto' => 'Husson / Husson-Tarozzi / Merle',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 4,
+                'created_at' => '2018-03-16 14:40:54',
+                'updated_at' => '2018-03-16 14:40:54',
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'titulo' => 'Résidence Birebois - Gujan-Mestras',
+                'contenido' => 'Construction de 46 logements<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'residence-birebois-gujan-mestras',
+                'nombre_cliente' => 'Archi Prod',
+                'nombre_arquitecto' => 'EURL Jean Dubrous',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-16 14:54:11',
+                'updated_at' => '2018-03-21 14:50:40',
+            ),
+            14 => 
+            array (
+                'id' => 15,
+                'titulo' => 'Le Golf d\'Albret - Barbaste',
+                'contenido' => '<p>Rénovation d\'une bastide en résidence de tourisme<br></p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'le-golf-dalbret-barbaste-2',
+                'nombre_cliente' => 'Clipper France',
+                'nombre_arquitecto' => 'SCP Husson / Husson-Tarozzi / Merle',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 8,
+                'created_at' => '2018-03-16 15:00:04',
+                'updated_at' => '2018-03-16 15:00:38',
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'titulo' => 'Les Thermes - Casteljaloux',
+                'contenido' => '<p>Construction d\'un complexe thermal et touristique à Casteljaloux 47700<br></p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'les-thermes-casteljaloux',
+                'nombre_cliente' => 'Département de Lot-et-Garonne',
+                'nombre_arquitecto' => 'Brichet et Marès',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 4,
+                'created_at' => '2018-03-16 15:54:43',
+                'updated_at' => '2018-03-20 19:25:42',
+            ),
+            16 => 
+            array (
+                'id' => 17,
+                'titulo' => 'Immeuble de bureaux - Boé',
+                'contenido' => 'Construction d\'un immeuble de bureaux<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'immeuble-de-bureaux-boe',
+                'nombre_cliente' => 'SCI BCL',
+                'nombre_arquitecto' => 'Alain Fonta',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 5,
+                'created_at' => '2018-03-16 16:24:08',
+                'updated_at' => '2018-03-16 16:24:08',
+            ),
+            17 => 
+            array (
+                'id' => 18,
+                'titulo' => 'Crèche du Grand Parc - Bordeaux',
+                'contenido' => 'Construction d\'une structure multi-accueil quartier du Grand Parc à Bordeaux 33000<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'creche-du-grand-parc-bordeaux',
+                'nombre_cliente' => 'Mairie de Bordeaux',
+                'nombre_arquitecto' => 'Atelier Giet Archjtecture',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 1,
+                'created_at' => '2018-03-16 16:40:30',
+                'updated_at' => '2018-03-16 16:40:30',
+            ),
+            18 => 
+            array (
+                'id' => 19,
+                'titulo' => 'Spa Le Royaume des Sens - Mérignac',
+                'contenido' => 'Texte à venir…<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'spa-le-royaume-des-sens-merignac',
+                'nombre_cliente' => 'France Littoral Développement',
+                'nombre_arquitecto' => 'Agence d\'Arcjtecture Urbin',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 4,
+                'created_at' => '2018-03-16 16:52:39',
+                'updated_at' => '2018-03-16 16:52:39',
+            ),
+            19 => 
+            array (
+                'id' => 20,
+                'titulo' => 'Résidence Les Viviers - La Teste de Buch',
+                'contenido' => 'Construction d\'un immeuble d\'habitations à La Teste de Buch 33360<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'residence-les-viviers-la-teste-de-buch',
+                'nombre_cliente' => 'SCCV Les Viviers',
+                'nombre_arquitecto' => 'EURL Jean Dubrous',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-16 17:06:01',
+                'updated_at' => '2018-03-16 17:06:21',
+            ),
+            20 => 
+            array (
+                'id' => 21,
+                'titulo' => 'Magasin Kiloutou - Marmande',
+                'contenido' => 'Texte à venir…<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'magasin-kiloutou-marmande',
+                'nombre_cliente' => 'Xxxcccv',
+                'nombre_arquitecto' => 'Xxxcccv',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 7,
+                'created_at' => '2018-03-19 08:33:21',
+                'updated_at' => '2018-03-19 08:33:21',
+            ),
+            21 => 
+            array (
+                'id' => 22,
+                'titulo' => 'Institut de la Garonne - Estillac',
+                'contenido' => 'Texte à venir…<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'institut-de-la-garonne-estillac-2',
+                'nombre_cliente' => 'Sud Management Santé',
+                'nombre_arquitecto' => 'Tedok/Carmentran',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 1,
+                'created_at' => '2018-03-19 08:36:23',
+                'updated_at' => '2018-03-19 08:36:23',
+            ),
+            22 => 
+            array (
+                'id' => 23,
+                'titulo' => 'EHPAD - Bazas',
+                'contenido' => 'Texte à venir…<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'ehpad-bazas-2',
+                'nombre_cliente' => 'Centre Hospitalier de Bazas',
+                'nombre_arquitecto' => 'Cauty & Laparra',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 6,
+                'created_at' => '2018-03-19 08:38:51',
+                'updated_at' => '2018-03-19 08:38:51',
+            ),
+            23 => 
+            array (
+                'id' => 24,
+                'titulo' => 'Usine Boncolac - Estillac',
+                'contenido' => '<p>Que aegrum corpus quassari etiam levibus solet offensis, ita animus eius
+angustus et tener, quicquid increpuisset, ad salutis suae dispendium 
+existimans factum aut cogitatum, insontiumcaedibus fecit victoriam 
+luctuosam. Primi igitur omnium statuuntur Epigonus et Eubius ob nominum 
+gentilitatem oppressi. Praediximus enim Montium.</p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'usine-boncolac-estillac-2',
+                'nombre_cliente' => 'Xxxcccv',
+                'nombre_arquitecto' => 'Xxxcccv',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 2,
+                'created_at' => '2018-03-19 08:42:02',
+                'updated_at' => '2018-03-19 08:42:02',
+            ),
+            24 => 
+            array (
+                'id' => 25,
+                'titulo' => 'Galerie d\'art Égrégore - Marmande',
+                'contenido' => '<p>Création d\'une galerie d\'art à Marmande.</p><p>SAS JEANDIS</p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'galerie-dart-egregore-marmande-2',
+                'nombre_cliente' => 'SAS JEANDIS',
+                'nombre_arquitecto' => 'Brunerie & Irisssou',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 4,
+                'created_at' => '2018-03-19 08:44:32',
+                'updated_at' => '2018-03-19 08:44:32',
+            ),
+            25 => 
+            array (
+                'id' => 26,
+                'titulo' => 'Résidence Domofrance - Cenon',
+                'contenido' => '<p>Construction d\'un ensemble de 17 logements à Cenon 33150</p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'residence-domofrance-cenon-2',
+                'nombre_cliente' => 'Domofrance',
+                'nombre_arquitecto' => 'François Guibert Architecte',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-19 08:48:19',
+                'updated_at' => '2018-03-19 08:48:19',
+            ),
+            26 => 
+            array (
+                'id' => 27,
+                'titulo' => 'Château de Rouillac - Canéjan',
+                'contenido' => '<p>Rénovation, restructuration et agrandissement du Château de Rouillac à Canéjan 33610.</p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'chateau-de-rouillac-canejan-2',
+                'nombre_cliente' => 'SCS Domaine Lafragette',
+                'nombre_arquitecto' => 'Cabinet BL2 Architectures',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 8,
+                'created_at' => '2018-03-19 11:57:46',
+                'updated_at' => '2018-03-19 11:57:46',
+            ),
+            27 => 
+            array (
+                'id' => 28,
+                'titulo' => 'Parc des Expositions - Agen',
+                'contenido' => 'Teste à venir…<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'parc-des-expositions-agen-2',
+                'nombre_cliente' => 'SAEM Agen Expo Congrès',
+                'nombre_arquitecto' => 'Xxxxxcv',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 4,
+                'created_at' => '2018-03-19 12:13:20',
+                'updated_at' => '2018-03-19 12:13:20',
+            ),
+            28 => 
+            array (
+                'id' => 29,
+                'titulo' => 'Résidence Les Yoles - Lormont',
+                'contenido' => '<p>Construction de la résidence Les Yoles à Lormont 33310. Chantier de 48 logements PLS.</p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'residence-les-yoles-lormont-2',
+                'nombre_cliente' => 'Clairsienne',
+                'nombre_arquitecto' => 'Gallet & Associés - Bordeaux',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-19 12:16:46',
+                'updated_at' => '2018-03-19 12:16:46',
+            ),
+            29 => 
+            array (
+                'id' => 30,
+                'titulo' => 'Centre Nautique  Les Dagueys - Libourne',
+                'contenido' => '<p>Construction d\'une tour d\'arrivée et d\'un centre nautique aux Dagueys à Libourne 33500.<br></p>',
+                'fecha_creacion' => NULL,
+                'slug' => 'centre-nautique-les-dagueys-libourne-2',
+                'nombre_cliente' => 'Ville de LIBOURNE',
+                'nombre_arquitecto' => 'Éric Wirth',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 4,
+                'created_at' => '2018-03-19 12:24:13',
+                'updated_at' => '2018-03-19 12:24:13',
+            ),
+            30 => 
+            array (
+                'id' => 31,
+                'titulo' => 'Opération Arnoa - Libourne',
+                'contenido' => 'Texte à venir<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'operation-arnoa-libourne',
+                'nombre_cliente' => 'Robert Alday',
+                'nombre_arquitecto' => 'SCP Pétuaud Létang',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-21 13:58:52',
+                'updated_at' => '2018-03-21 13:58:52',
+            ),
+            31 => 
+            array (
+                'id' => 32,
+                'titulo' => 'Château Haut-Bergeron - Preignac',
+                'contenido' => 'Texte à venir<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'chateau-haut-bergeron-preignac',
+                'nombre_cliente' => 'Mr Lamothe',
+                'nombre_arquitecto' => NULL,
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 8,
+                'created_at' => '2018-03-21 14:02:38',
+                'updated_at' => '2018-03-21 14:02:38',
+            ),
+            32 => 
+            array (
+                'id' => 33,
+                'titulo' => 'Résidence ENAP - Agen',
+                'contenido' => 'Texte à venir…<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'residence',
+                'nombre_cliente' => NULL,
+                'nombre_arquitecto' => NULL,
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-21 14:06:13',
+                'updated_at' => '2018-03-21 14:06:13',
+            ),
+            33 => 
+            array (
+                'id' => 34,
+                'titulo' => 'EHPAD - Léognan',
+                'contenido' => 'Construction d\'un EHPAD de 70 lits à Léognan 33850<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'ehpad-leognan',
+                'nombre_cliente' => 'Mésolia Habitat',
+                'nombre_arquitecto' => 'BDM Architectes',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 6,
+                'created_at' => '2018-03-21 14:10:42',
+                'updated_at' => '2018-03-21 14:10:42',
+            ),
+            34 => 
+            array (
+                'id' => 35,
+                'titulo' => 'Tour Charlemagne et Chapelle Ste-Foy - Marmande',
+                'contenido' => 'Rénovation de l\'Îlot Laffiteau à Marmande 47200<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'tour-charlemagne-et-chapelle-ste-foy-marmande',
+                'nombre_cliente' => 'Xxxcccv',
+                'nombre_arquitecto' => 'Xxxcccv',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 8,
+                'created_at' => '2018-03-21 14:40:11',
+                'updated_at' => '2018-03-23 06:13:01',
+            ),
+            35 => 
+            array (
+                'id' => 36,
+                'titulo' => 'Magasin Point P - Marmande',
+                'contenido' => 'Texte à venir<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'magasin-point-p-marmande',
+                'nombre_cliente' => 'Xxxcccv',
+                'nombre_arquitecto' => 'Xxxcccv',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 7,
+                'created_at' => '2018-03-21 14:44:49',
+                'updated_at' => '2018-03-21 14:44:49',
+            ),
+            36 => 
+            array (
+                'id' => 37,
+                'titulo' => 'EHPAD Laffiteau - Marmande',
+                'contenido' => 'Construction d\'un EHPAD de 98 lits à Marmande 47200.<br>',
+                'fecha_creacion' => '1992-06-15 10:30:30',
+                'slug' => 'ehpad-laffiteau-marmande',
+                'nombre_cliente' => 'SAS Immobilière DVD',
+                'nombre_arquitecto' => 'Arodie Damian Architectures',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 6,
+                'created_at' => '2018-03-21 15:13:51',
+                'updated_at' => '2018-03-21 22:20:46',
+            ),
+            37 => 
+            array (
+                'id' => 38,
+                'titulo' => 'Domaine d\'Albret - Barbaste',
+                'contenido' => 'Construction d\'une résidence de tourisme à Barbaste 47230.<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'domaine-dalbret-barbaste',
+                'nombre_cliente' => 'Xxxcccv',
+                'nombre_arquitecto' => 'Xxxcccv',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-21 15:21:34',
+                'updated_at' => '2018-03-21 15:21:34',
+            ),
+            38 => 
+            array (
+                'id' => 39,
+                'titulo' => 'Restaurant du Lac de La Prade - Bazas',
+                'contenido' => 'Construction d\'un restaurant et aménagement touristique du Lac de La Prade à Bazas 33<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'restaurant-du-lac-de-la-prade-bazas',
+                'nombre_cliente' => 'Communauté de Communes du Bazadais',
+                'nombre_arquitecto' => 'Atelier RK',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 7,
+                'created_at' => '2018-03-21 16:08:59',
+                'updated_at' => '2018-03-21 16:08:59',
+            ),
+            39 => 
+            array (
+                'id' => 40,
+                'titulo' => 'Terrasses des Côteaux - Marmande',
+                'contenido' => 'Texte à venir…<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'terrasses-des-coteaux-marmande',
+                'nombre_cliente' => 'Xxxcccv',
+                'nombre_arquitecto' => 'Xxxcccv',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-23 09:35:54',
+                'updated_at' => '2018-03-23 09:35:54',
+            ),
+            40 => 
+            array (
+                'id' => 41,
+                'titulo' => 'Clos Dady - Preignac',
+                'contenido' => 'Texte à venir…<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'clos-dady-preignac',
+                'nombre_cliente' => 'Mr et Mme Gachet',
+                'nombre_arquitecto' => NULL,
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 8,
+                'created_at' => '2018-03-23 09:41:43',
+                'updated_at' => '2018-03-23 09:41:43',
+            ),
+            41 => 
+            array (
+                'id' => 42,
+                'titulo' => 'Résidence Montesquieu - La Brède',
+                'contenido' => 'Texte à venir<br>',
+                'fecha_creacion' => NULL,
+                'slug' => 'residence-montesquieu-la-brede',
+                'nombre_cliente' => 'Immo. Sud Atlantique',
+                'nombre_arquitecto' => 'Xxxcccv',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => NULL,
+                'categorias_id' => 3,
+                'created_at' => '2018-03-26 14:50:15',
+                'updated_at' => '2018-03-26 14:50:15',
+            ),
+            42 => 
+            array (
+                'id' => 43,
+                'titulo' => 'Résidence ZAC du Pont Rouge - Cenon',
+                'contenido' => '<p>Construction de bâtiments collectifs R+4 de 91 logements, 4 commerces sur parking et parking en sous-sol représentant 7500 m² de plancher.</p>',
+                'fecha_creacion' => '03-04-2018',
+                'slug' => 'residence-zac-du-pont-rouge-cenon',
+            'nombre_cliente' => 'NEXITY GEORGE V (S.C.I. Cenon ZAC Pont Rouge) Bordeaux',
+                'nombre_arquitecto' => 'A.D.H. Bordeaux',
+                'maitre_oeuvre' => NULL,
+                'montant_ht' => '3,297 M€ en G.O.',
+                'categorias_id' => 3,
+                'created_at' => '2018-03-26 15:03:37',
+                'updated_at' => '2018-04-03 21:44:42',
+            ),
+        ));
+        
+        
     }
 }

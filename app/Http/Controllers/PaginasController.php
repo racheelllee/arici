@@ -134,7 +134,9 @@ class PaginasController extends Controller
                             if(!$imagenPaginas->update()){
                                 return redirect('/dashboard/paginas/'.$id.'/edit')->with('alert-error', 'Il y a eu une erreur, réessayer ultérieurement.');
                             }else{
-                                unlink(public_path($aux));
+                                if (file_exists(public_path($aux))) {
+                                    unlink(public_path($aux));
+                                }
                             }
                         }else{
                             //nuevo registro
@@ -227,10 +229,12 @@ class PaginasController extends Controller
     {
         $img = ImagenesPaginas::findOrFail($id);
         if($img->delete()){
+            //Hay que borrar la imagen del disco!!!
+            if (file_exists(public_path($img->imagen))) {
+                unlink(public_path($img->imagen));
+            }
             echo "true";
-            unlink(public_path($img->imagen));
         }
-        //Hay que borrar la imagen del disco!!!
         die();
     }
 

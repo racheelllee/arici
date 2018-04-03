@@ -32,6 +32,7 @@ function initMap() {
 			if ($('main#contact_page').length>0) { site.contact.init(); }
 			if ($('div#slideshow').length > 0 && $('div#slideshow ul li.item').length > 1) {site.slideshow.init(); }
 			if ($('#others-ones ul#slider li').length > 3) {site.realisations.slideshow();}
+			if ($('section#organigramme').length > 0) {site.organigramme.init();}
 			$('nav a#burger').click(function(event){
 				$(this).parent().find('ul').toggleClass('activated');
 				event.preventDefault();
@@ -48,6 +49,16 @@ function initMap() {
 
 			elem[0].nodeValue = text.slice(first.length);
 			elem.before('<span id="firstLetter">' + first + '</span>');
+		}
+	};
+	site.organigramme = {
+		init: function(){
+			var uls = ['#directeur', '#administratifs', '#team'];
+			$('ul#brouillon li').each(function(){
+				var ulCible = uls[parseInt($(this).data('organivel'))];
+				$(this).appendTo($(ulCible));
+			});
+			$('ul#brouillon').remove();
 		}
 	};
 	site.slideshow = {

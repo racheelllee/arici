@@ -970,23 +970,23 @@ section {
       margin: 0 -2px;
       padding: 30px;
       box-sizing: border-box;
-      width: 100%; }
+      width: 100%;
+      color: #005499; }
       section#organigramme ul#team > li img,
       section#organigramme ul#administratifs > li img,
       section#organigramme ul#directeur > li img {
         max-width: 100%;
         height: auto;
         margin-bottom: 10px; }
-      section#organigramme ul#team > li h3,
-      section#organigramme ul#administratifs > li h3,
-      section#organigramme ul#directeur > li h3 {
+      section#organigramme ul#team > li b, section#organigramme ul#team > li strong,
+      section#organigramme ul#administratifs > li b,
+      section#organigramme ul#administratifs > li strong,
+      section#organigramme ul#directeur > li b,
+      section#organigramme ul#directeur > li strong {
+        display: block;
         color: black;
         font-size: 15px;
         font-weight: 600; }
-      section#organigramme ul#team > li span,
-      section#organigramme ul#administratifs > li span,
-      section#organigramme ul#directeur > li span {
-        color: #005499; }
       section#organigramme ul#team > li ul li,
       section#organigramme ul#administratifs > li ul li,
       section#organigramme ul#directeur > li ul li {

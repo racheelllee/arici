@@ -109,6 +109,19 @@ div#all_pdfs{
 			color:#FB722C;
 		}
 	}
+	img[id^=blah]{
+		width: auto !important;
+		max-width:100% !important;
+		height:auto !important;
+	}
+}
+
+#sponsors{
+	.lista{
+		a.delete-icon{
+			margin-top:20px;
+		}
+	}
 }
 
 a#addChiffre{

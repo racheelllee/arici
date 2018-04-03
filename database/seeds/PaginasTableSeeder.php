@@ -4,103 +4,67 @@ use Illuminate\Database\Seeder;
 
 class PaginasTableSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        DB::table('paginas')->insert([
-            'id' => 1,
-            'titulo' => 'philosophie',
-            'slug' => str_slug('philosophie', '-'),
-            'leyenda' => 'Depuis 50 ans,<strong>bâtir ensemble</strong>',
-            'contenido' => 'Vous satisfaire et réussir. Lorsque nous recevons un projet, nous mettons tout en œuvre pour apporter une réponse appropriée à chaque demande. Toute l’équipe d’Arici est impliquée, l’ensemble de ses compétences mobilisé : ingénieurs, conducteurs de travaux, chefs de chantier, chefs d’équipe et compagnons expérimentés, etc.
+        
 
-				Ce savoir-faire et ce savoir-être font partie de notre ADN depuis un demi-siècle. Ils sont l’héritage d’un homme, Robert Arici. Le fondateur de l’entreprise veille d’ailleurs à leur transmission lorsqu’il passe le témoin en 1999 à l’un des comptables de la société, Jean-Bernard Maron, et à l’un de ses dessinateurs-métreurs, Bernard Dartiailh.
+        \DB::table('paginas')->delete();
+        
+        \DB::table('paginas')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'titulo' => 'Philosophie',
+                'slug' => 'philosophie-2',
+                'contenido' => '<p>V<strong>ous satisfaire et réussir.</strong> Lorsque nous recevons un projet, nous mettons tout en œuvre pour apporter une réponse appropriée à chaque demande. Toute l’équipe d’Arici est impliquée, l’ensemble de ses compétences mobilisé&nbsp;: ingénieurs, conducteurs de travaux, chefs de chantier, chefs d’équipe et compagnons expérimentés, etc. <br></p><p>Ce savoir-faire et ce savoir-être font partie de notre ADN depuis un demi-siècle. Ils sont l’héritage d’un homme, <strong>Robert Arici.</strong> Le fondateur de l’entreprise veille d’ailleurs à leur transmission lorsqu’il passe le témoin en 1999 au comptable de la société, <strong>Jean-Bernard Maron</strong>, et au directeur de travaux, <strong>Bernard Dartiailh</strong>. <br></p><p>En 2010, la nomination à la direction générale de <strong>Janick Grass</strong>i et <strong>Éric Bordes</strong>, conducteurs de travaux depuis plus de 15 ans chez Arici, confirme cette volonté de préserver le caractère familial et responsable de l’entreprise tout en l’inscrivant dans le futur.</p><br><br><h4><font color="#005499">Vidéo "LA PROGRESSION D\'UN CHANTIER"</font></h4><p>
+<iframe src="https://www.youtube.com/embed/AliJwPvO3v4?feature=oembed" allowfullscreen="allowfullscreen" width=" 480" height="270" frameborder="0"></iframe>
+</p>',
+                'leyenda' => '<p>Depuis 50 ans,<strong><br></strong></p><p><strong>bâtir ensemble</strong></p>',
+                'created_at' => '2018-02-22 22:30:52',
+                'updated_at' => '2018-03-27 18:52:16',
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'titulo' => 'Prestations',
+                'slug' => 'restations',
+                'contenido' => '<p>P<strong>olyvalence et remise en question</strong> permettent à Arici de répondre à toutes les problématiques&nbsp;: <strong>construction, rénovation, restauration ou restructuration</strong>. L’entreprise se positionne sur les marchés de gros-œuvre ou en entreprise générale, en mobilisant un encadrement spécialisé et des compétences spécifiques. <br></p><p>L’expertise de son équipe, des employés du bureau d’étude en amont au personnel de chantier en aval, permet à Arici de travailler à la réalisation de bâtiments industriels, de logements ou d’équipements publics tels que des établissements d’hébergement pour personnes âgées dépendantes et des crèches. <br></p><p>
+Grâce à son implantation à Marmande, à proximité des grandes voies de circulation, Arici intervient en <strong>Nouvelle-Aquitaine</strong> et en <strong>Occitanie</strong>.</p>',
+                'leyenda' => '<p>De l\'<strong>étude</strong></p><p>à la <strong>réalisation…</strong></p>',
+                'created_at' => '2018-02-22 22:30:52',
+                'updated_at' => '2018-03-18 20:52:05',
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'titulo' => 'Organisation',
+                'slug' => 'organisation-2',
+                'contenido' => '<p>A<strong>dministrations, comptabilité, gestion des chantiers, bureau d’études, chefs de chantier, chefs d’équipe, personnel de chantier…</strong> La performance d’Arici s’appuie sur les qualités humaines et professionnelles de ses collaborateurs.</p><p>Ils sont parties prenantes des projets et de la réussite d’Arici. La direction s’engage naturellement en faveur de leur <strong>formation</strong>, pour se conformer aux impératifs légaux et réglementaires mais aussi pour répondre aux aspirations d’évolution professionnelle de ses collaborateurs. <br></p><p>
+Janick Grassi et Éric Bordes, qui dirigent la société depuis 2010, inscrivent ces politiques dans la continuité perpétuant ainsi <strong>la pratique responsable de l’entreprise</strong> depuis sa fondation par Robert Arici.</p>',
+                'leyenda' => '<p>Assurer</p><p>le <strong>contact</strong> et l\'<strong>efficacité…</strong></p>',
+                'created_at' => '2018-02-22 22:30:52',
+                'updated_at' => '2018-03-18 20:52:21',
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'titulo' => 'Contact',
+                'slug' => 'contact-2',
+                'contenido' => '<p>A<strong>rici est installé à Marmande, au cœur du Sud-Ouest, entre Bordeaux et Toulouse</strong>. 
 
-				En 2010, la nomination à la direction générale de Janick Grassi et Éric Bordes, conducteurs de travaux depuis plus de 15 ans chez Arici, confirme cette volonté de préserver le caractère familial et responsable de l’entreprise tout en l’inscrivant dans le futur.',
-			'created_at' => new DateTime(),
-			'updated_at' => new DateTime()
-        ]);
-
-        DB::table('paginas')->insert([
-            'id' => 2,
-            'titulo' => 'prestations',
-            'slug' => str_slug('prestations', '-'),
-            'leyenda' => "De l'<strong>étude</strong><br>à la <strong>réalisation…</strong><br>",
-            'contenido' => 'Polyvalence et remise en question permettent à Arici de répondre à toutes les problématiques : construction, rénovation, restauration ou restructuration. L’entreprise se positionne sur les marchés des collectivités et de tout corps d’État, en mobilisant un encadrement spécialisé dans différents métiers et des compétences spécifiques.
-
-				L’expertise de son équipe, des employés du bureau d’étude en amont au personnel de chantier en aval, permet à Arici de travailler à la réalisation de bâtiments industriels, de logements ou d’équipements publics tels que des établissements d’hébergement pour personnes âgées dépendantes et des crèches.
-
-				Grâce à son implantation à Marmande, à proximité des grandes voies de circulation, Arici intervient en Nouvelle-Aquitaine et en Occitanie.',
-			'created_at' => new DateTime(),
-			'updated_at' => new DateTime()
-        ]);
-
-        DB::table('paginas')->insert([
-            'id' => 3,
-            'titulo' => 'organisation',
-            'slug' => str_slug('organisation', '-'),
-            'leyenda' => "Assurer<br>le <strong>contact</strong> et l'<strong>efficacité…</strong><br>",
-            'contenido' => 'Administrations, comptabilité, gestion des chantiers, bureau d’études, chefs de chantier, chefs d’équipe, personnel de chantier, dépôt, installation et maintenance… La performance d’Arici s’appuie sur les qualités humaines et professionnelles de ses collaborateurs.
-
-				Ils sont parties prenantes des projets et de la réussite d’Arici. La direction et le conseil d’administration s’engagent naturellement en faveur de leur formation et d’une prévention « Santé, Hygiène et Sécurité ».
-		
-				Janick Grassi et Éric Bordes, qui dirigent la société depuis 2010, inscrivent ces politiques dans la continuité perpétuant ainsi la pratique responsable de l’entreprise depuis sa fondation par Robert Arici.',
-			'created_at' => new DateTime(),
-			'updated_at' => new DateTime()
-        ]);
-
-        DB::table('paginas')->insert([
-            'id' => 4,
-            'titulo' => 'contact',
-            'slug' => str_slug('contact', '-'),
-            'slug' => "",
-            'contenido' => "Formulaire de Contact
-
-					Parce que le contact est important, chez Arici nous mettons un trait d'honneur à ce que vous puissiez nous contacter facilement et rapidement. Voila pourquoi nous mettons à votre disposition le formulaire de contact ci-dessous.
-
-					Vous pouvez également nous joindre par téléphone du lundi au vendredi de 8h à 12h et de 14h à 18h au 05 53 64 02 75.",
-			'created_at' => new DateTime(),
-			'updated_at' => new DateTime()
-        ]);
-
-        DB::table('imagenes_paginas')->insert([
-            'id' => 1,
-            'imagen' => 'imagenes_paginas/1-5a76406c67a42.png',
-            'leyenda' => 'Depuis 50 ans, bâtir ensemble',
-            'paginas_id' => 1,
-            'created_at' => new DateTime(),
-			'updated_at' => new DateTime()
-
-        ]);
-        DB::table('imagenes_paginas')->insert([
-            'id' => 2,
-            'imagen' => 'imagenes_paginas/2-5a7640c1af3d2.png',
-            'leyenda' => "De l'étude à la réalisation...",
-            'paginas_id' => 2,
-            'created_at' => new DateTime(),
-			'updated_at' => new DateTime()
-
-        ]);
-        DB::table('imagenes_paginas')->insert([
-            'id' => 3,
-            'imagen' => 'imagenes_paginas/4-5a7640ededbb1.png',
-            'leyenda' => 'Des femmes, des hommes, une équipe...',
-            'paginas_id' => 3,
-            'created_at' => new DateTime(),
-			'updated_at' => new DateTime()
-
-        ]);
-        DB::table('imagenes_paginas')->insert([
-            'id' => 4,
-            'imagen' => 'imagenes_paginas/5-5a7641033ace6.png',
-            'leyenda' => "Mettre en oeuvre le contact et l'efficacité",
-            'paginas_id' => 4,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
+La proximité des grands axes de communication, l’autoroute et le train, place idéalement l’entreprise au plus près de vos intérêts.</p>',
+                'leyenda' => NULL,
+                'created_at' => '2018-02-22 22:30:53',
+                'updated_at' => '2018-03-07 17:40:28',
+            ),
+        ));
+        
+        
     }
 }

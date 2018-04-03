@@ -180,7 +180,9 @@ class ProductosController extends Controller
                             if(!$imagenProductos->update()){
                                 return redirect('/dashboard/productos/'.$id.'/edit')->with('alert-error', 'Producto no editado, hubo un error.');
                             }else{
-                                unlink(public_path($aux));
+                                if (file_exists(public_path($aux))) {
+                                    unlink(public_path($aux));
+                                }
                             }
                         }else{
                             //nuevo registro
@@ -229,7 +231,9 @@ class ProductosController extends Controller
         $imgs = DB::table('imagenes_productos')
                     ->where('productos_id', $id)->get();
         foreach ($imgs as $img) {
-            unlink(public_path($img->imagen));
+            if (file_exists(public_path($img->imagen))) {
+                unlink(public_path($img->imagen));
+            }
             ImagenesProductos::findOrFail($img->id)->delete();
         }
         $producto = Productos::findOrFail($id);
@@ -282,7 +286,9 @@ class ProductosController extends Controller
         if($img->delete()){
             echo "true";
             //Hay que borrar la imagen del disco!!!
-            unlink(public_path($img->imagen));
+            if (file_exists(public_path($img->imagen))) {
+                unlink(public_path($img->imagen));
+            }
         }
         die();
     }
@@ -334,7 +340,9 @@ class ProductosController extends Controller
         if($pdf->delete()){
             echo "true";
             //Hay que borrar el pdf del disco!!!
-            unlink(public_path($pdf->path));
+            if (file_exists(public_path($pdf->path))) {
+                unlink(public_path($pdf->path));
+            }
         }
         die();
     }

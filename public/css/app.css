@@ -5893,6 +5893,14 @@ div#all_pdfs div.pdf {
   #leyenda_content a.delete-icon:hover,
   .lista a.delete-icon:hover {
     color: #FB722C; }
+#leyenda_content img[id^=blah],
+.lista img[id^=blah] {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important; }
+
+#sponsors .lista a.delete-icon {
+  margin-top: 20px; }
 
 a#addChiffre {
   background: #005499;

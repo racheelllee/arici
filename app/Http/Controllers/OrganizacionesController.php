@@ -60,7 +60,9 @@ class OrganizacionesController extends Controller
                 if(!$org->update()){
                     return redirect('/dashboard/organizaciones')->with('alert-error', 'Organization pas editer, Il y a un error.');
                 }else{
-                    unlink(public_path($aux)); 
+                    if (file_exists(public_path($aux))) {
+                        unlink(public_path($aux)); 
+                    }
                     echo "true";
                 }
             }else{
@@ -94,6 +96,10 @@ class OrganizacionesController extends Controller
         $org = Organizaciones::findOrFail($id);
         if($org->delete()){
             echo "true";
+            //Hay que borrar el pdf del disco!!!
+            if (file_exists(public_path($org->imagen))) {
+                unlink(public_path($org->imagen));
+            }
         }
         die();
     }

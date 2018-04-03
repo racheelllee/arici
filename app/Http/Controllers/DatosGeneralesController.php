@@ -110,7 +110,9 @@ class DatosGeneralesController extends Controller
                             if(!$links_datos_generales->update()){
                                 return redirect('/dashboard/datos_generales/'.$id.'/edit')->with('alert-error', "Il y a eu une erreur lors de l'édition des informations générales.");
                             }else{
-                                unlink(public_path($aux));
+                                if (file_exists(public_path($aux))) {
+                                    unlink(public_path($aux));
+                                }
                             }
                         }else{
                             //nuevo registro
@@ -158,7 +160,9 @@ class DatosGeneralesController extends Controller
         if($img->delete()){
             echo "true";
             //Hay que borrar la imagen del disco!!!
-            unlink(public_path($img->image));
+            if (file_exists(public_path($img->image))) {
+                unlink(public_path($img->image));
+            }
         }
         die();
     }

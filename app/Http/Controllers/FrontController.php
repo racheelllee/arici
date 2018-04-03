@@ -7,6 +7,8 @@ use App\DatosGenerales;
 use App\LinksDatosGenerales;
 use App\PdfProductos;
 use App\Paginas;
+use App\Patrocinadores;
+use App\Organizaciones;
 use App\Categorias;
 use App\ChiffresCles;
 use App\Productos;
@@ -38,7 +40,8 @@ class FrontController extends Controller
 
             $datosGenerales = DatosGenerales::with('linksDatosGenerales')->first();
             $pagina = Paginas::with('imagenesPaginas')->findOrFail(2);
-            return view('front.prestations', ['general'=>$datosGenerales, 'pagina'=>$pagina]);  
+            $sponsors = Patrocinadores::all();
+            return view('front.prestations', ['general' => $datosGenerales, 'pagina' => $pagina, 'sponsors' => $sponsors]);  
         }
 
         /**
@@ -87,7 +90,8 @@ class FrontController extends Controller
         {
             $datosGenerales = DatosGenerales::with('linksDatosGenerales')->first();
             $pagina = Paginas::with('imagenesPaginas')->findOrFail(3);
-            return view('front.organisation', ['general'=>$datosGenerales, 'pagina'=>$pagina]);  
+            $organisation = Organizaciones::all();
+            return view('front.organisation', ['general'=>$datosGenerales, 'pagina'=>$pagina, 'organisation'=>$organisation]);  
         }
 
         /**
