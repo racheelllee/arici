@@ -478,7 +478,7 @@ body {
             background: #FB722C; }
         body main#realisation-page div#main div#contenu section div.content {
           line-height: 1.7;
-          font-size: 14px; }
+          font-size: 18px; }
           body main#realisation-page div#main div#contenu section div.content p {
             margin-top: 20px; }
           body main#realisation-page div#main div#contenu section div.content h1 {
@@ -525,11 +525,11 @@ body {
             -o-object-fit: contain;
             object-fit: contain; }
         body main#realisation-page div#main div#contenu section div#pdfs h3 {
-          margin: 30px 0 10px 0;
-          text-transform: uppercase;
           color: #005499;
-          font-size: 18px;
-          font-weight: 600; }
+          text-transform: uppercase;
+          font-weight: 600;
+          display: block;
+          margin: 30px 0 10px 0; }
         body main#realisation-page div#main div#contenu section div#pdfs ul#pdfs-list li {
           display: inline-block;
           margin-right: 15px;
@@ -544,7 +544,8 @@ body {
               color: #FB722C; }
             body main#realisation-page div#main div#contenu section div#pdfs ul#pdfs-list li a img, body main#realisation-page div#main div#contenu section div#pdfs ul#pdfs-list li a span {
               display: table-cell;
-              vertical-align: bottom; }
+              vertical-align: bottom;
+              font-size: 14px; }
             body main#realisation-page div#main div#contenu section div#pdfs ul#pdfs-list li a img {
               padding-right: 5px; }
       body main#realisation-page div#main div#contenu aside {
@@ -566,7 +567,7 @@ body {
     margin: 3rem 0 1rem 0; }
     body main#realisation-page aside#others-ones h3 {
       text-align: center;
-      font-size: 1.4rem;
+      font-size: 24px;
       text-transform: uppercase; }
     body main#realisation-page aside#others-ones ul#slider {
       width: 100%;
@@ -574,7 +575,8 @@ body {
       margin: 1rem auto;
       overflow: hidden;
       text-align: center;
-      position: relative; }
+      position: relative;
+      padding-bottom: 25px; }
       body main#realisation-page aside#others-ones ul#slider li {
         display: block;
         height: 200px;
@@ -638,25 +640,20 @@ body {
       body main#realisation-page aside#others-ones ul#slider div.owl-nav {
         position: absolute;
         pointer-events: none;
-        top: 50%;
+        bottom: 0;
         left: 0;
         width: 100%;
-        overflow: hidden;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%); }
+        overflow: hidden; }
         body main#realisation-page aside#others-ones ul#slider div.owl-nav div.owl-prev,
         body main#realisation-page aside#others-ones ul#slider div.owl-nav div.owl-next {
           pointer-events: all;
           float: left;
           display: block;
-          width: 45px;
-          height: 35px;
+          width: 33px;
+          height: 25px;
           text-indent: -9999px;
           opacity: .5;
-          background: transparent url(../imagenes/prev.png) no-repeat;
+          background: transparent url(../imagenes/prev_small.png) no-repeat;
           -webkit-background-size: contain;
           -moz-background-size: contain;
           -ms-background-size: contain;
@@ -668,7 +665,7 @@ body {
             opacity: .8; }
         body main#realisation-page aside#others-ones ul#slider div.owl-nav div.owl-next {
           float: right;
-          background-image: url(../imagenes/next.png); }
+          background-image: url(../imagenes/next_small.png); }
   body main nav#menu-categorias {
     display: block;
     text-align: center;

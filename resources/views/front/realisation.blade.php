@@ -56,20 +56,20 @@
                 </section>
                 <aside>
                     <p id="category">{{ $realisation->categorias->nombre }}</p>
-                    @if (!is_null($realisation->fecha_creacion) && strlen(trim($realisation->fecha_creacion)) > 0)
-                        <p><strong>Année de Création: </strong>{{ $realisation->fecha_creacion }}</p>
-                    @endif
-                    @if (!is_null($realisation->montant_ht) && strlen(trim($realisation->montant_ht)) > 0)
-                        <p><strong>Montant total HT: </strong>{{ $realisation->montant_ht }}</p>
-                    @endif
                     @if (!is_null($realisation->nombre_cliente) && strlen(trim($realisation->nombre_cliente)) > 0)
-                        <p><strong>Maître d'ouvrage: </strong>{{ $realisation->nombre_cliente }}</p>
+                        <p><strong>Maître d'ouvrage : </strong>{{ $realisation->nombre_cliente }}</p>
                     @endif
                     @if (!is_null($realisation->maitre_oeuvre) && strlen(trim($realisation->maitre_oeuvre)) > 0)
-                        <p><strong>Maître d'oeuvre: </strong>{{ $realisation->maitre_oeuvre }}</p>
+                        <p><strong>Maître d'œuvre : </strong>{{ $realisation->maitre_oeuvre }}</p>
                     @endif
                     @if (!is_null($realisation->nombre_arquitecto) && strlen(trim($realisation->nombre_arquitecto)) > 0)
-                        <p><strong>Architecte: </strong>{{ $realisation->nombre_arquitecto }}</p>
+                        <p><strong>Architecte : </strong>{{ $realisation->nombre_arquitecto }}</p>
+                    @endif
+                    @if (!is_null($realisation->montant_ht) && strlen(trim($realisation->montant_ht)) > 0)
+                        <p><strong>Montant du Marché HT : </strong>{{ $realisation->montant_ht }}</p>
+                    @endif
+                    @if (!is_null($realisation->fecha_creacion) && strlen(trim($realisation->fecha_creacion)) > 0)
+                        <p><strong>Année de Livraison : </strong>{{ $realisation->fecha_creacion }}</p>
                     @endif
                 </aside>
             </div>

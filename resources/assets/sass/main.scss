@@ -602,7 +602,7 @@ body{
 						}
 						div.content{
 							line-height: 1.7;
-							font-size: 14px;
+							font-size: 18px;
 							p{
 								margin-top:20px;
 							}
@@ -671,11 +671,11 @@ body{
 						}
 						div#pdfs{
 							h3{
-								margin: 30px 0 10px 0;
+								color: $blue;
 								text-transform: uppercase;
-								color: #005499;
-								font-size: 18px;
 								font-weight: 600;
+								display: block;
+								margin: 30px 0 10px 0;
 							}
 							ul#pdfs-list{
 								li{
@@ -694,6 +694,7 @@ body{
 										img, span{
 											display: table-cell;
 											vertical-align: bottom;
+											font-size: 14px;
 										}
 										img{
 											padding-right: 5px;
@@ -728,7 +729,7 @@ body{
 				margin:3rem 0 1rem 0;
 				h3{
 					text-align: center;
-					font-size: 1.4rem;
+					font-size: 24px;
 					text-transform: uppercase;
 				}
 				ul#slider{
@@ -738,6 +739,7 @@ body{
 					overflow: hidden;
 					text-align: center;
 					position: relative;
+					padding-bottom: 25px;
 					li{
 						display: block;
 						height: 200px;
@@ -818,25 +820,21 @@ body{
 					div.owl-nav{
 						position: absolute;
 						pointer-events:none;
-						top:50%;
+						bottom:0;
 						left:0;
 						width:100%;
 						overflow: hidden;
-						-webkit-transform: translateY(-50%);
-						-moz-transform: translateY(-50%);
-						-ms-transform: translateY(-50%);
-						-o-transform: translateY(-50%);
-						transform: translateY(-50%);
+						
 						div.owl-prev,
 						div.owl-next{
 							pointer-events:all;
 							float:left;
 							display: block;
-							width:45px;
-							height:35px;
+							width:33px;
+							height:25px;
 							text-indent: -9999px;
 							opacity: .5;
-							background:transparent url(../imagenes/prev.png) no-repeat;
+							background:transparent url(../imagenes/prev_small.png) no-repeat;
 							-webkit-background-size: contain;
 							-moz-background-size: contain;
 							-ms-background-size: contain;
@@ -849,7 +847,7 @@ body{
 						}
 						div.owl-next{
 							float: right;
-							background-image: url(../imagenes/next.png);
+							background-image: url(../imagenes/next_small.png);
 						}
 					}
 				}

@@ -52,7 +52,7 @@ class FrontController extends Controller
         {
             $datosGenerales = DatosGenerales::with('linksDatosGenerales')->first();
             if(is_null($category)){
-                $realisations = Productos::with('imagenesProductos')->with('categorias')->orderBy('id', 'DESC')->paginate(10);
+                $realisations = Productos::with('imagenesProductos')->with('categorias')->orderBy('fecha_creacion', 'DESC')->orderBy('id', 'DESC')->paginate(10);
                 $categorias = Categorias::all();
                 return view('front.realisations', ['general'=>$datosGenerales, 'categorias'=>$categorias, 'realisations'=>$realisations]);  
             } else {
